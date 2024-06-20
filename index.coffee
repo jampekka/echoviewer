@@ -173,9 +173,9 @@ SoundSamplePlayer = $component ({sound_sample, impulse_response, audioContext}) 
 
     sample_el = @div class: "flex flex-col gap-4",
         @div class: "flex flex-row items-center gap-4",
-            @div class: 'flex-none w-10',
-                @label for: 'sample_drawer', class: 'btn btn-ghost btn-lg btn-square',
-                    @ Icon, icon: 'majesticons:menu', class: 'text-2xl'
+            @div class: 'flex-none',
+                @label for: 'sample_drawer', class: 'btn btn-lg btn-ghost btn-square text-4xl',
+                    @ Icon, icon: 'mdi:dots-horizontal'
             @div class: 'flex-1 card w-full bg-base-100 shadow',
                 @div class: 'card-body',
                     @h2 class: 'card-title', "Sound sample: #{sound_sample.title}"
@@ -184,11 +184,11 @@ SoundSamplePlayer = $component ({sound_sample, impulse_response, audioContext}) 
                         @button class: "btn btn-circle btn-lg text-4xl", onClick: toggle_play,
                             @ Icon, icon: icon
                         @div class: "w-full join-item", ref: sample_surfer_ref
-            @div class: 'flex-none w-10'
+            @div class: 'flex-none', @div class: 'btn btn-lg btn-square invisible'
     
     ir_el = @div class: "flex flex-col gap-4",
         @div class: "flex flex-row items-center gap-4",
-            @div class: 'flex-none w-10'
+            @div class: 'flex-none', @div class: 'btn btn-lg btn-square invisible'
             @div class: 'flex-1 card w-full bg-base-100 shadow',
                 @div class: 'card-body',
                     @h2 class: 'card-title', "Acoustics: #{impulse_response.title}"
@@ -197,11 +197,11 @@ SoundSamplePlayer = $component ({sound_sample, impulse_response, audioContext}) 
                         @button class: "btn btn-circle btn-lg text-4xl invisible", onClick: toggle_acoustics,
                             @ Icon, icon: icon
                         @div class: "w-full join-item", ref: ir_surfer_ref
-            @div class: 'flex-none w-10',
+            @div class: 'flex-none',
                 @label for: 'impulse_response_drawer', class: 'btn btn-ghost btn-lg btn-square',
-                    @ Icon, icon: 'majesticons:menu', class: 'text-2xl'
+                    @ Icon, icon: 'mdi:dots-horizontal', class: 'text-4xl'
     
-    @ Fragment, {}, sample_el, ir_el
+    @div class: "flex flex-col gap-4", sample_el, ir_el
 
 App = $component ->
     # TODO: Get from url params
@@ -245,7 +245,7 @@ App = $component ->
             entries impulse_responses, (id, sample) =>
                 onClick = ->
                         document.querySelector("#impulse_response_drawer").checked = false
-                checked = sound_sample_id == id
+                checked = impulse_response_id == id
                 select = (e) ->
                             set_impulse_response_id e.target.value
                 @li key: id, onClick: onClick,

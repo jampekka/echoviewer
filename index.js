@@ -27378,13 +27378,12 @@
     }, this.div({
       class: "flex flex-row items-center gap-4"
     }, this.div({
-      class: "flex-none w-10"
+      class: "flex-none"
     }, this.label({
       for: "sample_drawer",
-      class: "btn btn-ghost btn-lg btn-square"
+      class: "btn btn-lg btn-ghost btn-square text-4xl"
     }, this(Icon, {
-      icon: "majesticons:menu",
-      class: "text-2xl"
+      icon: "mdi:dots-horizontal"
     }))), this.div({
       class: "flex-1 card w-full bg-base-100 shadow"
     }, this.div({
@@ -27402,15 +27401,19 @@
       class: "w-full join-item",
       ref: sample_surfer_ref
     })))), this.div({
-      class: "flex-none w-10"
-    })));
+      class: "flex-none"
+    }, this.div({
+      class: "btn btn-lg btn-square invisible"
+    }))));
     ir_el = this.div({
       class: "flex flex-col gap-4"
     }, this.div({
       class: "flex flex-row items-center gap-4"
     }, this.div({
-      class: "flex-none w-10"
-    }), this.div({
+      class: "flex-none"
+    }, this.div({
+      class: "btn btn-lg btn-square invisible"
+    })), this.div({
       class: "flex-1 card w-full bg-base-100 shadow"
     }, this.div({
       class: "card-body"
@@ -27427,15 +27430,17 @@
       class: "w-full join-item",
       ref: ir_surfer_ref
     })))), this.div({
-      class: "flex-none w-10"
+      class: "flex-none"
     }, this.label({
       for: "impulse_response_drawer",
       class: "btn btn-ghost btn-lg btn-square"
     }, this(Icon, {
-      icon: "majesticons:menu",
-      class: "text-2xl"
+      icon: "mdi:dots-horizontal",
+      class: "text-4xl"
     })))));
-    return this(import_react3.Fragment, {}, sample_el, ir_el);
+    return this.div({
+      class: "flex flex-col gap-4"
+    }, sample_el, ir_el);
   });
   App = $component(function() {
     var audioContext, impulse_response, impulse_response_id, left_drawer, right_drawer, set_impulse_response_id, set_sound_sample_id, sound_sample, sound_sample_id;
@@ -27506,7 +27511,7 @@
       onClick = function() {
         return document.querySelector("#impulse_response_drawer").checked = false;
       };
-      checked = sound_sample_id === id;
+      checked = impulse_response_id === id;
       select = function(e4) {
         return set_impulse_response_id(e4.target.value);
       };
