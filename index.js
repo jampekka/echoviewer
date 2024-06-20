@@ -296,8 +296,8 @@
             return refObject;
           }
           var isArrayImpl = Array.isArray;
-          function isArray(a) {
-            return isArrayImpl(a);
+          function isArray(a3) {
+            return isArrayImpl(a3);
           }
           function typeName(value) {
             {
@@ -311,7 +311,7 @@
               try {
                 testStringCoercion(value);
                 return false;
-              } catch (e2) {
+              } catch (e4) {
                 return true;
               }
             }
@@ -543,8 +543,8 @@
               props.children = children;
             } else if (childrenLength > 1) {
               var childArray = Array(childrenLength);
-              for (var i = 0; i < childrenLength; i++) {
-                childArray[i] = arguments[i + 2];
+              for (var i3 = 0; i3 < childrenLength; i3++) {
+                childArray[i3] = arguments[i3 + 2];
               }
               {
                 if (Object.freeze) {
@@ -619,8 +619,8 @@
               props.children = children;
             } else if (childrenLength > 1) {
               var childArray = Array(childrenLength);
-              for (var i = 0; i < childrenLength; i++) {
-                childArray[i] = arguments[i + 2];
+              for (var i3 = 0; i3 < childrenLength; i3++) {
+                childArray[i3] = arguments[i3 + 2];
               }
               props.children = childArray;
             }
@@ -687,8 +687,8 @@
                 if (childKey != null) {
                   escapedChildKey = escapeUserProvidedKey(childKey) + "/";
                 }
-                mapIntoArray(mappedChild, array, escapedChildKey, "", function(c) {
-                  return c;
+                mapIntoArray(mappedChild, array, escapedChildKey, "", function(c3) {
+                  return c3;
                 });
               } else if (mappedChild != null) {
                 if (isValidElement(mappedChild)) {
@@ -718,9 +718,9 @@
             var subtreeCount = 0;
             var nextNamePrefix = nameSoFar === "" ? SEPARATOR : nameSoFar + SUBSEPARATOR;
             if (isArray(children)) {
-              for (var i = 0; i < children.length; i++) {
-                child = children[i];
-                nextName = nextNamePrefix + getElementKey(child, i);
+              for (var i3 = 0; i3 < children.length; i3++) {
+                child = children[i3];
+                nextName = nextNamePrefix + getElementKey(child, i3);
                 subtreeCount += mapIntoArray(child, array, escapedPrefix, nextName, callback);
               }
             } else {
@@ -762,11 +762,11 @@
             return result;
           }
           function countChildren(children) {
-            var n = 0;
+            var n3 = 0;
             mapChildren(children, function() {
-              n++;
+              n3++;
             });
-            return n;
+            return n3;
           }
           function forEachChildren(children, forEachFunc, forEachContext) {
             mapChildren(children, function() {
@@ -1092,11 +1092,11 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useReducer(reducer, initialArg, init);
           }
-          function useRef(initialValue) {
+          function useRef2(initialValue) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect2(create, deps) {
+          function useEffect3(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create, deps);
           }
@@ -1112,7 +1112,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
-          function useMemo(create, deps) {
+          function useMemo2(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useMemo(create, deps);
           }
@@ -1298,19 +1298,19 @@
               if (sample && control && typeof sample.stack === "string") {
                 var sampleLines = sample.stack.split("\n");
                 var controlLines = control.stack.split("\n");
-                var s = sampleLines.length - 1;
-                var c = controlLines.length - 1;
-                while (s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c]) {
-                  c--;
+                var s2 = sampleLines.length - 1;
+                var c3 = controlLines.length - 1;
+                while (s2 >= 1 && c3 >= 0 && sampleLines[s2] !== controlLines[c3]) {
+                  c3--;
                 }
-                for (; s >= 1 && c >= 0; s--, c--) {
-                  if (sampleLines[s] !== controlLines[c]) {
-                    if (s !== 1 || c !== 1) {
+                for (; s2 >= 1 && c3 >= 0; s2--, c3--) {
+                  if (sampleLines[s2] !== controlLines[c3]) {
+                    if (s2 !== 1 || c3 !== 1) {
                       do {
-                        s--;
-                        c--;
-                        if (c < 0 || sampleLines[s] !== controlLines[c]) {
-                          var _frame = "\n" + sampleLines[s].replace(" at new ", " at ");
+                        s2--;
+                        c3--;
+                        if (c3 < 0 || sampleLines[s2] !== controlLines[c3]) {
+                          var _frame = "\n" + sampleLines[s2].replace(" at new ", " at ");
                           if (fn.displayName && _frame.includes("<anonymous>")) {
                             _frame = _frame.replace("<anonymous>", fn.displayName);
                           }
@@ -1321,7 +1321,7 @@
                           }
                           return _frame;
                         }
-                      } while (s >= 1 && c >= 0);
+                      } while (s2 >= 1 && c3 >= 0);
                     }
                     break;
                   }
@@ -1508,8 +1508,8 @@
               return;
             }
             if (isArray(node)) {
-              for (var i = 0; i < node.length; i++) {
-                var child = node[i];
+              for (var i3 = 0; i3 < node.length; i3++) {
+                var child = node[i3];
                 if (isValidElement(child)) {
                   validateExplicitKey(child, parentType);
                 }
@@ -1565,8 +1565,8 @@
           function validateFragmentProps(fragment) {
             {
               var keys = Object.keys(fragment.props);
-              for (var i = 0; i < keys.length; i++) {
-                var key = keys[i];
+              for (var i3 = 0; i3 < keys.length; i3++) {
+                var key = keys[i3];
                 if (key !== "children" && key !== "key") {
                   setCurrentlyValidatingElement$1(fragment);
                   error("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", key);
@@ -1614,8 +1614,8 @@
               return element;
             }
             if (validType) {
-              for (var i = 2; i < arguments.length; i++) {
-                validateChildKeys(arguments[i], type);
+              for (var i3 = 2; i3 < arguments.length; i3++) {
+                validateChildKeys(arguments[i3], type);
               }
             }
             if (type === REACT_FRAGMENT_TYPE) {
@@ -1649,8 +1649,8 @@
           }
           function cloneElementWithValidation(element, props, children) {
             var newElement = cloneElement.apply(this, arguments);
-            for (var i = 2; i < arguments.length; i++) {
-              validateChildKeys(arguments[i], newElement.type);
+            for (var i3 = 2; i3 < arguments.length; i3++) {
+              validateChildKeys(arguments[i3], newElement.type);
             }
             validatePropTypes(newElement);
             return newElement;
@@ -1827,17 +1827,17 @@
             {
               if (!isFlushing) {
                 isFlushing = true;
-                var i = 0;
+                var i3 = 0;
                 try {
-                  for (; i < queue.length; i++) {
-                    var callback = queue[i];
+                  for (; i3 < queue.length; i3++) {
+                    var callback = queue[i3];
                     do {
                       callback = callback(true);
                     } while (callback !== null);
                   }
                   queue.length = 0;
                 } catch (error2) {
-                  queue = queue.slice(i + 1);
+                  queue = queue.slice(i3 + 1);
                   throw error2;
                 } finally {
                   isFlushing = false;
@@ -1879,14 +1879,14 @@
           exports.useContext = useContext;
           exports.useDebugValue = useDebugValue;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect2;
+          exports.useEffect = useEffect3;
           exports.useId = useId;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect;
           exports.useLayoutEffect = useLayoutEffect;
-          exports.useMemo = useMemo;
+          exports.useMemo = useMemo2;
           exports.useReducer = useReducer;
-          exports.useRef = useRef;
+          exports.useRef = useRef2;
           exports.useState = useState3;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
@@ -1944,8 +1944,8 @@
             }
             return first;
           }
-          function siftUp(heap, node, i) {
-            var index = i;
+          function siftUp(heap, node, i3) {
+            var index = i3;
             while (index > 0) {
               var parentIndex = index - 1 >>> 1;
               var parent = heap[parentIndex];
@@ -1958,8 +1958,8 @@
               }
             }
           }
-          function siftDown(heap, node, i) {
-            var index = i;
+          function siftDown(heap, node, i3) {
+            var index = i3;
             var length = heap.length;
             var halfLength = length >>> 1;
             while (index < halfLength) {
@@ -1986,9 +1986,9 @@
               }
             }
           }
-          function compare(a, b) {
-            var diff = a.sortIndex - b.sortIndex;
-            return diff !== 0 ? diff : a.id - b.id;
+          function compare(a3, b) {
+            var diff = a3.sortIndex - b.sortIndex;
+            return diff !== 0 ? diff : a3.id - b.id;
           }
           var ImmediatePriority = 1;
           var UserBlockingPriority = 2;
@@ -2484,8 +2484,8 @@
                 possibleRegistrationNames.ondblclick = registrationName;
               }
             }
-            for (var i = 0; i < dependencies.length; i++) {
-              allNativeEvents.add(dependencies[i]);
+            for (var i3 = 0; i3 < dependencies.length; i3++) {
+              allNativeEvents.add(dependencies[i3]);
             }
           }
           var canUseDOM = !!(typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined");
@@ -2502,7 +2502,7 @@
               try {
                 testStringCoercion(value);
                 return false;
-              } catch (e2) {
+              } catch (e4) {
                 return true;
               }
             }
@@ -3364,19 +3364,19 @@
               if (sample && control && typeof sample.stack === "string") {
                 var sampleLines = sample.stack.split("\n");
                 var controlLines = control.stack.split("\n");
-                var s = sampleLines.length - 1;
-                var c = controlLines.length - 1;
-                while (s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c]) {
-                  c--;
+                var s2 = sampleLines.length - 1;
+                var c3 = controlLines.length - 1;
+                while (s2 >= 1 && c3 >= 0 && sampleLines[s2] !== controlLines[c3]) {
+                  c3--;
                 }
-                for (; s >= 1 && c >= 0; s--, c--) {
-                  if (sampleLines[s] !== controlLines[c]) {
-                    if (s !== 1 || c !== 1) {
+                for (; s2 >= 1 && c3 >= 0; s2--, c3--) {
+                  if (sampleLines[s2] !== controlLines[c3]) {
+                    if (s2 !== 1 || c3 !== 1) {
                       do {
-                        s--;
-                        c--;
-                        if (c < 0 || sampleLines[s] !== controlLines[c]) {
-                          var _frame = "\n" + sampleLines[s].replace(" at new ", " at ");
+                        s2--;
+                        c3--;
+                        if (c3 < 0 || sampleLines[s2] !== controlLines[c3]) {
+                          var _frame = "\n" + sampleLines[s2].replace(" at new ", " at ");
                           if (fn.displayName && _frame.includes("<anonymous>")) {
                             _frame = _frame.replace("<anonymous>", fn.displayName);
                           }
@@ -3387,7 +3387,7 @@
                           }
                           return _frame;
                         }
-                      } while (s >= 1 && c >= 0);
+                      } while (s2 >= 1 && c3 >= 0);
                     }
                     break;
                   }
@@ -3816,7 +3816,7 @@
             }
             try {
               return doc.activeElement || doc.body;
-            } catch (e2) {
+            } catch (e4) {
               return doc.body;
             }
           }
@@ -3957,8 +3957,8 @@
                 checkAttributeStringCoercion(name, "name");
               }
               var group = queryRoot.querySelectorAll("input[name=" + JSON.stringify("" + name) + '][type="radio"]');
-              for (var i = 0; i < group.length; i++) {
-                var otherNode = group[i];
+              for (var i3 = 0; i3 < group.length; i3++) {
+                var otherNode = group[i3];
                 if (otherNode === rootNode || otherNode.form !== rootNode.form) {
                   continue;
                 }
@@ -4021,8 +4021,8 @@
             }
           }
           var isArrayImpl = Array.isArray;
-          function isArray(a) {
-            return isArrayImpl(a);
+          function isArray(a3) {
+            return isArrayImpl(a3);
           }
           var didWarnValueDefaultValue$1;
           {
@@ -4039,8 +4039,8 @@
           function checkSelectPropTypes(props) {
             {
               checkControlledValueProps("select", props);
-              for (var i = 0; i < valuePropNames.length; i++) {
-                var propName = valuePropNames[i];
+              for (var i3 = 0; i3 < valuePropNames.length; i3++) {
+                var propName = valuePropNames[i3];
                 if (props[propName] == null) {
                   continue;
                 }
@@ -4058,8 +4058,8 @@
             if (multiple) {
               var selectedValues = propValue;
               var selectedValue = {};
-              for (var i = 0; i < selectedValues.length; i++) {
-                selectedValue["$" + selectedValues[i]] = true;
+              for (var i3 = 0; i3 < selectedValues.length; i3++) {
+                selectedValue["$" + selectedValues[i3]] = true;
               }
               for (var _i = 0; _i < options2.length; _i++) {
                 var selected = selectedValue.hasOwnProperty("$" + options2[_i].value);
@@ -4535,8 +4535,8 @@
             var expanded = {};
             for (var key in styles) {
               var longhands = shorthandToLonghand[key] || [key];
-              for (var i = 0; i < longhands.length; i++) {
-                expanded[longhands[i]] = key;
+              for (var i3 = 0; i3 < longhands.length; i3++) {
+                expanded[longhands[i3]] = key;
               }
             }
             return expanded;
@@ -5458,8 +5458,8 @@
             restoreQueue = null;
             restoreStateOfTarget(target);
             if (queuedTargets) {
-              for (var i = 0; i < queuedTargets.length; i++) {
-                restoreStateOfTarget(queuedTargets[i]);
+              for (var i3 = 0; i3 < queuedTargets.length; i3++) {
+                restoreStateOfTarget(queuedTargets[i3]);
               }
             }
           }
@@ -5476,13 +5476,13 @@
               restoreStateIfNeeded();
             }
           }
-          function batchedUpdates(fn, a, b) {
+          function batchedUpdates(fn, a3, b) {
             if (isInsideEventHandler) {
-              return fn(a, b);
+              return fn(a3, b);
             }
             isInsideEventHandler = true;
             try {
-              return batchedUpdatesImpl(fn, a, b);
+              return batchedUpdatesImpl(fn, a3, b);
             } finally {
               isInsideEventHandler = false;
               finishEventHandler();
@@ -5542,11 +5542,11 @@
               });
               window.addEventListener("test", options, options);
               window.removeEventListener("test", options, options);
-            } catch (e2) {
+            } catch (e4) {
               passiveBrowserEventsSupported = false;
             }
           }
-          function invokeGuardedCallbackProd(name, func, context, a, b, c, d, e2, f) {
+          function invokeGuardedCallbackProd(name, func, context, a3, b, c3, d2, e4, f2) {
             var funcArgs = Array.prototype.slice.call(arguments, 3);
             try {
               func.apply(context, funcArgs);
@@ -5558,7 +5558,7 @@
           {
             if (typeof window !== "undefined" && typeof window.dispatchEvent === "function" && typeof document !== "undefined" && typeof document.createEvent === "function") {
               var fakeNode = document.createElement("react");
-              invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func, context, a, b, c, d, e2, f) {
+              invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func, context, a3, b, c3, d2, e4, f2) {
                 if (typeof document === "undefined" || document === null) {
                   throw new Error("The `document` global was defined when React was initialized, but is not defined anymore. This can happen in a test environment if a component schedules an update from an asynchronous callback, but the test has already finished running. To solve this, you can either unmount the component at the end of your test (and ensure that any asynchronous operations get canceled in `componentWillUnmount`), or you can change the test itself to be asynchronous.");
                 }
@@ -5633,12 +5633,12 @@
               caughtError = error2;
             }
           };
-          function invokeGuardedCallback(name, func, context, a, b, c, d, e2, f) {
+          function invokeGuardedCallback(name, func, context, a3, b, c3, d2, e4, f2) {
             hasError = false;
             caughtError = null;
             invokeGuardedCallbackImpl$1.apply(reporter, arguments);
           }
-          function invokeGuardedCallbackAndCatchFirstError(name, func, context, a, b, c, d, e2, f) {
+          function invokeGuardedCallbackAndCatchFirstError(name, func, context, a3, b, c3, d2, e4, f2) {
             invokeGuardedCallback.apply(this, arguments);
             if (hasError) {
               var error2 = clearCaughtError();
@@ -5867,10 +5867,10 @@
               }
               return fiber;
             }
-            var a = fiber;
+            var a3 = fiber;
             var b = alternate;
             while (true) {
-              var parentA = a.return;
+              var parentA = a3.return;
               if (parentA === null) {
                 break;
               }
@@ -5878,7 +5878,7 @@
               if (parentB === null) {
                 var nextParent = parentA.return;
                 if (nextParent !== null) {
-                  a = b = nextParent;
+                  a3 = b = nextParent;
                   continue;
                 }
                 break;
@@ -5886,7 +5886,7 @@
               if (parentA.child === parentB.child) {
                 var child = parentA.child;
                 while (child) {
-                  if (child === a) {
+                  if (child === a3) {
                     assertIsMounted(parentA);
                     return fiber;
                   }
@@ -5898,23 +5898,23 @@
                 }
                 throw new Error("Unable to find node on an unmounted component.");
               }
-              if (a.return !== b.return) {
-                a = parentA;
+              if (a3.return !== b.return) {
+                a3 = parentA;
                 b = parentB;
               } else {
                 var didFindChild = false;
                 var _child = parentA.child;
                 while (_child) {
-                  if (_child === a) {
+                  if (_child === a3) {
                     didFindChild = true;
-                    a = parentA;
+                    a3 = parentA;
                     b = parentB;
                     break;
                   }
                   if (_child === b) {
                     didFindChild = true;
                     b = parentA;
-                    a = parentB;
+                    a3 = parentB;
                     break;
                   }
                   _child = _child.sibling;
@@ -5922,16 +5922,16 @@
                 if (!didFindChild) {
                   _child = parentB.child;
                   while (_child) {
-                    if (_child === a) {
+                    if (_child === a3) {
                       didFindChild = true;
-                      a = parentB;
+                      a3 = parentB;
                       b = parentA;
                       break;
                     }
                     if (_child === b) {
                       didFindChild = true;
                       b = parentB;
-                      a = parentA;
+                      a3 = parentA;
                       break;
                     }
                     _child = _child.sibling;
@@ -5941,14 +5941,14 @@
                   }
                 }
               }
-              if (a.alternate !== b) {
+              if (a3.alternate !== b) {
                 throw new Error("Return fibers should always be each others' alternates. This error is likely caused by a bug in React. Please file an issue.");
               }
             }
-            if (a.tag !== HostRoot) {
+            if (a3.tag !== HostRoot) {
               throw new Error("Unable to find node on an unmounted component.");
             }
-            if (a.stateNode.current === a) {
+            if (a3.stateNode.current === a3) {
               return fiber;
             }
             return alternate;
@@ -6805,30 +6805,30 @@
           function laneToIndex(lane) {
             return pickArbitraryLaneIndex(lane);
           }
-          function includesSomeLane(a, b) {
-            return (a & b) !== NoLanes;
+          function includesSomeLane(a3, b) {
+            return (a3 & b) !== NoLanes;
           }
           function isSubsetOfLanes(set2, subset) {
             return (set2 & subset) === subset;
           }
-          function mergeLanes(a, b) {
-            return a | b;
+          function mergeLanes(a3, b) {
+            return a3 | b;
           }
           function removeLanes(set2, subset) {
             return set2 & ~subset;
           }
-          function intersectLanes(a, b) {
-            return a & b;
+          function intersectLanes(a3, b) {
+            return a3 & b;
           }
           function laneToLanes(lane) {
             return lane;
           }
-          function higherPriorityLane(a, b) {
-            return a !== NoLane && a < b ? a : b;
+          function higherPriorityLane(a3, b) {
+            return a3 !== NoLane && a3 < b ? a3 : b;
           }
           function createLaneMap(initial) {
             var laneMap = [];
-            for (var i = 0; i < TotalLanes; i++) {
+            for (var i3 = 0; i3 < TotalLanes; i3++) {
               laneMap.push(initial);
             }
             return laneMap;
@@ -7001,14 +7001,14 @@
               currentUpdatePriority = previousPriority;
             }
           }
-          function higherEventPriority(a, b) {
-            return a !== 0 && a < b ? a : b;
+          function higherEventPriority(a3, b) {
+            return a3 !== 0 && a3 < b ? a3 : b;
           }
-          function lowerEventPriority(a, b) {
-            return a === 0 || a > b ? a : b;
+          function lowerEventPriority(a3, b) {
+            return a3 === 0 || a3 > b ? a3 : b;
           }
-          function isHigherEventPriority(a, b) {
-            return a !== 0 && a < b;
+          function isHigherEventPriority(a3, b) {
+            return a3 !== 0 && a3 < b;
           }
           function lanesToEventPriority(lanes) {
             var lane = getHighestPriorityLane(lanes);
@@ -7212,14 +7212,14 @@
               target,
               priority: updatePriority
             };
-            var i = 0;
-            for (; i < queuedExplicitHydrationTargets.length; i++) {
-              if (!isHigherEventPriority(updatePriority, queuedExplicitHydrationTargets[i].priority)) {
+            var i3 = 0;
+            for (; i3 < queuedExplicitHydrationTargets.length; i3++) {
+              if (!isHigherEventPriority(updatePriority, queuedExplicitHydrationTargets[i3].priority)) {
                 break;
               }
             }
-            queuedExplicitHydrationTargets.splice(i, 0, queuedTarget);
-            if (i === 0) {
+            queuedExplicitHydrationTargets.splice(i3, 0, queuedTarget);
+            if (i3 === 0) {
               attemptExplicitHydrationTarget(queuedTarget);
             }
           }
@@ -7282,8 +7282,8 @@
           function retryIfBlockedOn(unblocked) {
             if (queuedDiscreteEvents.length > 0) {
               scheduleCallbackIfUnblocked(queuedDiscreteEvents[0], unblocked);
-              for (var i = 1; i < queuedDiscreteEvents.length; i++) {
-                var queuedEvent = queuedDiscreteEvents[i];
+              for (var i3 = 1; i3 < queuedDiscreteEvents.length; i3++) {
+                var queuedEvent = queuedDiscreteEvents[i3];
                 if (queuedEvent.blockedOn === unblocked) {
                   queuedEvent.blockedOn = null;
                 }
@@ -8395,8 +8395,8 @@
             if (keysA.length !== keysB.length) {
               return false;
             }
-            for (var i = 0; i < keysA.length; i++) {
-              var currentKey = keysA[i];
+            for (var i3 = 0; i3 < keysA.length; i3++) {
+              var currentKey = keysA[i3];
               if (!hasOwnProperty.call(objB, currentKey) || !objectIs(objA[currentKey], objB[currentKey])) {
                 return false;
               }
@@ -8446,7 +8446,7 @@
             try {
               anchorNode.nodeType;
               focusNode.nodeType;
-            } catch (e2) {
+            } catch (e4) {
               return null;
             }
             return getModernOffsetsFromPoints(outerNode, anchorNode, anchorOffset, focusNode, focusOffset);
@@ -8612,8 +8612,8 @@
               if (typeof priorFocusedElem.focus === "function") {
                 priorFocusedElem.focus();
               }
-              for (var i = 0; i < ancestors.length; i++) {
-                var info = ancestors[i];
+              for (var i3 = 0; i3 < ancestors.length; i3++) {
+                var info = ancestors[i3];
                 info.element.scrollLeft = info.left;
                 info.element.scrollTop = info.top;
               }
@@ -8778,8 +8778,8 @@
             registerTwoPhaseEvent(reactName, [domEventName]);
           }
           function registerSimpleEvents() {
-            for (var i = 0; i < simpleEventPluginEvents.length; i++) {
-              var eventName = simpleEventPluginEvents[i];
+            for (var i3 = 0; i3 < simpleEventPluginEvents.length; i3++) {
+              var eventName = simpleEventPluginEvents[i3];
               var domEventName = eventName.toLowerCase();
               var capitalizedEvent = eventName[0].toUpperCase() + eventName.slice(1);
               registerSimpleEvent(domEventName, "on" + capitalizedEvent);
@@ -8923,8 +8923,8 @@
           function processDispatchQueueItemsInOrder(event, dispatchListeners, inCapturePhase) {
             var previousInstance;
             if (inCapturePhase) {
-              for (var i = dispatchListeners.length - 1; i >= 0; i--) {
-                var _dispatchListeners$i = dispatchListeners[i], instance = _dispatchListeners$i.instance, currentTarget = _dispatchListeners$i.currentTarget, listener = _dispatchListeners$i.listener;
+              for (var i3 = dispatchListeners.length - 1; i3 >= 0; i3--) {
+                var _dispatchListeners$i = dispatchListeners[i3], instance = _dispatchListeners$i.instance, currentTarget = _dispatchListeners$i.currentTarget, listener = _dispatchListeners$i.listener;
                 if (instance !== previousInstance && event.isPropagationStopped()) {
                   return;
                 }
@@ -8944,8 +8944,8 @@
           }
           function processDispatchQueue(dispatchQueue, eventSystemFlags) {
             var inCapturePhase = (eventSystemFlags & IS_CAPTURE_PHASE) !== 0;
-            for (var i = 0; i < dispatchQueue.length; i++) {
-              var _dispatchQueue$i = dispatchQueue[i], event = _dispatchQueue$i.event, listeners = _dispatchQueue$i.listeners;
+            for (var i3 = 0; i3 < dispatchQueue.length; i3++) {
+              var _dispatchQueue$i = dispatchQueue[i3], event = _dispatchQueue$i.event, listeners = _dispatchQueue$i.listeners;
               processDispatchQueueItemsInOrder(event, listeners, inCapturePhase);
             }
             rethrowCaughtError();
@@ -9370,9 +9370,9 @@
             }
           }
           function updateDOMProperties(domElement, updatePayload, wasCustomComponentTag, isCustomComponentTag) {
-            for (var i = 0; i < updatePayload.length; i += 2) {
-              var propKey = updatePayload[i];
-              var propValue = updatePayload[i + 1];
+            for (var i3 = 0; i3 < updatePayload.length; i3 += 2) {
+              var propKey = updatePayload[i3];
+              var propValue = updatePayload[i3 + 1];
               if (propKey === STYLE) {
                 setValueForStyles(domElement, propValue);
               } else if (propKey === DANGEROUSLY_SET_INNER_HTML) {
@@ -9455,8 +9455,8 @@
                 break;
               case "video":
               case "audio":
-                for (var i = 0; i < mediaEventTypes.length; i++) {
-                  listenToNonDelegatedEvent(mediaEventTypes[i], domElement);
+                for (var i3 = 0; i3 < mediaEventTypes.length; i3++) {
+                  listenToNonDelegatedEvent(mediaEventTypes[i3], domElement);
                 }
                 props = rawProps;
                 break;
@@ -9703,8 +9703,8 @@
                 break;
               case "video":
               case "audio":
-                for (var i = 0; i < mediaEventTypes.length; i++) {
-                  listenToNonDelegatedEvent(mediaEventTypes[i], domElement);
+                for (var i3 = 0; i3 < mediaEventTypes.length; i3++) {
+                  listenToNonDelegatedEvent(mediaEventTypes[i3], domElement);
                 }
                 break;
               case "source":
@@ -11013,14 +11013,14 @@
           function flushSyncCallbacks() {
             if (!isFlushingSyncQueue && syncQueue !== null) {
               isFlushingSyncQueue = true;
-              var i = 0;
+              var i3 = 0;
               var previousUpdatePriority = getCurrentUpdatePriority();
               try {
                 var isSync = true;
                 var queue = syncQueue;
                 setCurrentUpdatePriority(DiscreteEventPriority);
-                for (; i < queue.length; i++) {
-                  var callback = queue[i];
+                for (; i3 < queue.length; i3++) {
+                  var callback = queue[i3];
                   do {
                     callback = callback(isSync);
                   } while (callback !== null);
@@ -11029,7 +11029,7 @@
                 includesLegacySyncCallbacks = false;
               } catch (error2) {
                 if (syncQueue !== null) {
-                  syncQueue = syncQueue.slice(i + 1);
+                  syncQueue = syncQueue.slice(i3 + 1);
                 }
                 scheduleCallback(ImmediatePriority, flushSyncCallbacks);
                 throw error2;
@@ -12136,8 +12136,8 @@
             function reconcileChildrenArray(returnFiber, currentFirstChild, newChildren, lanes) {
               {
                 var knownKeys = null;
-                for (var i = 0; i < newChildren.length; i++) {
-                  var child = newChildren[i];
+                for (var i3 = 0; i3 < newChildren.length; i3++) {
+                  var child = newChildren[i3];
                   knownKeys = warnOnInvalidKey(child, knownKeys, returnFiber);
                 }
               }
@@ -12720,8 +12720,8 @@
           }
           function finishQueueingConcurrentUpdates() {
             if (concurrentQueues !== null) {
-              for (var i = 0; i < concurrentQueues.length; i++) {
-                var queue = concurrentQueues[i];
+              for (var i3 = 0; i3 < concurrentQueues.length; i3++) {
+                var queue = concurrentQueues[i3];
                 var lastInterleavedUpdate = queue.interleaved;
                 if (lastInterleavedUpdate !== null) {
                   queue.interleaved = null;
@@ -13163,8 +13163,8 @@
             var effects = finishedQueue.effects;
             finishedQueue.effects = null;
             if (effects !== null) {
-              for (var i = 0; i < effects.length; i++) {
-                var effect = effects[i];
+              for (var i3 = 0; i3 < effects.length; i3++) {
+                var effect = effects[i3];
                 var callback = effect.callback;
                 if (callback !== null) {
                   effect.callback = null;
@@ -13177,11 +13177,11 @@
           var contextStackCursor$1 = createCursor(NO_CONTEXT);
           var contextFiberStackCursor = createCursor(NO_CONTEXT);
           var rootInstanceStackCursor = createCursor(NO_CONTEXT);
-          function requiredContext(c) {
-            if (c === NO_CONTEXT) {
+          function requiredContext(c3) {
+            if (c3 === NO_CONTEXT) {
               throw new Error("Expected host context to exist. This error is likely caused by a bug in React. Please file an issue.");
             }
-            return c;
+            return c3;
           }
           function getRootHostContainer() {
             var rootInstance = requiredContext(rootInstanceStackCursor.current);
@@ -13316,8 +13316,8 @@
           );
           var workInProgressSources = [];
           function resetWorkInProgressVersions() {
-            for (var i = 0; i < workInProgressSources.length; i++) {
-              var mutableSource = workInProgressSources[i];
+            for (var i3 = 0; i3 < workInProgressSources.length; i3++) {
+              var mutableSource = workInProgressSources[i3];
               {
                 mutableSource._workInProgressVersionPrimary = null;
               }
@@ -13388,10 +13388,10 @@
                 if (hookTypesDev !== null) {
                   var table = "";
                   var secondColumnStart = 30;
-                  for (var i = 0; i <= hookTypesUpdateIndexDev; i++) {
-                    var oldHookName = hookTypesDev[i];
-                    var newHookName = i === hookTypesUpdateIndexDev ? currentHookName : oldHookName;
-                    var row = i + 1 + ". " + oldHookName;
+                  for (var i3 = 0; i3 <= hookTypesUpdateIndexDev; i3++) {
+                    var oldHookName = hookTypesDev[i3];
+                    var newHookName = i3 === hookTypesUpdateIndexDev ? currentHookName : oldHookName;
+                    var row = i3 + 1 + ". " + oldHookName;
                     while (row.length < secondColumnStart) {
                       row += " ";
                     }
@@ -13423,8 +13423,8 @@
                 error("The final argument passed to %s changed size between renders. The order and size of this array must remain constant.\n\nPrevious: %s\nIncoming: %s", currentHookNameInDev, "[" + prevDeps.join(", ") + "]", "[" + nextDeps.join(", ") + "]");
               }
             }
-            for (var i = 0; i < prevDeps.length && i < nextDeps.length; i++) {
-              if (objectIs(nextDeps[i], prevDeps[i])) {
+            for (var i3 = 0; i3 < prevDeps.length && i3 < nextDeps.length; i3++) {
+              if (objectIs(nextDeps[i3], prevDeps[i3])) {
                 continue;
               }
               return false;
@@ -15939,9 +15939,9 @@
               } else {
                 console["error"](error2);
               }
-            } catch (e2) {
+            } catch (e4) {
               setTimeout(function() {
-                throw e2;
+                throw e4;
               });
             }
           }
@@ -17387,8 +17387,8 @@
             {
               if ((revealOrder === "forwards" || revealOrder === "backwards") && children !== void 0 && children !== null && children !== false) {
                 if (isArray(children)) {
-                  for (var i = 0; i < children.length; i++) {
-                    if (!validateSuspenseListNestedChild(children[i], i)) {
+                  for (var i3 = 0; i3 < children.length; i3++) {
+                    if (!validateSuspenseListNestedChild(children[i3], i3)) {
                       return;
                     }
                   }
@@ -19574,8 +19574,8 @@
           function recursivelyTraverseMutationEffects(root2, parentFiber, lanes) {
             var deletions = parentFiber.deletions;
             if (deletions !== null) {
-              for (var i = 0; i < deletions.length; i++) {
-                var childToDelete = deletions[i];
+              for (var i3 = 0; i3 < deletions.length; i3++) {
+                var childToDelete = deletions[i3];
                 try {
                   commitDeletionEffects(root2, parentFiber, childToDelete);
                 } catch (error2) {
@@ -20081,8 +20081,8 @@
               if ((nextEffect.flags & ChildDeletion) !== NoFlags) {
                 var deletions = fiber.deletions;
                 if (deletions !== null) {
-                  for (var i = 0; i < deletions.length; i++) {
-                    var fiberToDelete = deletions[i];
+                  for (var i3 = 0; i3 < deletions.length; i3++) {
+                    var fiberToDelete = deletions[i3];
                     nextEffect = fiberToDelete;
                     commitPassiveUnmountEffectsInsideOfDeletedTree_begin(fiberToDelete, fiber);
                   }
@@ -20724,8 +20724,8 @@
                 if (updateQueue !== null) {
                   var checks = updateQueue.stores;
                   if (checks !== null) {
-                    for (var i = 0; i < checks.length; i++) {
-                      var check = checks[i];
+                    for (var i3 = 0; i3 < checks.length; i3++) {
+                      var check = checks[i3];
                       var getSnapshot = check.getSnapshot;
                       var renderedValue = check.value;
                       try {
@@ -20812,11 +20812,11 @@
               }
             }
           }
-          function batchedUpdates$1(fn, a) {
+          function batchedUpdates$1(fn, a3) {
             var prevExecutionContext = executionContext;
             executionContext |= BatchedContext;
             try {
-              return fn(a);
+              return fn(a3);
             } finally {
               executionContext = prevExecutionContext;
               if (executionContext === NoContext && // Treat `act` as if it's inside `batchedUpdates`, even in legacy mode.
@@ -20826,13 +20826,13 @@
               }
             }
           }
-          function discreteUpdates(fn, a, b, c, d) {
+          function discreteUpdates(fn, a3, b, c3, d2) {
             var previousPriority = getCurrentUpdatePriority();
             var prevTransition = ReactCurrentBatchConfig$3.transition;
             try {
               ReactCurrentBatchConfig$3.transition = null;
               setCurrentUpdatePriority(DiscreteEventPriority);
-              return fn(a, b, c, d);
+              return fn(a3, b, c3, d2);
             } finally {
               setCurrentUpdatePriority(previousPriority);
               ReactCurrentBatchConfig$3.transition = prevTransition;
@@ -21302,8 +21302,8 @@
             ensureRootIsScheduled(root2, now());
             if (recoverableErrors !== null) {
               var onRecoverableError = root2.onRecoverableError;
-              for (var i = 0; i < recoverableErrors.length; i++) {
-                var recoverableError = recoverableErrors[i];
+              for (var i3 = 0; i3 < recoverableErrors.length; i3++) {
+                var recoverableError = recoverableErrors[i3];
                 var componentStack = recoverableError.stack;
                 var digest = recoverableError.digest;
                 onRecoverableError(recoverableError.value, {
@@ -21397,8 +21397,8 @@
             {
               var profilerEffects = pendingPassiveProfilerEffects;
               pendingPassiveProfilerEffects = [];
-              for (var i = 0; i < profilerEffects.length; i++) {
-                var _fiber = profilerEffects[i];
+              for (var i3 = 0; i3 < profilerEffects.length; i3++) {
+                var _fiber = profilerEffects[i3];
                 commitPassiveEffectDurations(root2, _fiber);
               }
             }
@@ -22081,7 +22081,7 @@
               var nonExtensibleObject = Object.preventExtensions({});
               /* @__PURE__ */ new Map([[nonExtensibleObject, null]]);
               /* @__PURE__ */ new Set([nonExtensibleObject]);
-            } catch (e2) {
+            } catch (e4) {
               hasBadMapPolyfill = true;
             }
           }
@@ -22830,8 +22830,8 @@
                 warn("copyWithRename() expects paths of the same length");
                 return;
               } else {
-                for (var i = 0; i < newPath.length - 1; i++) {
-                  if (oldPath[i] !== newPath[i]) {
+                for (var i3 = 0; i3 < newPath.length - 1; i3++) {
+                  if (oldPath[i3] !== newPath[i3]) {
                     warn("copyWithRename() expects paths to be the same except for the deepest key");
                     return;
                   }
@@ -23121,8 +23121,8 @@
             markContainerAsRoot(root2.current, container);
             listenToAllSupportedEvents(container);
             if (mutableSources) {
-              for (var i = 0; i < mutableSources.length; i++) {
-                var mutableSource = mutableSources[i];
+              for (var i3 = 0; i3 < mutableSources.length; i3++) {
+                var mutableSource = mutableSources[i3];
                 registerMutableSourceForHydration(root2, mutableSource);
               }
             }
@@ -23501,30 +23501,935 @@
         exports.createRoot = m.createRoot;
         exports.hydrateRoot = m.hydrateRoot;
       } else {
-        i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-        exports.createRoot = function(c, o) {
-          i.usingClientEntryPoint = true;
+        i3 = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        exports.createRoot = function(c3, o4) {
+          i3.usingClientEntryPoint = true;
           try {
-            return m.createRoot(c, o);
+            return m.createRoot(c3, o4);
           } finally {
-            i.usingClientEntryPoint = false;
+            i3.usingClientEntryPoint = false;
           }
         };
-        exports.hydrateRoot = function(c, h, o) {
-          i.usingClientEntryPoint = true;
+        exports.hydrateRoot = function(c3, h2, o4) {
+          i3.usingClientEntryPoint = true;
           try {
-            return m.hydrateRoot(c, h, o);
+            return m.hydrateRoot(c3, h2, o4);
           } finally {
-            i.usingClientEntryPoint = false;
+            i3.usingClientEntryPoint = false;
           }
         };
       }
-      var i;
+      var i3;
+    }
+  });
+
+  // node_modules/react/cjs/react-jsx-runtime.development.js
+  var require_react_jsx_runtime_development = __commonJS({
+    "node_modules/react/cjs/react-jsx-runtime.development.js"(exports) {
+      "use strict";
+      if (true) {
+        (function() {
+          "use strict";
+          var React = require_react();
+          var REACT_ELEMENT_TYPE = Symbol.for("react.element");
+          var REACT_PORTAL_TYPE = Symbol.for("react.portal");
+          var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
+          var REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode");
+          var REACT_PROFILER_TYPE = Symbol.for("react.profiler");
+          var REACT_PROVIDER_TYPE = Symbol.for("react.provider");
+          var REACT_CONTEXT_TYPE = Symbol.for("react.context");
+          var REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref");
+          var REACT_SUSPENSE_TYPE = Symbol.for("react.suspense");
+          var REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list");
+          var REACT_MEMO_TYPE = Symbol.for("react.memo");
+          var REACT_LAZY_TYPE = Symbol.for("react.lazy");
+          var REACT_OFFSCREEN_TYPE = Symbol.for("react.offscreen");
+          var MAYBE_ITERATOR_SYMBOL = Symbol.iterator;
+          var FAUX_ITERATOR_SYMBOL = "@@iterator";
+          function getIteratorFn(maybeIterable) {
+            if (maybeIterable === null || typeof maybeIterable !== "object") {
+              return null;
+            }
+            var maybeIterator = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL];
+            if (typeof maybeIterator === "function") {
+              return maybeIterator;
+            }
+            return null;
+          }
+          var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          function error(format) {
+            {
+              {
+                for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+                  args[_key2 - 1] = arguments[_key2];
+                }
+                printWarning("error", format, args);
+              }
+            }
+          }
+          function printWarning(level, format, args) {
+            {
+              var ReactDebugCurrentFrame2 = ReactSharedInternals.ReactDebugCurrentFrame;
+              var stack = ReactDebugCurrentFrame2.getStackAddendum();
+              if (stack !== "") {
+                format += "%s";
+                args = args.concat([stack]);
+              }
+              var argsWithFormat = args.map(function(item) {
+                return String(item);
+              });
+              argsWithFormat.unshift("Warning: " + format);
+              Function.prototype.apply.call(console[level], console, argsWithFormat);
+            }
+          }
+          var enableScopeAPI = false;
+          var enableCacheElement = false;
+          var enableTransitionTracing = false;
+          var enableLegacyHidden = false;
+          var enableDebugTracing = false;
+          var REACT_MODULE_REFERENCE;
+          {
+            REACT_MODULE_REFERENCE = Symbol.for("react.module.reference");
+          }
+          function isValidElementType(type) {
+            if (typeof type === "string" || typeof type === "function") {
+              return true;
+            }
+            if (type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || enableDebugTracing || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || enableLegacyHidden || type === REACT_OFFSCREEN_TYPE || enableScopeAPI || enableCacheElement || enableTransitionTracing) {
+              return true;
+            }
+            if (typeof type === "object" && type !== null) {
+              if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || // This needs to include all possible module reference object
+              // types supported by any Flight configuration anywhere since
+              // we don't know which Flight build this will end up being used
+              // with.
+              type.$$typeof === REACT_MODULE_REFERENCE || type.getModuleId !== void 0) {
+                return true;
+              }
+            }
+            return false;
+          }
+          function getWrappedName(outerType, innerType, wrapperName) {
+            var displayName = outerType.displayName;
+            if (displayName) {
+              return displayName;
+            }
+            var functionName = innerType.displayName || innerType.name || "";
+            return functionName !== "" ? wrapperName + "(" + functionName + ")" : wrapperName;
+          }
+          function getContextName(type) {
+            return type.displayName || "Context";
+          }
+          function getComponentNameFromType(type) {
+            if (type == null) {
+              return null;
+            }
+            {
+              if (typeof type.tag === "number") {
+                error("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue.");
+              }
+            }
+            if (typeof type === "function") {
+              return type.displayName || type.name || null;
+            }
+            if (typeof type === "string") {
+              return type;
+            }
+            switch (type) {
+              case REACT_FRAGMENT_TYPE:
+                return "Fragment";
+              case REACT_PORTAL_TYPE:
+                return "Portal";
+              case REACT_PROFILER_TYPE:
+                return "Profiler";
+              case REACT_STRICT_MODE_TYPE:
+                return "StrictMode";
+              case REACT_SUSPENSE_TYPE:
+                return "Suspense";
+              case REACT_SUSPENSE_LIST_TYPE:
+                return "SuspenseList";
+            }
+            if (typeof type === "object") {
+              switch (type.$$typeof) {
+                case REACT_CONTEXT_TYPE:
+                  var context = type;
+                  return getContextName(context) + ".Consumer";
+                case REACT_PROVIDER_TYPE:
+                  var provider = type;
+                  return getContextName(provider._context) + ".Provider";
+                case REACT_FORWARD_REF_TYPE:
+                  return getWrappedName(type, type.render, "ForwardRef");
+                case REACT_MEMO_TYPE:
+                  var outerName = type.displayName || null;
+                  if (outerName !== null) {
+                    return outerName;
+                  }
+                  return getComponentNameFromType(type.type) || "Memo";
+                case REACT_LAZY_TYPE: {
+                  var lazyComponent = type;
+                  var payload = lazyComponent._payload;
+                  var init = lazyComponent._init;
+                  try {
+                    return getComponentNameFromType(init(payload));
+                  } catch (x) {
+                    return null;
+                  }
+                }
+              }
+            }
+            return null;
+          }
+          var assign = Object.assign;
+          var disabledDepth = 0;
+          var prevLog;
+          var prevInfo;
+          var prevWarn;
+          var prevError;
+          var prevGroup;
+          var prevGroupCollapsed;
+          var prevGroupEnd;
+          function disabledLog() {
+          }
+          disabledLog.__reactDisabledLog = true;
+          function disableLogs() {
+            {
+              if (disabledDepth === 0) {
+                prevLog = console.log;
+                prevInfo = console.info;
+                prevWarn = console.warn;
+                prevError = console.error;
+                prevGroup = console.group;
+                prevGroupCollapsed = console.groupCollapsed;
+                prevGroupEnd = console.groupEnd;
+                var props = {
+                  configurable: true,
+                  enumerable: true,
+                  value: disabledLog,
+                  writable: true
+                };
+                Object.defineProperties(console, {
+                  info: props,
+                  log: props,
+                  warn: props,
+                  error: props,
+                  group: props,
+                  groupCollapsed: props,
+                  groupEnd: props
+                });
+              }
+              disabledDepth++;
+            }
+          }
+          function reenableLogs() {
+            {
+              disabledDepth--;
+              if (disabledDepth === 0) {
+                var props = {
+                  configurable: true,
+                  enumerable: true,
+                  writable: true
+                };
+                Object.defineProperties(console, {
+                  log: assign({}, props, {
+                    value: prevLog
+                  }),
+                  info: assign({}, props, {
+                    value: prevInfo
+                  }),
+                  warn: assign({}, props, {
+                    value: prevWarn
+                  }),
+                  error: assign({}, props, {
+                    value: prevError
+                  }),
+                  group: assign({}, props, {
+                    value: prevGroup
+                  }),
+                  groupCollapsed: assign({}, props, {
+                    value: prevGroupCollapsed
+                  }),
+                  groupEnd: assign({}, props, {
+                    value: prevGroupEnd
+                  })
+                });
+              }
+              if (disabledDepth < 0) {
+                error("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
+              }
+            }
+          }
+          var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
+          var prefix;
+          function describeBuiltInComponentFrame(name, source, ownerFn) {
+            {
+              if (prefix === void 0) {
+                try {
+                  throw Error();
+                } catch (x) {
+                  var match = x.stack.trim().match(/\n( *(at )?)/);
+                  prefix = match && match[1] || "";
+                }
+              }
+              return "\n" + prefix + name;
+            }
+          }
+          var reentry = false;
+          var componentFrameCache;
+          {
+            var PossiblyWeakMap = typeof WeakMap === "function" ? WeakMap : Map;
+            componentFrameCache = new PossiblyWeakMap();
+          }
+          function describeNativeComponentFrame(fn, construct) {
+            if (!fn || reentry) {
+              return "";
+            }
+            {
+              var frame = componentFrameCache.get(fn);
+              if (frame !== void 0) {
+                return frame;
+              }
+            }
+            var control;
+            reentry = true;
+            var previousPrepareStackTrace = Error.prepareStackTrace;
+            Error.prepareStackTrace = void 0;
+            var previousDispatcher;
+            {
+              previousDispatcher = ReactCurrentDispatcher.current;
+              ReactCurrentDispatcher.current = null;
+              disableLogs();
+            }
+            try {
+              if (construct) {
+                var Fake = function() {
+                  throw Error();
+                };
+                Object.defineProperty(Fake.prototype, "props", {
+                  set: function() {
+                    throw Error();
+                  }
+                });
+                if (typeof Reflect === "object" && Reflect.construct) {
+                  try {
+                    Reflect.construct(Fake, []);
+                  } catch (x) {
+                    control = x;
+                  }
+                  Reflect.construct(fn, [], Fake);
+                } else {
+                  try {
+                    Fake.call();
+                  } catch (x) {
+                    control = x;
+                  }
+                  fn.call(Fake.prototype);
+                }
+              } else {
+                try {
+                  throw Error();
+                } catch (x) {
+                  control = x;
+                }
+                fn();
+              }
+            } catch (sample) {
+              if (sample && control && typeof sample.stack === "string") {
+                var sampleLines = sample.stack.split("\n");
+                var controlLines = control.stack.split("\n");
+                var s2 = sampleLines.length - 1;
+                var c3 = controlLines.length - 1;
+                while (s2 >= 1 && c3 >= 0 && sampleLines[s2] !== controlLines[c3]) {
+                  c3--;
+                }
+                for (; s2 >= 1 && c3 >= 0; s2--, c3--) {
+                  if (sampleLines[s2] !== controlLines[c3]) {
+                    if (s2 !== 1 || c3 !== 1) {
+                      do {
+                        s2--;
+                        c3--;
+                        if (c3 < 0 || sampleLines[s2] !== controlLines[c3]) {
+                          var _frame = "\n" + sampleLines[s2].replace(" at new ", " at ");
+                          if (fn.displayName && _frame.includes("<anonymous>")) {
+                            _frame = _frame.replace("<anonymous>", fn.displayName);
+                          }
+                          {
+                            if (typeof fn === "function") {
+                              componentFrameCache.set(fn, _frame);
+                            }
+                          }
+                          return _frame;
+                        }
+                      } while (s2 >= 1 && c3 >= 0);
+                    }
+                    break;
+                  }
+                }
+              }
+            } finally {
+              reentry = false;
+              {
+                ReactCurrentDispatcher.current = previousDispatcher;
+                reenableLogs();
+              }
+              Error.prepareStackTrace = previousPrepareStackTrace;
+            }
+            var name = fn ? fn.displayName || fn.name : "";
+            var syntheticFrame = name ? describeBuiltInComponentFrame(name) : "";
+            {
+              if (typeof fn === "function") {
+                componentFrameCache.set(fn, syntheticFrame);
+              }
+            }
+            return syntheticFrame;
+          }
+          function describeFunctionComponentFrame(fn, source, ownerFn) {
+            {
+              return describeNativeComponentFrame(fn, false);
+            }
+          }
+          function shouldConstruct(Component) {
+            var prototype = Component.prototype;
+            return !!(prototype && prototype.isReactComponent);
+          }
+          function describeUnknownElementTypeFrameInDEV(type, source, ownerFn) {
+            if (type == null) {
+              return "";
+            }
+            if (typeof type === "function") {
+              {
+                return describeNativeComponentFrame(type, shouldConstruct(type));
+              }
+            }
+            if (typeof type === "string") {
+              return describeBuiltInComponentFrame(type);
+            }
+            switch (type) {
+              case REACT_SUSPENSE_TYPE:
+                return describeBuiltInComponentFrame("Suspense");
+              case REACT_SUSPENSE_LIST_TYPE:
+                return describeBuiltInComponentFrame("SuspenseList");
+            }
+            if (typeof type === "object") {
+              switch (type.$$typeof) {
+                case REACT_FORWARD_REF_TYPE:
+                  return describeFunctionComponentFrame(type.render);
+                case REACT_MEMO_TYPE:
+                  return describeUnknownElementTypeFrameInDEV(type.type, source, ownerFn);
+                case REACT_LAZY_TYPE: {
+                  var lazyComponent = type;
+                  var payload = lazyComponent._payload;
+                  var init = lazyComponent._init;
+                  try {
+                    return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
+                  } catch (x) {
+                  }
+                }
+              }
+            }
+            return "";
+          }
+          var hasOwnProperty = Object.prototype.hasOwnProperty;
+          var loggedTypeFailures = {};
+          var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+          function setCurrentlyValidatingElement(element) {
+            {
+              if (element) {
+                var owner = element._owner;
+                var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
+                ReactDebugCurrentFrame.setExtraStackFrame(stack);
+              } else {
+                ReactDebugCurrentFrame.setExtraStackFrame(null);
+              }
+            }
+          }
+          function checkPropTypes(typeSpecs, values, location, componentName, element) {
+            {
+              var has = Function.call.bind(hasOwnProperty);
+              for (var typeSpecName in typeSpecs) {
+                if (has(typeSpecs, typeSpecName)) {
+                  var error$1 = void 0;
+                  try {
+                    if (typeof typeSpecs[typeSpecName] !== "function") {
+                      var err = Error((componentName || "React class") + ": " + location + " type `" + typeSpecName + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
+                      err.name = "Invariant Violation";
+                      throw err;
+                    }
+                    error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
+                  } catch (ex) {
+                    error$1 = ex;
+                  }
+                  if (error$1 && !(error$1 instanceof Error)) {
+                    setCurrentlyValidatingElement(element);
+                    error("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", componentName || "React class", location, typeSpecName, typeof error$1);
+                    setCurrentlyValidatingElement(null);
+                  }
+                  if (error$1 instanceof Error && !(error$1.message in loggedTypeFailures)) {
+                    loggedTypeFailures[error$1.message] = true;
+                    setCurrentlyValidatingElement(element);
+                    error("Failed %s type: %s", location, error$1.message);
+                    setCurrentlyValidatingElement(null);
+                  }
+                }
+              }
+            }
+          }
+          var isArrayImpl = Array.isArray;
+          function isArray(a3) {
+            return isArrayImpl(a3);
+          }
+          function typeName(value) {
+            {
+              var hasToStringTag = typeof Symbol === "function" && Symbol.toStringTag;
+              var type = hasToStringTag && value[Symbol.toStringTag] || value.constructor.name || "Object";
+              return type;
+            }
+          }
+          function willCoercionThrow(value) {
+            {
+              try {
+                testStringCoercion(value);
+                return false;
+              } catch (e4) {
+                return true;
+              }
+            }
+          }
+          function testStringCoercion(value) {
+            return "" + value;
+          }
+          function checkKeyStringCoercion(value) {
+            {
+              if (willCoercionThrow(value)) {
+                error("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", typeName(value));
+                return testStringCoercion(value);
+              }
+            }
+          }
+          var ReactCurrentOwner = ReactSharedInternals.ReactCurrentOwner;
+          var RESERVED_PROPS = {
+            key: true,
+            ref: true,
+            __self: true,
+            __source: true
+          };
+          var specialPropKeyWarningShown;
+          var specialPropRefWarningShown;
+          var didWarnAboutStringRefs;
+          {
+            didWarnAboutStringRefs = {};
+          }
+          function hasValidRef(config) {
+            {
+              if (hasOwnProperty.call(config, "ref")) {
+                var getter = Object.getOwnPropertyDescriptor(config, "ref").get;
+                if (getter && getter.isReactWarning) {
+                  return false;
+                }
+              }
+            }
+            return config.ref !== void 0;
+          }
+          function hasValidKey(config) {
+            {
+              if (hasOwnProperty.call(config, "key")) {
+                var getter = Object.getOwnPropertyDescriptor(config, "key").get;
+                if (getter && getter.isReactWarning) {
+                  return false;
+                }
+              }
+            }
+            return config.key !== void 0;
+          }
+          function warnIfStringRefCannotBeAutoConverted(config, self) {
+            {
+              if (typeof config.ref === "string" && ReactCurrentOwner.current && self && ReactCurrentOwner.current.stateNode !== self) {
+                var componentName = getComponentNameFromType(ReactCurrentOwner.current.type);
+                if (!didWarnAboutStringRefs[componentName]) {
+                  error('Component "%s" contains the string ref "%s". Support for string refs will be removed in a future major release. This case cannot be automatically converted to an arrow function. We ask you to manually fix this case by using useRef() or createRef() instead. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-string-ref', getComponentNameFromType(ReactCurrentOwner.current.type), config.ref);
+                  didWarnAboutStringRefs[componentName] = true;
+                }
+              }
+            }
+          }
+          function defineKeyPropWarningGetter(props, displayName) {
+            {
+              var warnAboutAccessingKey = function() {
+                if (!specialPropKeyWarningShown) {
+                  specialPropKeyWarningShown = true;
+                  error("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", displayName);
+                }
+              };
+              warnAboutAccessingKey.isReactWarning = true;
+              Object.defineProperty(props, "key", {
+                get: warnAboutAccessingKey,
+                configurable: true
+              });
+            }
+          }
+          function defineRefPropWarningGetter(props, displayName) {
+            {
+              var warnAboutAccessingRef = function() {
+                if (!specialPropRefWarningShown) {
+                  specialPropRefWarningShown = true;
+                  error("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", displayName);
+                }
+              };
+              warnAboutAccessingRef.isReactWarning = true;
+              Object.defineProperty(props, "ref", {
+                get: warnAboutAccessingRef,
+                configurable: true
+              });
+            }
+          }
+          var ReactElement = function(type, key, ref, self, source, owner, props) {
+            var element = {
+              // This tag allows us to uniquely identify this as a React Element
+              $$typeof: REACT_ELEMENT_TYPE,
+              // Built-in properties that belong on the element
+              type,
+              key,
+              ref,
+              props,
+              // Record the component responsible for creating this element.
+              _owner: owner
+            };
+            {
+              element._store = {};
+              Object.defineProperty(element._store, "validated", {
+                configurable: false,
+                enumerable: false,
+                writable: true,
+                value: false
+              });
+              Object.defineProperty(element, "_self", {
+                configurable: false,
+                enumerable: false,
+                writable: false,
+                value: self
+              });
+              Object.defineProperty(element, "_source", {
+                configurable: false,
+                enumerable: false,
+                writable: false,
+                value: source
+              });
+              if (Object.freeze) {
+                Object.freeze(element.props);
+                Object.freeze(element);
+              }
+            }
+            return element;
+          };
+          function jsxDEV(type, config, maybeKey, source, self) {
+            {
+              var propName;
+              var props = {};
+              var key = null;
+              var ref = null;
+              if (maybeKey !== void 0) {
+                {
+                  checkKeyStringCoercion(maybeKey);
+                }
+                key = "" + maybeKey;
+              }
+              if (hasValidKey(config)) {
+                {
+                  checkKeyStringCoercion(config.key);
+                }
+                key = "" + config.key;
+              }
+              if (hasValidRef(config)) {
+                ref = config.ref;
+                warnIfStringRefCannotBeAutoConverted(config, self);
+              }
+              for (propName in config) {
+                if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
+                  props[propName] = config[propName];
+                }
+              }
+              if (type && type.defaultProps) {
+                var defaultProps = type.defaultProps;
+                for (propName in defaultProps) {
+                  if (props[propName] === void 0) {
+                    props[propName] = defaultProps[propName];
+                  }
+                }
+              }
+              if (key || ref) {
+                var displayName = typeof type === "function" ? type.displayName || type.name || "Unknown" : type;
+                if (key) {
+                  defineKeyPropWarningGetter(props, displayName);
+                }
+                if (ref) {
+                  defineRefPropWarningGetter(props, displayName);
+                }
+              }
+              return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
+            }
+          }
+          var ReactCurrentOwner$1 = ReactSharedInternals.ReactCurrentOwner;
+          var ReactDebugCurrentFrame$1 = ReactSharedInternals.ReactDebugCurrentFrame;
+          function setCurrentlyValidatingElement$1(element) {
+            {
+              if (element) {
+                var owner = element._owner;
+                var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
+                ReactDebugCurrentFrame$1.setExtraStackFrame(stack);
+              } else {
+                ReactDebugCurrentFrame$1.setExtraStackFrame(null);
+              }
+            }
+          }
+          var propTypesMisspellWarningShown;
+          {
+            propTypesMisspellWarningShown = false;
+          }
+          function isValidElement(object) {
+            {
+              return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+            }
+          }
+          function getDeclarationErrorAddendum() {
+            {
+              if (ReactCurrentOwner$1.current) {
+                var name = getComponentNameFromType(ReactCurrentOwner$1.current.type);
+                if (name) {
+                  return "\n\nCheck the render method of `" + name + "`.";
+                }
+              }
+              return "";
+            }
+          }
+          function getSourceInfoErrorAddendum(source) {
+            {
+              if (source !== void 0) {
+                var fileName = source.fileName.replace(/^.*[\\\/]/, "");
+                var lineNumber = source.lineNumber;
+                return "\n\nCheck your code at " + fileName + ":" + lineNumber + ".";
+              }
+              return "";
+            }
+          }
+          var ownerHasKeyUseWarning = {};
+          function getCurrentComponentErrorInfo(parentType) {
+            {
+              var info = getDeclarationErrorAddendum();
+              if (!info) {
+                var parentName = typeof parentType === "string" ? parentType : parentType.displayName || parentType.name;
+                if (parentName) {
+                  info = "\n\nCheck the top-level render call using <" + parentName + ">.";
+                }
+              }
+              return info;
+            }
+          }
+          function validateExplicitKey(element, parentType) {
+            {
+              if (!element._store || element._store.validated || element.key != null) {
+                return;
+              }
+              element._store.validated = true;
+              var currentComponentErrorInfo = getCurrentComponentErrorInfo(parentType);
+              if (ownerHasKeyUseWarning[currentComponentErrorInfo]) {
+                return;
+              }
+              ownerHasKeyUseWarning[currentComponentErrorInfo] = true;
+              var childOwner = "";
+              if (element && element._owner && element._owner !== ReactCurrentOwner$1.current) {
+                childOwner = " It was passed a child from " + getComponentNameFromType(element._owner.type) + ".";
+              }
+              setCurrentlyValidatingElement$1(element);
+              error('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', currentComponentErrorInfo, childOwner);
+              setCurrentlyValidatingElement$1(null);
+            }
+          }
+          function validateChildKeys(node, parentType) {
+            {
+              if (typeof node !== "object") {
+                return;
+              }
+              if (isArray(node)) {
+                for (var i3 = 0; i3 < node.length; i3++) {
+                  var child = node[i3];
+                  if (isValidElement(child)) {
+                    validateExplicitKey(child, parentType);
+                  }
+                }
+              } else if (isValidElement(node)) {
+                if (node._store) {
+                  node._store.validated = true;
+                }
+              } else if (node) {
+                var iteratorFn = getIteratorFn(node);
+                if (typeof iteratorFn === "function") {
+                  if (iteratorFn !== node.entries) {
+                    var iterator = iteratorFn.call(node);
+                    var step;
+                    while (!(step = iterator.next()).done) {
+                      if (isValidElement(step.value)) {
+                        validateExplicitKey(step.value, parentType);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          function validatePropTypes(element) {
+            {
+              var type = element.type;
+              if (type === null || type === void 0 || typeof type === "string") {
+                return;
+              }
+              var propTypes;
+              if (typeof type === "function") {
+                propTypes = type.propTypes;
+              } else if (typeof type === "object" && (type.$$typeof === REACT_FORWARD_REF_TYPE || // Note: Memo only checks outer props here.
+              // Inner props are checked in the reconciler.
+              type.$$typeof === REACT_MEMO_TYPE)) {
+                propTypes = type.propTypes;
+              } else {
+                return;
+              }
+              if (propTypes) {
+                var name = getComponentNameFromType(type);
+                checkPropTypes(propTypes, element.props, "prop", name, element);
+              } else if (type.PropTypes !== void 0 && !propTypesMisspellWarningShown) {
+                propTypesMisspellWarningShown = true;
+                var _name = getComponentNameFromType(type);
+                error("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", _name || "Unknown");
+              }
+              if (typeof type.getDefaultProps === "function" && !type.getDefaultProps.isReactClassApproved) {
+                error("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
+              }
+            }
+          }
+          function validateFragmentProps(fragment) {
+            {
+              var keys = Object.keys(fragment.props);
+              for (var i3 = 0; i3 < keys.length; i3++) {
+                var key = keys[i3];
+                if (key !== "children" && key !== "key") {
+                  setCurrentlyValidatingElement$1(fragment);
+                  error("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", key);
+                  setCurrentlyValidatingElement$1(null);
+                  break;
+                }
+              }
+              if (fragment.ref !== null) {
+                setCurrentlyValidatingElement$1(fragment);
+                error("Invalid attribute `ref` supplied to `React.Fragment`.");
+                setCurrentlyValidatingElement$1(null);
+              }
+            }
+          }
+          var didWarnAboutKeySpread = {};
+          function jsxWithValidation(type, props, key, isStaticChildren, source, self) {
+            {
+              var validType = isValidElementType(type);
+              if (!validType) {
+                var info = "";
+                if (type === void 0 || typeof type === "object" && type !== null && Object.keys(type).length === 0) {
+                  info += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.";
+                }
+                var sourceInfo = getSourceInfoErrorAddendum(source);
+                if (sourceInfo) {
+                  info += sourceInfo;
+                } else {
+                  info += getDeclarationErrorAddendum();
+                }
+                var typeString;
+                if (type === null) {
+                  typeString = "null";
+                } else if (isArray(type)) {
+                  typeString = "array";
+                } else if (type !== void 0 && type.$$typeof === REACT_ELEMENT_TYPE) {
+                  typeString = "<" + (getComponentNameFromType(type.type) || "Unknown") + " />";
+                  info = " Did you accidentally export a JSX literal instead of a component?";
+                } else {
+                  typeString = typeof type;
+                }
+                error("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", typeString, info);
+              }
+              var element = jsxDEV(type, props, key, source, self);
+              if (element == null) {
+                return element;
+              }
+              if (validType) {
+                var children = props.children;
+                if (children !== void 0) {
+                  if (isStaticChildren) {
+                    if (isArray(children)) {
+                      for (var i3 = 0; i3 < children.length; i3++) {
+                        validateChildKeys(children[i3], type);
+                      }
+                      if (Object.freeze) {
+                        Object.freeze(children);
+                      }
+                    } else {
+                      error("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
+                    }
+                  } else {
+                    validateChildKeys(children, type);
+                  }
+                }
+              }
+              {
+                if (hasOwnProperty.call(props, "key")) {
+                  var componentName = getComponentNameFromType(type);
+                  var keys = Object.keys(props).filter(function(k) {
+                    return k !== "key";
+                  });
+                  var beforeExample = keys.length > 0 ? "{key: someKey, " + keys.join(": ..., ") + ": ...}" : "{key: someKey}";
+                  if (!didWarnAboutKeySpread[componentName + beforeExample]) {
+                    var afterExample = keys.length > 0 ? "{" + keys.join(": ..., ") + ": ...}" : "{}";
+                    error('A props object containing a "key" prop is being spread into JSX:\n  let props = %s;\n  <%s {...props} />\nReact keys must be passed directly to JSX without using spread:\n  let props = %s;\n  <%s key={someKey} {...props} />', beforeExample, componentName, afterExample, componentName);
+                    didWarnAboutKeySpread[componentName + beforeExample] = true;
+                  }
+                }
+              }
+              if (type === REACT_FRAGMENT_TYPE) {
+                validateFragmentProps(element);
+              } else {
+                validatePropTypes(element);
+              }
+              return element;
+            }
+          }
+          function jsxWithValidationStatic(type, props, key) {
+            {
+              return jsxWithValidation(type, props, key, true);
+            }
+          }
+          function jsxWithValidationDynamic(type, props, key) {
+            {
+              return jsxWithValidation(type, props, key, false);
+            }
+          }
+          var jsx = jsxWithValidationDynamic;
+          var jsxs = jsxWithValidationStatic;
+          exports.Fragment = REACT_FRAGMENT_TYPE;
+          exports.jsx = jsx;
+          exports.jsxs = jsxs;
+        })();
+      }
+    }
+  });
+
+  // node_modules/react/jsx-runtime.js
+  var require_jsx_runtime = __commonJS({
+    "node_modules/react/jsx-runtime.js"(exports, module) {
+      "use strict";
+      if (false) {
+        module.exports = null;
+      } else {
+        module.exports = require_react_jsx_runtime_development();
+      }
     }
   });
 
   // index.coffee
-  var import_react2 = __toESM(require_react());
+  var import_react3 = __toESM(require_react());
   var import_client = __toESM(require_client());
 
   // node_modules/@iconify/react/dist/iconify.js
@@ -24239,14 +25144,14 @@
       pending: []
     };
     const storage2 = /* @__PURE__ */ Object.create(null);
-    icons.sort((a, b) => {
-      if (a.provider !== b.provider) {
-        return a.provider.localeCompare(b.provider);
+    icons.sort((a3, b) => {
+      if (a3.provider !== b.provider) {
+        return a3.provider.localeCompare(b.provider);
       }
-      if (a.prefix !== b.prefix) {
-        return a.prefix.localeCompare(b.prefix);
+      if (a3.prefix !== b.prefix) {
+        return a3.prefix.localeCompare(b.prefix);
       }
-      return a.name.localeCompare(b.name);
+      return a3.name.localeCompare(b.name);
     });
     let lastIcon = {
       provider: "",
@@ -24685,8 +25590,8 @@
     if (version !== browserCacheVersion) {
       if (version) {
         const total2 = getBrowserStorageItemsCount(func);
-        for (let i = 0; i < total2; i++) {
-          removeStoredItem(func, browserCachePrefix + i.toString());
+        for (let i3 = 0; i3 < total2; i3++) {
+          removeStoredItem(func, browserCachePrefix + i3.toString());
         }
       }
       setStoredItem(func, browserCacheVersionKey, browserCacheVersion);
@@ -24711,13 +25616,13 @@
       removeStoredItem(func, name);
     };
     let total = getBrowserStorageItemsCount(func);
-    for (let i = total - 1; i >= 0; i--) {
-      if (!parseItem(i)) {
-        if (i === total - 1) {
+    for (let i3 = total - 1; i3 >= 0; i3--) {
+      if (!parseItem(i3)) {
+        if (i3 === total - 1) {
           total--;
           setBrowserStorageItemsCount(func, total);
         } else {
-          browserStorageEmptyItems[key].add(i);
+          browserStorageEmptyItems[key].add(i3);
         }
       }
     }
@@ -25006,7 +25911,7 @@
     try {
       policy = window.trustedTypes.createPolicy("iconify", {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-        createHTML: (s) => s
+        createHTML: (s2) => s2
       });
     } catch (err) {
       policy = null;
@@ -25194,7 +26099,7 @@
             ) {
               console.error(err);
             }
-          } catch (e2) {
+          } catch (e4) {
             console.error(err);
           }
         });
@@ -25213,7 +26118,7 @@
             if (!addAPIProvider(key, value)) {
               console.error(err);
             }
-          } catch (e2) {
+          } catch (e4) {
             console.error(err);
           }
         }
@@ -25312,19 +26217,1017 @@
     _ref: ref
   }));
 
+  // node_modules/@wavesurfer/react/dist/index.js
+  var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
+  var import_react2 = __toESM(require_react(), 1);
+
+  // node_modules/wavesurfer.js/dist/wavesurfer.esm.js
+  function t(t3, e4, i3, n3) {
+    return new (i3 || (i3 = Promise))(function(s2, r3) {
+      function o4(t4) {
+        try {
+          h2(n3.next(t4));
+        } catch (t5) {
+          r3(t5);
+        }
+      }
+      function a3(t4) {
+        try {
+          h2(n3.throw(t4));
+        } catch (t5) {
+          r3(t5);
+        }
+      }
+      function h2(t4) {
+        var e5;
+        t4.done ? s2(t4.value) : (e5 = t4.value, e5 instanceof i3 ? e5 : new i3(function(t5) {
+          t5(e5);
+        })).then(o4, a3);
+      }
+      h2((n3 = n3.apply(t3, e4 || [])).next());
+    });
+  }
+  var e = class {
+    constructor() {
+      this.listeners = {};
+    }
+    on(t3, e4, i3) {
+      if (this.listeners[t3] || (this.listeners[t3] = /* @__PURE__ */ new Set()), this.listeners[t3].add(e4), null == i3 ? void 0 : i3.once) {
+        const i4 = () => {
+          this.un(t3, i4), this.un(t3, e4);
+        };
+        return this.on(t3, i4), i4;
+      }
+      return () => this.un(t3, e4);
+    }
+    un(t3, e4) {
+      var i3;
+      null === (i3 = this.listeners[t3]) || void 0 === i3 || i3.delete(e4);
+    }
+    once(t3, e4) {
+      return this.on(t3, e4, { once: true });
+    }
+    unAll() {
+      this.listeners = {};
+    }
+    emit(t3, ...e4) {
+      this.listeners[t3] && this.listeners[t3].forEach((t4) => t4(...e4));
+    }
+  };
+  var i = { decode: function(e4, i3) {
+    return t(this, void 0, void 0, function* () {
+      const t3 = new AudioContext({ sampleRate: i3 });
+      return t3.decodeAudioData(e4).finally(() => t3.close());
+    });
+  }, createBuffer: function(t3, e4) {
+    return "number" == typeof t3[0] && (t3 = [t3]), function(t4) {
+      const e5 = t4[0];
+      if (e5.some((t5) => t5 > 1 || t5 < -1)) {
+        const i3 = e5.length;
+        let n3 = 0;
+        for (let t5 = 0; t5 < i3; t5++) {
+          const i4 = Math.abs(e5[t5]);
+          i4 > n3 && (n3 = i4);
+        }
+        for (const e6 of t4) for (let t5 = 0; t5 < i3; t5++) e6[t5] /= n3;
+      }
+    }(t3), { duration: e4, length: t3[0].length, sampleRate: t3[0].length / e4, numberOfChannels: t3.length, getChannelData: (e5) => null == t3 ? void 0 : t3[e5], copyFromChannel: AudioBuffer.prototype.copyFromChannel, copyToChannel: AudioBuffer.prototype.copyToChannel };
+  } };
+  function n(t3, e4) {
+    const i3 = e4.xmlns ? document.createElementNS(e4.xmlns, t3) : document.createElement(t3);
+    for (const [t4, s2] of Object.entries(e4)) if ("children" === t4) for (const [t5, s3] of Object.entries(e4)) "string" == typeof s3 ? i3.appendChild(document.createTextNode(s3)) : i3.appendChild(n(t5, s3));
+    else "style" === t4 ? Object.assign(i3.style, s2) : "textContent" === t4 ? i3.textContent = s2 : i3.setAttribute(t4, s2.toString());
+    return i3;
+  }
+  function s(t3, e4, i3) {
+    const s2 = n(t3, e4 || {});
+    return null == i3 || i3.appendChild(s2), s2;
+  }
+  var r = Object.freeze({ __proto__: null, createElement: s, default: s });
+  var o = { fetchBlob: function(e4, i3, n3) {
+    return t(this, void 0, void 0, function* () {
+      const s2 = yield fetch(e4, n3);
+      if (s2.status >= 400) throw new Error(`Failed to fetch ${e4}: ${s2.status} (${s2.statusText})`);
+      return function(e5, i4) {
+        t(this, void 0, void 0, function* () {
+          if (!e5.body || !e5.headers) return;
+          const n4 = e5.body.getReader(), s3 = Number(e5.headers.get("Content-Length")) || 0;
+          let r3 = 0;
+          const o4 = (e6) => t(this, void 0, void 0, function* () {
+            r3 += (null == e6 ? void 0 : e6.length) || 0;
+            const t3 = Math.round(r3 / s3 * 100);
+            i4(t3);
+          }), a3 = () => t(this, void 0, void 0, function* () {
+            let t3;
+            try {
+              t3 = yield n4.read();
+            } catch (t4) {
+              return;
+            }
+            t3.done || (o4(t3.value), yield a3());
+          });
+          a3();
+        });
+      }(s2.clone(), i3), s2.blob();
+    });
+  } };
+  var a = class extends e {
+    constructor(t3) {
+      super(), this.isExternalMedia = false, t3.media ? (this.media = t3.media, this.isExternalMedia = true) : this.media = document.createElement("audio"), t3.mediaControls && (this.media.controls = true), t3.autoplay && (this.media.autoplay = true), null != t3.playbackRate && this.onMediaEvent("canplay", () => {
+        null != t3.playbackRate && (this.media.playbackRate = t3.playbackRate);
+      }, { once: true });
+    }
+    onMediaEvent(t3, e4, i3) {
+      return this.media.addEventListener(t3, e4, i3), () => this.media.removeEventListener(t3, e4, i3);
+    }
+    getSrc() {
+      return this.media.currentSrc || this.media.src || "";
+    }
+    revokeSrc() {
+      const t3 = this.getSrc();
+      t3.startsWith("blob:") && URL.revokeObjectURL(t3);
+    }
+    canPlayType(t3) {
+      return "" !== this.media.canPlayType(t3);
+    }
+    setSrc(t3, e4) {
+      if (this.getSrc() === t3) return;
+      this.revokeSrc();
+      const i3 = e4 instanceof Blob && this.canPlayType(e4.type) ? URL.createObjectURL(e4) : t3;
+      this.media.src = i3;
+    }
+    destroy() {
+      this.media.pause(), this.isExternalMedia || (this.media.remove(), this.revokeSrc(), this.media.src = "", this.media.load());
+    }
+    setMediaElement(t3) {
+      this.media = t3;
+    }
+    play() {
+      return t(this, void 0, void 0, function* () {
+        return this.media.play();
+      });
+    }
+    pause() {
+      this.media.pause();
+    }
+    isPlaying() {
+      return !this.media.paused && !this.media.ended;
+    }
+    setTime(t3) {
+      this.media.currentTime = t3;
+    }
+    getDuration() {
+      return this.media.duration;
+    }
+    getCurrentTime() {
+      return this.media.currentTime;
+    }
+    getVolume() {
+      return this.media.volume;
+    }
+    setVolume(t3) {
+      this.media.volume = t3;
+    }
+    getMuted() {
+      return this.media.muted;
+    }
+    setMuted(t3) {
+      this.media.muted = t3;
+    }
+    getPlaybackRate() {
+      return this.media.playbackRate;
+    }
+    isSeeking() {
+      return this.media.seeking;
+    }
+    setPlaybackRate(t3, e4) {
+      null != e4 && (this.media.preservesPitch = e4), this.media.playbackRate = t3;
+    }
+    getMediaElement() {
+      return this.media;
+    }
+    setSinkId(t3) {
+      return this.media.setSinkId(t3);
+    }
+  };
+  var h = class _h extends e {
+    constructor(t3, e4) {
+      super(), this.timeouts = [], this.isScrollable = false, this.audioData = null, this.resizeObserver = null, this.lastContainerWidth = 0, this.isDragging = false, this.subscriptions = [], this.subscriptions = [], this.options = t3;
+      const i3 = this.parentFromOptionsContainer(t3.container);
+      this.parent = i3;
+      const [n3, s2] = this.initHtml();
+      i3.appendChild(n3), this.container = n3, this.scrollContainer = s2.querySelector(".scroll"), this.wrapper = s2.querySelector(".wrapper"), this.canvasWrapper = s2.querySelector(".canvases"), this.progressWrapper = s2.querySelector(".progress"), this.cursor = s2.querySelector(".cursor"), e4 && s2.appendChild(e4), this.initEvents();
+    }
+    parentFromOptionsContainer(t3) {
+      let e4;
+      if ("string" == typeof t3 ? e4 = document.querySelector(t3) : t3 instanceof HTMLElement && (e4 = t3), !e4) throw new Error("Container not found");
+      return e4;
+    }
+    initEvents() {
+      const t3 = (t4) => {
+        const e5 = this.wrapper.getBoundingClientRect(), i3 = t4.clientX - e5.left, n3 = t4.clientY - e5.top;
+        return [i3 / e5.width, n3 / e5.height];
+      };
+      this.wrapper.addEventListener("click", (e5) => {
+        const [i3, n3] = t3(e5);
+        this.emit("click", i3, n3);
+      }), this.wrapper.addEventListener("dblclick", (e5) => {
+        const [i3, n3] = t3(e5);
+        this.emit("dblclick", i3, n3);
+      }), true !== this.options.dragToSeek && "object" != typeof this.options.dragToSeek || this.initDrag(), this.scrollContainer.addEventListener("scroll", () => {
+        const { scrollLeft: t4, scrollWidth: e5, clientWidth: i3 } = this.scrollContainer, n3 = t4 / e5, s2 = (t4 + i3) / e5;
+        this.emit("scroll", n3, s2);
+      });
+      const e4 = this.createDelay(100);
+      this.resizeObserver = new ResizeObserver(() => {
+        e4().then(() => this.onContainerResize()).catch(() => {
+        });
+      }), this.resizeObserver.observe(this.scrollContainer);
+    }
+    onContainerResize() {
+      const t3 = this.parent.clientWidth;
+      t3 === this.lastContainerWidth && "auto" !== this.options.height || (this.lastContainerWidth = t3, this.reRender());
+    }
+    initDrag() {
+      this.subscriptions.push(function(t3, e4, i3, n3, s2 = 3, r3 = 0, o4 = 100) {
+        if (!t3) return () => {
+        };
+        const a3 = matchMedia("(pointer: coarse)").matches;
+        let h2 = () => {
+        };
+        const l3 = (l4) => {
+          if (l4.button !== r3) return;
+          l4.preventDefault(), l4.stopPropagation();
+          let d2 = l4.clientX, c3 = l4.clientY, u3 = false;
+          const p2 = Date.now(), m = (n4) => {
+            if (n4.preventDefault(), n4.stopPropagation(), a3 && Date.now() - p2 < o4) return;
+            const r4 = n4.clientX, h3 = n4.clientY, l5 = r4 - d2, m2 = h3 - c3;
+            if (u3 || Math.abs(l5) > s2 || Math.abs(m2) > s2) {
+              const n5 = t3.getBoundingClientRect(), { left: s3, top: o5 } = n5;
+              u3 || (null == i3 || i3(d2 - s3, c3 - o5), u3 = true), e4(l5, m2, r4 - s3, h3 - o5), d2 = r4, c3 = h3;
+            }
+          }, f2 = (e5) => {
+            if (u3) {
+              const i4 = e5.clientX, s3 = e5.clientY, r4 = t3.getBoundingClientRect(), { left: o5, top: a4 } = r4;
+              null == n3 || n3(i4 - o5, s3 - a4);
+            }
+            h2();
+          }, g = (t4) => {
+            t4.relatedTarget && t4.relatedTarget !== document.documentElement || f2(t4);
+          }, v = (t4) => {
+            u3 && (t4.stopPropagation(), t4.preventDefault());
+          }, b = (t4) => {
+            u3 && t4.preventDefault();
+          };
+          document.addEventListener("pointermove", m), document.addEventListener("pointerup", f2), document.addEventListener("pointerout", g), document.addEventListener("pointercancel", g), document.addEventListener("touchmove", b, { passive: false }), document.addEventListener("click", v, { capture: true }), h2 = () => {
+            document.removeEventListener("pointermove", m), document.removeEventListener("pointerup", f2), document.removeEventListener("pointerout", g), document.removeEventListener("pointercancel", g), document.removeEventListener("touchmove", b), setTimeout(() => {
+              document.removeEventListener("click", v, { capture: true });
+            }, 10);
+          };
+        };
+        return t3.addEventListener("pointerdown", l3), () => {
+          h2(), t3.removeEventListener("pointerdown", l3);
+        };
+      }(this.wrapper, (t3, e4, i3) => {
+        this.emit("drag", Math.max(0, Math.min(1, i3 / this.wrapper.getBoundingClientRect().width)));
+      }, (t3) => {
+        this.isDragging = true, this.emit("dragstart", Math.max(0, Math.min(1, t3 / this.wrapper.getBoundingClientRect().width)));
+      }, (t3) => {
+        this.isDragging = false, this.emit("dragend", Math.max(0, Math.min(1, t3 / this.wrapper.getBoundingClientRect().width)));
+      }));
+    }
+    getHeight(t3, e4) {
+      var i3;
+      const n3 = (null === (i3 = this.audioData) || void 0 === i3 ? void 0 : i3.numberOfChannels) || 1;
+      if (null == t3) return 128;
+      if (!isNaN(Number(t3))) return Number(t3);
+      if ("auto" === t3) {
+        const t4 = this.parent.clientHeight || 128;
+        return (null == e4 ? void 0 : e4.every((t5) => !t5.overlay)) ? t4 / n3 : t4;
+      }
+      return 128;
+    }
+    initHtml() {
+      const t3 = document.createElement("div"), e4 = t3.attachShadow({ mode: "open" });
+      return e4.innerHTML = `
+      <style>
+        :host {
+          user-select: none;
+          min-width: 1px;
+        }
+        :host audio {
+          display: block;
+          width: 100%;
+        }
+        :host .scroll {
+          overflow-x: auto;
+          overflow-y: hidden;
+          width: 100%;
+          position: relative;
+        }
+        :host .noScrollbar {
+          scrollbar-color: transparent;
+          scrollbar-width: none;
+        }
+        :host .noScrollbar::-webkit-scrollbar {
+          display: none;
+          -webkit-appearance: none;
+        }
+        :host .wrapper {
+          position: relative;
+          overflow: visible;
+          z-index: 2;
+        }
+        :host .canvases {
+          min-height: ${this.getHeight(this.options.height, this.options.splitChannels)}px;
+        }
+        :host .canvases > div {
+          position: relative;
+        }
+        :host canvas {
+          display: block;
+          position: absolute;
+          top: 0;
+          image-rendering: pixelated;
+        }
+        :host .progress {
+          pointer-events: none;
+          position: absolute;
+          z-index: 2;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 100%;
+          overflow: hidden;
+        }
+        :host .progress > div {
+          position: relative;
+        }
+        :host .cursor {
+          pointer-events: none;
+          position: absolute;
+          z-index: 5;
+          top: 0;
+          left: 0;
+          height: 100%;
+          border-radius: 2px;
+        }
+      </style>
+
+      <div class="scroll" part="scroll">
+        <div class="wrapper" part="wrapper">
+          <div class="canvases" part="canvases"></div>
+          <div class="progress" part="progress"></div>
+          <div class="cursor" part="cursor"></div>
+        </div>
+      </div>
+    `, [t3, e4];
+    }
+    setOptions(t3) {
+      if (this.options.container !== t3.container) {
+        const e4 = this.parentFromOptionsContainer(t3.container);
+        e4.appendChild(this.container), this.parent = e4;
+      }
+      true !== t3.dragToSeek && "object" != typeof this.options.dragToSeek || this.initDrag(), this.options = t3, this.reRender();
+    }
+    getWrapper() {
+      return this.wrapper;
+    }
+    getScroll() {
+      return this.scrollContainer.scrollLeft;
+    }
+    setScroll(t3) {
+      this.scrollContainer.scrollLeft = t3;
+    }
+    setScrollPercentage(t3) {
+      const { scrollWidth: e4 } = this.scrollContainer, i3 = e4 * t3;
+      this.setScroll(i3);
+    }
+    destroy() {
+      var t3;
+      this.subscriptions.forEach((t4) => t4()), this.container.remove(), null === (t3 = this.resizeObserver) || void 0 === t3 || t3.disconnect();
+    }
+    createDelay(t3 = 10) {
+      let e4, i3;
+      const n3 = () => {
+        e4 && clearTimeout(e4), i3 && i3();
+      };
+      return this.timeouts.push(n3), () => new Promise((s2, r3) => {
+        n3(), i3 = r3, e4 = setTimeout(() => {
+          e4 = void 0, i3 = void 0, s2();
+        }, t3);
+      });
+    }
+    convertColorValues(t3) {
+      if (!Array.isArray(t3)) return t3 || "";
+      if (t3.length < 2) return t3[0] || "";
+      const e4 = document.createElement("canvas"), i3 = e4.getContext("2d"), n3 = e4.height * (window.devicePixelRatio || 1), s2 = i3.createLinearGradient(0, 0, 0, n3), r3 = 1 / (t3.length - 1);
+      return t3.forEach((t4, e5) => {
+        const i4 = e5 * r3;
+        s2.addColorStop(i4, t4);
+      }), s2;
+    }
+    renderBarWaveform(t3, e4, i3, n3) {
+      const s2 = t3[0], r3 = t3[1] || t3[0], o4 = s2.length, { width: a3, height: h2 } = i3.canvas, l3 = h2 / 2, d2 = window.devicePixelRatio || 1, c3 = e4.barWidth ? e4.barWidth * d2 : 1, u3 = e4.barGap ? e4.barGap * d2 : e4.barWidth ? c3 / 2 : 0, p2 = e4.barRadius || 0, m = a3 / (c3 + u3) / o4, f2 = p2 && "roundRect" in i3 ? "roundRect" : "rect";
+      i3.beginPath();
+      let g = 0, v = 0, b = 0;
+      for (let t4 = 0; t4 <= o4; t4++) {
+        const o5 = Math.round(t4 * m);
+        if (o5 > g) {
+          const t5 = Math.round(v * l3 * n3), s3 = t5 + Math.round(b * l3 * n3) || 1;
+          let r4 = l3 - t5;
+          "top" === e4.barAlign ? r4 = 0 : "bottom" === e4.barAlign && (r4 = h2 - s3), i3[f2](g * (c3 + u3), r4, c3, s3, p2), g = o5, v = 0, b = 0;
+        }
+        const a4 = Math.abs(s2[t4] || 0), d3 = Math.abs(r3[t4] || 0);
+        a4 > v && (v = a4), d3 > b && (b = d3);
+      }
+      i3.fill(), i3.closePath();
+    }
+    renderLineWaveform(t3, e4, i3, n3) {
+      const s2 = (e5) => {
+        const s3 = t3[e5] || t3[0], r3 = s3.length, { height: o4 } = i3.canvas, a3 = o4 / 2, h2 = i3.canvas.width / r3;
+        i3.moveTo(0, a3);
+        let l3 = 0, d2 = 0;
+        for (let t4 = 0; t4 <= r3; t4++) {
+          const r4 = Math.round(t4 * h2);
+          if (r4 > l3) {
+            const t5 = a3 + (Math.round(d2 * a3 * n3) || 1) * (0 === e5 ? -1 : 1);
+            i3.lineTo(l3, t5), l3 = r4, d2 = 0;
+          }
+          const o5 = Math.abs(s3[t4] || 0);
+          o5 > d2 && (d2 = o5);
+        }
+        i3.lineTo(l3, a3);
+      };
+      i3.beginPath(), s2(0), s2(1), i3.fill(), i3.closePath();
+    }
+    renderWaveform(t3, e4, i3) {
+      if (i3.fillStyle = this.convertColorValues(e4.waveColor), e4.renderFunction) return void e4.renderFunction(t3, i3);
+      let n3 = e4.barHeight || 1;
+      if (e4.normalize) {
+        const e5 = Array.from(t3[0]).reduce((t4, e6) => Math.max(t4, Math.abs(e6)), 0);
+        n3 = e5 ? 1 / e5 : 1;
+      }
+      e4.barWidth || e4.barGap || e4.barAlign ? this.renderBarWaveform(t3, e4, i3, n3) : this.renderLineWaveform(t3, e4, i3, n3);
+    }
+    renderSingleCanvas(t3, e4, i3, n3, s2, r3, o4) {
+      const a3 = window.devicePixelRatio || 1, h2 = document.createElement("canvas");
+      h2.width = Math.round(i3 * a3), h2.height = Math.round(n3 * a3), h2.style.width = `${i3}px`, h2.style.height = `${n3}px`, h2.style.left = `${Math.round(s2)}px`, r3.appendChild(h2);
+      const l3 = h2.getContext("2d");
+      if (this.renderWaveform(t3, e4, l3), h2.width > 0 && h2.height > 0) {
+        const t4 = h2.cloneNode(), i4 = t4.getContext("2d");
+        i4.drawImage(h2, 0, 0), i4.globalCompositeOperation = "source-in", i4.fillStyle = this.convertColorValues(e4.progressColor), i4.fillRect(0, 0, h2.width, h2.height), o4.appendChild(t4);
+      }
+    }
+    renderMultiCanvas(e4, i3, n3, s2, r3, o4) {
+      return t(this, void 0, void 0, function* () {
+        const a3 = window.devicePixelRatio || 1, l3 = n3 / a3;
+        let d2 = Math.min(_h.MAX_CANVAS_WIDTH, this.scrollContainer.clientWidth);
+        if (i3.barWidth || i3.barGap) {
+          const t3 = i3.barWidth || 0.5, e5 = t3 + (i3.barGap || t3 / 2);
+          d2 % e5 != 0 && (d2 = Math.floor(d2 / e5) * e5);
+        }
+        const c3 = (t3) => {
+          const n4 = t3 * d2, a4 = Math.min(l3 - n4, d2), h2 = e4.map((t4) => {
+            const e5 = Math.floor(n4 / l3 * t4.length), i4 = Math.floor((n4 + a4) / l3 * t4.length);
+            return t4.slice(e5, i4);
+          });
+          this.renderSingleCanvas(h2, i3, a4, s2, n4, r3, o4);
+        }, u3 = Math.ceil(l3 / d2);
+        if (1 === u3) return void c3(0);
+        const p2 = this.scrollContainer.scrollLeft / l3, m = Math.floor(p2 * u3);
+        c3(m), c3(m + 1), yield Promise.all([(() => t(this, void 0, void 0, function* () {
+          const t3 = this.createDelay();
+          for (let e5 = m - 1; e5 >= 0; e5--) yield t3(), c3(e5);
+        }))(), (() => t(this, void 0, void 0, function* () {
+          const t3 = this.createDelay();
+          for (let e5 = m + 2; e5 < u3; e5++) yield t3(), c3(e5);
+        }))()]);
+      });
+    }
+    renderChannel(e4, i3, n3, s2) {
+      return t(this, void 0, void 0, function* () {
+        var { overlay: t3 } = i3, r3 = function(t4, e5) {
+          var i4 = {};
+          for (var n4 in t4) Object.prototype.hasOwnProperty.call(t4, n4) && e5.indexOf(n4) < 0 && (i4[n4] = t4[n4]);
+          if (null != t4 && "function" == typeof Object.getOwnPropertySymbols) {
+            var s3 = 0;
+            for (n4 = Object.getOwnPropertySymbols(t4); s3 < n4.length; s3++) e5.indexOf(n4[s3]) < 0 && Object.prototype.propertyIsEnumerable.call(t4, n4[s3]) && (i4[n4[s3]] = t4[n4[s3]]);
+          }
+          return i4;
+        }(i3, ["overlay"]);
+        const o4 = document.createElement("div"), a3 = this.getHeight(r3.height, r3.splitChannels);
+        o4.style.height = `${a3}px`, t3 && s2 > 0 && (o4.style.marginTop = `-${a3}px`), this.canvasWrapper.style.minHeight = `${a3}px`, this.canvasWrapper.appendChild(o4);
+        const h2 = o4.cloneNode();
+        this.progressWrapper.appendChild(h2), yield this.renderMultiCanvas(e4, r3, n3, a3, o4, h2);
+      });
+    }
+    render(e4) {
+      return t(this, void 0, void 0, function* () {
+        this.timeouts.forEach((t4) => t4()), this.timeouts = [], this.canvasWrapper.innerHTML = "", this.progressWrapper.innerHTML = "", null != this.options.width && (this.scrollContainer.style.width = "number" == typeof this.options.width ? `${this.options.width}px` : this.options.width);
+        const t3 = window.devicePixelRatio || 1, i3 = this.scrollContainer.clientWidth, n3 = Math.ceil(e4.duration * (this.options.minPxPerSec || 0));
+        this.isScrollable = n3 > i3;
+        const s2 = this.options.fillParent && !this.isScrollable, r3 = (s2 ? i3 : n3) * t3;
+        this.wrapper.style.width = s2 ? "100%" : `${n3}px`, this.scrollContainer.style.overflowX = this.isScrollable ? "auto" : "hidden", this.scrollContainer.classList.toggle("noScrollbar", !!this.options.hideScrollbar), this.cursor.style.backgroundColor = `${this.options.cursorColor || this.options.progressColor}`, this.cursor.style.width = `${this.options.cursorWidth}px`, this.audioData = e4, this.emit("render");
+        try {
+          if (this.options.splitChannels) yield Promise.all(Array.from({ length: e4.numberOfChannels }).map((t4, i4) => {
+            var n4;
+            const s3 = Object.assign(Object.assign({}, this.options), null === (n4 = this.options.splitChannels) || void 0 === n4 ? void 0 : n4[i4]);
+            return this.renderChannel([e4.getChannelData(i4)], s3, r3, i4);
+          }));
+          else {
+            const t4 = [e4.getChannelData(0)];
+            e4.numberOfChannels > 1 && t4.push(e4.getChannelData(1)), yield this.renderChannel(t4, this.options, r3, 0);
+          }
+        } catch (t4) {
+          return;
+        }
+        this.emit("rendered");
+      });
+    }
+    reRender() {
+      if (!this.audioData) return;
+      const { scrollWidth: t3 } = this.scrollContainer, { right: e4 } = this.progressWrapper.getBoundingClientRect();
+      if (this.render(this.audioData), this.isScrollable && t3 !== this.scrollContainer.scrollWidth) {
+        const { right: t4 } = this.progressWrapper.getBoundingClientRect();
+        let i3 = t4 - e4;
+        i3 *= 2, i3 = i3 < 0 ? Math.floor(i3) : Math.ceil(i3), i3 /= 2, this.scrollContainer.scrollLeft += i3;
+      }
+    }
+    zoom(t3) {
+      this.options.minPxPerSec = t3, this.reRender();
+    }
+    scrollIntoView(t3, e4 = false) {
+      const { scrollLeft: i3, scrollWidth: n3, clientWidth: s2 } = this.scrollContainer, r3 = t3 * n3, o4 = i3, a3 = i3 + s2, h2 = s2 / 2;
+      if (this.isDragging) {
+        const t4 = 30;
+        r3 + t4 > a3 ? this.scrollContainer.scrollLeft += t4 : r3 - t4 < o4 && (this.scrollContainer.scrollLeft -= t4);
+      } else {
+        (r3 < o4 || r3 > a3) && (this.scrollContainer.scrollLeft = r3 - (this.options.autoCenter ? h2 : 0));
+        const t4 = r3 - i3 - h2;
+        e4 && this.options.autoCenter && t4 > 0 && (this.scrollContainer.scrollLeft += Math.min(t4, 10));
+      }
+      {
+        const t4 = this.scrollContainer.scrollLeft, e5 = t4 / n3, i4 = (t4 + s2) / n3;
+        this.emit("scroll", e5, i4);
+      }
+    }
+    renderProgress(t3, e4) {
+      if (isNaN(t3)) return;
+      const i3 = 100 * t3;
+      this.canvasWrapper.style.clipPath = `polygon(${i3}% 0, 100% 0, 100% 100%, ${i3}% 100%)`, this.progressWrapper.style.width = `${i3}%`, this.cursor.style.left = `${i3}%`, this.cursor.style.transform = `translateX(-${100 === Math.round(i3) ? this.options.cursorWidth : 0}px)`, this.isScrollable && this.options.autoScroll && this.scrollIntoView(t3, e4);
+    }
+    exportImage(e4, i3, n3) {
+      return t(this, void 0, void 0, function* () {
+        const t3 = this.canvasWrapper.querySelectorAll("canvas");
+        if (!t3.length) throw new Error("No waveform data");
+        if ("dataURL" === n3) {
+          const n4 = Array.from(t3).map((t4) => t4.toDataURL(e4, i3));
+          return Promise.resolve(n4);
+        }
+        return Promise.all(Array.from(t3).map((t4) => new Promise((n4, s2) => {
+          t4.toBlob((t5) => {
+            t5 ? n4(t5) : s2(new Error("Could not export image"));
+          }, e4, i3);
+        })));
+      });
+    }
+  };
+  h.MAX_CANVAS_WIDTH = 4e3;
+  var l = class extends e {
+    constructor() {
+      super(...arguments), this.unsubscribe = () => {
+      };
+    }
+    start() {
+      this.unsubscribe = this.on("tick", () => {
+        requestAnimationFrame(() => {
+          this.emit("tick");
+        });
+      }), this.emit("tick");
+    }
+    stop() {
+      this.unsubscribe();
+    }
+    destroy() {
+      this.unsubscribe();
+    }
+  };
+  var d = class extends e {
+    constructor(t3 = new AudioContext()) {
+      super(), this.bufferNode = null, this.playStartTime = 0, this.playedDuration = 0, this._muted = false, this._playbackRate = 1, this._duration = void 0, this.buffer = null, this.currentSrc = "", this.paused = true, this.crossOrigin = null, this.seeking = false, this.autoplay = false, this.addEventListener = this.on, this.removeEventListener = this.un, this.audioContext = t3, this.gainNode = this.audioContext.createGain(), this.gainNode.connect(this.audioContext.destination);
+    }
+    load() {
+      return t(this, void 0, void 0, function* () {
+      });
+    }
+    get src() {
+      return this.currentSrc;
+    }
+    set src(t3) {
+      if (this.currentSrc = t3, this._duration = void 0, !t3) return this.buffer = null, void this.emit("emptied");
+      fetch(t3).then((e4) => {
+        if (e4.status >= 400) throw new Error(`Failed to fetch ${t3}: ${e4.status} (${e4.statusText})`);
+        return e4.arrayBuffer();
+      }).then((e4) => this.currentSrc !== t3 ? null : this.audioContext.decodeAudioData(e4)).then((e4) => {
+        this.currentSrc === t3 && (this.buffer = e4, this.emit("loadedmetadata"), this.emit("canplay"), this.autoplay && this.play());
+      });
+    }
+    _play() {
+      var t3;
+      if (!this.paused) return;
+      this.paused = false, null === (t3 = this.bufferNode) || void 0 === t3 || t3.disconnect(), this.bufferNode = this.audioContext.createBufferSource(), this.buffer && (this.bufferNode.buffer = this.buffer), this.bufferNode.playbackRate.value = this._playbackRate, this.bufferNode.connect(this.gainNode);
+      let e4 = this.playedDuration * this._playbackRate;
+      e4 >= this.duration && (e4 = 0, this.playedDuration = 0), this.bufferNode.start(this.audioContext.currentTime, e4), this.playStartTime = this.audioContext.currentTime, this.bufferNode.onended = () => {
+        this.currentTime >= this.duration && (this.pause(), this.emit("ended"));
+      };
+    }
+    _pause() {
+      var t3;
+      this.paused = true, null === (t3 = this.bufferNode) || void 0 === t3 || t3.stop(), this.playedDuration += this.audioContext.currentTime - this.playStartTime;
+    }
+    play() {
+      return t(this, void 0, void 0, function* () {
+        this.paused && (this._play(), this.emit("play"));
+      });
+    }
+    pause() {
+      this.paused || (this._pause(), this.emit("pause"));
+    }
+    stopAt(t3) {
+      var e4, i3;
+      const n3 = t3 - this.currentTime;
+      null === (e4 = this.bufferNode) || void 0 === e4 || e4.stop(this.audioContext.currentTime + n3), null === (i3 = this.bufferNode) || void 0 === i3 || i3.addEventListener("ended", () => {
+        this.bufferNode = null, this.pause();
+      }, { once: true });
+    }
+    setSinkId(e4) {
+      return t(this, void 0, void 0, function* () {
+        return this.audioContext.setSinkId(e4);
+      });
+    }
+    get playbackRate() {
+      return this._playbackRate;
+    }
+    set playbackRate(t3) {
+      this._playbackRate = t3, this.bufferNode && (this.bufferNode.playbackRate.value = t3);
+    }
+    get currentTime() {
+      return (this.paused ? this.playedDuration : this.playedDuration + (this.audioContext.currentTime - this.playStartTime)) * this._playbackRate;
+    }
+    set currentTime(t3) {
+      const e4 = !this.paused;
+      e4 && this._pause(), this.playedDuration = t3 / this._playbackRate, e4 && this._play(), this.emit("seeking"), this.emit("timeupdate");
+    }
+    get duration() {
+      var t3, e4;
+      return null !== (t3 = this._duration) && void 0 !== t3 ? t3 : (null === (e4 = this.buffer) || void 0 === e4 ? void 0 : e4.duration) || 0;
+    }
+    set duration(t3) {
+      this._duration = t3;
+    }
+    get volume() {
+      return this.gainNode.gain.value;
+    }
+    set volume(t3) {
+      this.gainNode.gain.value = t3, this.emit("volumechange");
+    }
+    get muted() {
+      return this._muted;
+    }
+    set muted(t3) {
+      this._muted !== t3 && (this._muted = t3, this._muted ? this.gainNode.disconnect() : this.gainNode.connect(this.audioContext.destination));
+    }
+    canPlayType(t3) {
+      return /^(audio|video)\//.test(t3);
+    }
+    getGainNode() {
+      return this.gainNode;
+    }
+    getChannelData() {
+      const t3 = [];
+      if (!this.buffer) return t3;
+      const e4 = this.buffer.numberOfChannels;
+      for (let i3 = 0; i3 < e4; i3++) t3.push(this.buffer.getChannelData(i3));
+      return t3;
+    }
+  };
+  var c = { waveColor: "#999", progressColor: "#555", cursorWidth: 1, minPxPerSec: 0, fillParent: true, interact: true, dragToSeek: false, autoScroll: true, autoCenter: true, sampleRate: 8e3 };
+  var u = class _u extends a {
+    static create(t3) {
+      return new _u(t3);
+    }
+    constructor(t3) {
+      const e4 = t3.media || ("WebAudio" === t3.backend ? new d() : void 0);
+      super({ media: e4, mediaControls: t3.mediaControls, autoplay: t3.autoplay, playbackRate: t3.audioRate }), this.plugins = [], this.decodedData = null, this.subscriptions = [], this.mediaSubscriptions = [], this.abortController = null, this.options = Object.assign({}, c, t3), this.timer = new l();
+      const i3 = e4 ? void 0 : this.getMediaElement();
+      this.renderer = new h(this.options, i3), this.initPlayerEvents(), this.initRendererEvents(), this.initTimerEvents(), this.initPlugins();
+      const n3 = this.options.url || this.getSrc() || "";
+      Promise.resolve().then(() => {
+        this.emit("init");
+        const { peaks: t4, duration: e5 } = this.options;
+        (n3 || t4 && e5) && this.load(n3, t4, e5).catch(() => null);
+      });
+    }
+    updateProgress(t3 = this.getCurrentTime()) {
+      return this.renderer.renderProgress(t3 / this.getDuration(), this.isPlaying()), t3;
+    }
+    initTimerEvents() {
+      this.subscriptions.push(this.timer.on("tick", () => {
+        if (!this.isSeeking()) {
+          const t3 = this.updateProgress();
+          this.emit("timeupdate", t3), this.emit("audioprocess", t3);
+        }
+      }));
+    }
+    initPlayerEvents() {
+      this.isPlaying() && (this.emit("play"), this.timer.start()), this.mediaSubscriptions.push(this.onMediaEvent("timeupdate", () => {
+        const t3 = this.updateProgress();
+        this.emit("timeupdate", t3);
+      }), this.onMediaEvent("play", () => {
+        this.emit("play"), this.timer.start();
+      }), this.onMediaEvent("pause", () => {
+        this.emit("pause"), this.timer.stop();
+      }), this.onMediaEvent("emptied", () => {
+        this.timer.stop();
+      }), this.onMediaEvent("ended", () => {
+        this.emit("finish");
+      }), this.onMediaEvent("seeking", () => {
+        this.emit("seeking", this.getCurrentTime());
+      }), this.onMediaEvent("error", (t3) => {
+        this.emit("error", t3.error);
+      }));
+    }
+    initRendererEvents() {
+      this.subscriptions.push(this.renderer.on("click", (t3, e4) => {
+        this.options.interact && (this.seekTo(t3), this.emit("interaction", t3 * this.getDuration()), this.emit("click", t3, e4));
+      }), this.renderer.on("dblclick", (t3, e4) => {
+        this.emit("dblclick", t3, e4);
+      }), this.renderer.on("scroll", (t3, e4) => {
+        const i3 = this.getDuration();
+        this.emit("scroll", t3 * i3, e4 * i3);
+      }), this.renderer.on("render", () => {
+        this.emit("redraw");
+      }), this.renderer.on("rendered", () => {
+        this.emit("redrawcomplete");
+      }), this.renderer.on("dragstart", (t3) => {
+        this.emit("dragstart", t3);
+      }), this.renderer.on("dragend", (t3) => {
+        this.emit("dragend", t3);
+      }));
+      {
+        let t3;
+        this.subscriptions.push(this.renderer.on("drag", (e4) => {
+          if (!this.options.interact) return;
+          let i3;
+          this.renderer.renderProgress(e4), clearTimeout(t3), this.isPlaying() ? i3 = 0 : true === this.options.dragToSeek ? i3 = 200 : "object" == typeof this.options.dragToSeek && void 0 !== this.options.dragToSeek && (i3 = this.options.dragToSeek.debounceTime), t3 = setTimeout(() => {
+            this.seekTo(e4);
+          }, i3), this.emit("interaction", e4 * this.getDuration()), this.emit("drag", e4);
+        }));
+      }
+    }
+    initPlugins() {
+      var t3;
+      (null === (t3 = this.options.plugins) || void 0 === t3 ? void 0 : t3.length) && this.options.plugins.forEach((t4) => {
+        this.registerPlugin(t4);
+      });
+    }
+    unsubscribePlayerEvents() {
+      this.mediaSubscriptions.forEach((t3) => t3()), this.mediaSubscriptions = [];
+    }
+    setOptions(t3) {
+      this.options = Object.assign({}, this.options, t3), this.renderer.setOptions(this.options), t3.audioRate && this.setPlaybackRate(t3.audioRate), null != t3.mediaControls && (this.getMediaElement().controls = t3.mediaControls);
+    }
+    registerPlugin(t3) {
+      return t3._init(this), this.plugins.push(t3), this.subscriptions.push(t3.once("destroy", () => {
+        this.plugins = this.plugins.filter((e4) => e4 !== t3);
+      })), t3;
+    }
+    getWrapper() {
+      return this.renderer.getWrapper();
+    }
+    getScroll() {
+      return this.renderer.getScroll();
+    }
+    setScroll(t3) {
+      return this.renderer.setScroll(t3);
+    }
+    setScrollTime(t3) {
+      const e4 = t3 / this.getDuration();
+      this.renderer.setScrollPercentage(e4);
+    }
+    getActivePlugins() {
+      return this.plugins;
+    }
+    loadAudio(e4, n3, s2, r3) {
+      return t(this, void 0, void 0, function* () {
+        var t3;
+        if (this.emit("load", e4), !this.options.media && this.isPlaying() && this.pause(), this.decodedData = null, !n3 && !s2) {
+          const i3 = this.options.fetchParams || {};
+          window.AbortController && !i3.signal && (this.abortController = new AbortController(), i3.signal = null === (t3 = this.abortController) || void 0 === t3 ? void 0 : t3.signal);
+          const s3 = (t4) => this.emit("loading", t4);
+          n3 = yield o.fetchBlob(e4, s3, i3);
+        }
+        this.setSrc(e4, n3);
+        const a3 = r3 || this.getDuration() || (yield new Promise((t4) => {
+          this.onMediaEvent("loadedmetadata", () => t4(this.getDuration()), { once: true });
+        }));
+        if (!e4 && !n3) {
+          const t4 = this.getMediaElement();
+          t4 instanceof d && (t4.duration = a3);
+        }
+        if (s2) this.decodedData = i.createBuffer(s2, a3 || 0);
+        else if (n3) {
+          const t4 = yield n3.arrayBuffer();
+          this.decodedData = yield i.decode(t4, this.options.sampleRate);
+        }
+        this.decodedData && (this.emit("decode", this.getDuration()), this.renderer.render(this.decodedData)), this.emit("ready", this.getDuration());
+      });
+    }
+    load(e4, i3, n3) {
+      return t(this, void 0, void 0, function* () {
+        try {
+          return yield this.loadAudio(e4, void 0, i3, n3);
+        } catch (t3) {
+          throw this.emit("error", t3), t3;
+        }
+      });
+    }
+    loadBlob(e4, i3, n3) {
+      return t(this, void 0, void 0, function* () {
+        try {
+          return yield this.loadAudio("blob", e4, i3, n3);
+        } catch (t3) {
+          throw this.emit("error", t3), t3;
+        }
+      });
+    }
+    zoom(t3) {
+      if (!this.decodedData) throw new Error("No audio loaded");
+      this.renderer.zoom(t3), this.emit("zoom", t3);
+    }
+    getDecodedData() {
+      return this.decodedData;
+    }
+    exportPeaks({ channels: t3 = 2, maxLength: e4 = 8e3, precision: i3 = 1e4 } = {}) {
+      if (!this.decodedData) throw new Error("The audio has not been decoded yet");
+      const n3 = Math.min(t3, this.decodedData.numberOfChannels), s2 = [];
+      for (let t4 = 0; t4 < n3; t4++) {
+        const n4 = this.decodedData.getChannelData(t4), r3 = [], o4 = n4.length / e4;
+        for (let t5 = 0; t5 < e4; t5++) {
+          const e5 = n4.slice(Math.floor(t5 * o4), Math.ceil((t5 + 1) * o4));
+          let s3 = 0;
+          for (let t6 = 0; t6 < e5.length; t6++) {
+            const i4 = e5[t6];
+            Math.abs(i4) > Math.abs(s3) && (s3 = i4);
+          }
+          r3.push(Math.round(s3 * i3) / i3);
+        }
+        s2.push(r3);
+      }
+      return s2;
+    }
+    getDuration() {
+      let t3 = super.getDuration() || 0;
+      return 0 !== t3 && t3 !== 1 / 0 || !this.decodedData || (t3 = this.decodedData.duration), t3;
+    }
+    toggleInteraction(t3) {
+      this.options.interact = t3;
+    }
+    setTime(t3) {
+      super.setTime(t3), this.updateProgress(t3), this.emit("timeupdate", t3);
+    }
+    seekTo(t3) {
+      const e4 = this.getDuration() * t3;
+      this.setTime(e4);
+    }
+    playPause() {
+      return t(this, void 0, void 0, function* () {
+        return this.isPlaying() ? this.pause() : this.play();
+      });
+    }
+    stop() {
+      this.pause(), this.setTime(0);
+    }
+    skip(t3) {
+      this.setTime(this.getCurrentTime() + t3);
+    }
+    empty() {
+      this.load("", [[0]], 1e-3);
+    }
+    setMediaElement(t3) {
+      this.unsubscribePlayerEvents(), super.setMediaElement(t3), this.initPlayerEvents();
+    }
+    exportImage() {
+      return t(this, arguments, void 0, function* (t3 = "image/png", e4 = 1, i3 = "dataURL") {
+        return this.renderer.exportImage(t3, e4, i3);
+      });
+    }
+    destroy() {
+      var t3;
+      this.emit("destroy"), null === (t3 = this.abortController) || void 0 === t3 || t3.abort(), this.plugins.forEach((t4) => t4.destroy()), this.subscriptions.forEach((t4) => t4()), this.unsubscribePlayerEvents(), this.timer.destroy(), this.renderer.destroy(), super.destroy();
+    }
+  };
+  u.BasePlugin = class extends e {
+    constructor(t3) {
+      super(), this.subscriptions = [], this.options = t3;
+    }
+    onInit() {
+    }
+    _init(t3) {
+      this.wavesurfer = t3, this.onInit();
+    }
+    destroy() {
+      this.emit("destroy"), this.subscriptions.forEach((t3) => t3());
+    }
+  }, u.dom = r;
+
+  // node_modules/@wavesurfer/react/dist/index.js
+  function i2(t3, e4) {
+    const [n3, i3] = (0, import_react2.useState)(null), a3 = (0, import_react2.useMemo)(() => Object.entries(e4).flat(), [e4]);
+    return (0, import_react2.useEffect)(() => {
+      if (!t3.current) return;
+      const n4 = u.create(Object.assign(Object.assign({}, e4), { container: t3.current }));
+      return i3(n4), () => {
+        n4.destroy();
+      };
+    }, [t3, ...a3]), n3;
+  }
+  var a2 = /^on([A-Z])/;
+  var u2 = (t3) => a2.test(t3);
+  function f(t3, e4) {
+    const n3 = (0, import_react2.useMemo)(() => Object.entries(e4).flat(), [e4]);
+    (0, import_react2.useEffect)(() => {
+      if (!t3) return;
+      const n4 = Object.entries(e4);
+      if (!n4.length) return;
+      const r3 = n4.map(([e5, n5]) => {
+        const r4 = e5.replace(a2, (t4, e6) => e6.toLowerCase());
+        return t3.on(r4, (...e6) => n5(t3, ...e6));
+      });
+      return () => {
+        r3.forEach((t4) => t4());
+      };
+    }, [t3, ...n3]);
+  }
+  var l2 = (0, import_react2.memo)((e4) => {
+    const r3 = (0, import_react2.useRef)(null), [c3, s2] = function(t3) {
+      return (0, import_react2.useMemo)(() => {
+        const e5 = Object.assign({}, t3), n3 = Object.assign({}, t3);
+        for (const t4 in e5) u2(t4) ? delete e5[t4] : delete n3[t4];
+        return [e5, n3];
+      }, [t3]);
+    }(e4);
+    return f(i2(r3, c3), s2), (0, import_jsx_runtime.jsx)("div", { ref: r3 });
+  });
+  function p(t3) {
+    var { container: e4 } = t3;
+    const n3 = i2(e4, function(t4, e5) {
+      var n4 = {};
+      for (var r3 in t4) Object.prototype.hasOwnProperty.call(t4, r3) && e5.indexOf(r3) < 0 && (n4[r3] = t4[r3]);
+      if (null != t4 && "function" == typeof Object.getOwnPropertySymbols) {
+        var o4 = 0;
+        for (r3 = Object.getOwnPropertySymbols(t4); o4 < r3.length; o4++) e5.indexOf(r3[o4]) < 0 && Object.prototype.propertyIsEnumerable.call(t4, r3[o4]) && (n4[r3[o4]] = t4[r3[o4]]);
+      }
+      return n4;
+    }(t3, ["container"])), s2 = function(t4) {
+      const [e5, n4] = (0, import_react2.useState)(false), [s3, i3] = (0, import_react2.useState)(false), [a3, u3] = (0, import_react2.useState)(0);
+      return (0, import_react2.useEffect)(() => {
+        if (!t4) return;
+        const e6 = [t4.on("load", () => {
+          n4(false), i3(false), u3(0);
+        }), t4.on("ready", () => {
+          n4(true), i3(false), u3(0);
+        }), t4.on("play", () => {
+          i3(true);
+        }), t4.on("pause", () => {
+          i3(false);
+        }), t4.on("timeupdate", () => {
+          u3(t4.getCurrentTime());
+        }), t4.on("destroy", () => {
+          n4(false), i3(false);
+        })];
+        return () => {
+          e6.forEach((t5) => t5());
+        };
+      }, [t4]), (0, import_react2.useMemo)(() => ({ isReady: e5, isPlaying: s3, currentTime: a3 }), [s3, a3, e5]);
+    }(n3);
+    return (0, import_react2.useMemo)(() => Object.assign(Object.assign({}, s2), { wavesurfer: n3 }), [s2, n3]);
+  }
+
   // index.coffee
   var $component;
   var App;
   var SoundSampleCard;
   var SoundSamplePlayer;
   var create_element;
-  var e;
+  var e3;
   var entries;
   var impulse_responses;
   var sound_samples;
-  entries = function(o, f) {
-    return Object.entries(o).map(function(kv) {
-      return f(...kv);
+  entries = function(o4, f2) {
+    return Object.entries(o4).map(function(kv) {
+      return f2(...kv);
     });
   };
   create_element = function(el, options, ...children) {
@@ -25339,22 +27242,26 @@
       }[k]) != null ? ref : k;
       return [k, v];
     }));
-    return (0, import_react2.createElement)(el, options, ...children);
+    return (0, import_react3.createElement)(el, options, ...children);
   };
-  e = new Proxy(create_element, {
+  e3 = new Proxy(create_element, {
     get: function(target, prop) {
       return function(options = {}, ...children) {
         return target(prop, options, ...children);
       };
     }
   });
-  $component = function(f) {
-    return f.bind(e);
+  $component = function(f2) {
+    return f2.bind(e3);
   };
   sound_samples = {
     "classical_singing.wav": {
       title: "Classical singing",
       description: "Some classical-style singing (TODO DESCRIPTION)"
+    },
+    "balloon.wav": {
+      title: "Balloon pop",
+      description: "Balloon pop used for measuring acoustics."
     },
     "sine_sweep.wav": {
       title: "Sine sweep",
@@ -25364,15 +27271,18 @@
   impulse_responses = {
     "siliavuori.wav": {
       title: "Sili\xE4vuori",
-      description: "Sili\xE4vuori rock cliff, Finland."
+      description: "Sili\xE4vuori rock cliff, Finland.",
+      gain: 0.5
     },
     "pirunkirkko_fake.wav": {
       title: "Pirunkirkko",
-      description: "A cave at Koli national park, Finland."
+      description: "A cave at Koli national park, Finland.",
+      gain: 0.05
     },
-    "": {
+    "silence.wav": {
       title: "Anechoic Room",
-      description: "No added acoustics."
+      description: "No added acoustics.",
+      gain: 0
     }
   };
   entries(sound_samples, function(k, v) {
@@ -25397,15 +27307,73 @@
     }, sample.title), this.p({}, sample.description)));
   });
   SoundSamplePlayer = $component(function({ sound_sample, impulse_response, audioContext }) {
-    var sample_audio_el;
-    sample_audio_el = this.audio({
-      class: "w-full",
-      src: sound_sample.src,
-      controls: true,
-      loop: true
+    var audio_graph, icon, ir_audio, ir_el, ir_surfer, ir_surfer_ref, sample_audio, sample_el, sample_node, sample_surfer, sample_surfer_ref, toggle_acoustics, toggle_play;
+    audio_graph = (0, import_react3.useMemo)(function() {
+      var convolver, convolver_gain, dry_gain, input, output;
+      input = audioContext.createGain();
+      output = audioContext.destination;
+      convolver_gain = audioContext.createGain();
+      dry_gain = audioContext.createGain();
+      dry_gain.gain.value = 0.2;
+      convolver_gain.gain.value = 0.1;
+      convolver = null;
+      convolver_gain.connect(output);
+      input.connect(dry_gain).connect(output);
+      return { input, convolver, convolver_gain, dry_gain };
+    }, []);
+    ({ sample_audio, sample_node } = (0, import_react3.useMemo)(function() {
+      sample_audio = new Audio();
+      sample_audio.src = sound_sample.src;
+      if (sample_node) {
+        sample_node.disconnect();
+      }
+      sample_node = audioContext.createMediaElementSource(sample_audio);
+      console.log("Connecting sample", sample_node);
+      sample_node.connect(audio_graph.input);
+      return { sample_audio, sample_node };
+    }, [sound_sample]));
+    ({ ir_audio } = (0, import_react3.useMemo)(function() {
+      ir_audio = new Audio();
+      ir_audio.src = impulse_response.src;
+      return { ir_audio };
+    }, [impulse_response]));
+    (0, import_react3.useEffect)(function() {
+      if (audio_graph.convolver) {
+        audio_graph.convolver.disconnect();
+      }
+      (async function() {
+        var convolver, ref, tmp;
+        tmp = await fetch(impulse_response.src);
+        tmp = await tmp.arrayBuffer();
+        tmp = await audioContext.decodeAudioData(tmp);
+        convolver = audioContext.createConvolver();
+        convolver.buffer = tmp;
+        audio_graph.convolver = convolver;
+        audio_graph.convolver_gain.gain.value = (ref = impulse_response.gain) != null ? ref : 1;
+        return audio_graph.input.connect(convolver).connect(audio_graph.convolver_gain);
+      })();
+      return function() {
+        return console.log("Uneffect");
+      };
+    }, [impulse_response]);
+    sample_surfer_ref = (0, import_react3.useRef)();
+    ir_surfer_ref = (0, import_react3.useRef)();
+    sample_surfer = p({
+      container: sample_surfer_ref,
+      media: sample_audio
     });
-    console.log("Here");
-    return this.div({
+    ir_surfer = p({
+      container: ir_surfer_ref,
+      media: ir_audio,
+      interact: false
+    });
+    icon = sample_surfer.isPlaying ? "mdi:pause" : "mdi:play";
+    toggle_play = function() {
+      return sample_surfer.wavesurfer.playPause();
+    };
+    toggle_acoustics = function() {
+    };
+    sample_el = this.div({
       class: "flex flex-col gap-4"
     }, this.div({
       class: "flex flex-row items-center gap-4"
@@ -25413,7 +27381,7 @@
       class: "flex-none w-10"
     }, this.label({
       for: "sample_drawer",
-      class: "btn btn-ghost-btn-square"
+      class: "btn btn-ghost btn-lg btn-square"
     }, this(Icon, {
       icon: "majesticons:menu",
       class: "text-2xl"
@@ -25423,17 +27391,61 @@
       class: "card-body"
     }, this.h2({
       class: "card-title"
-    }, `Sound sample: ${sound_sample.title}`), this.p({}, sound_sample.description), sample_audio_el))), this.div({
+    }, `Sound sample: ${sound_sample.title}`), this.p({}, sound_sample.description), this.div({
+      class: "flex flex-row items-center gap-4"
+    }, this.button({
+      class: "btn btn-circle btn-lg text-4xl",
+      onClick: toggle_play
+    }, this(Icon, {
+      icon
+    })), this.div({
+      class: "w-full join-item",
+      ref: sample_surfer_ref
+    })))), this.div({
       class: "flex-none w-10"
-    }));
+    })));
+    ir_el = this.div({
+      class: "flex flex-col gap-4"
+    }, this.div({
+      class: "flex flex-row items-center gap-4"
+    }, this.div({
+      class: "flex-none w-10"
+    }), this.div({
+      class: "flex-1 card w-full bg-base-100 shadow"
+    }, this.div({
+      class: "card-body"
+    }, this.h2({
+      class: "card-title"
+    }, `Acoustics: ${impulse_response.title}`), this.p({}, impulse_response.description), this.div({
+      class: "flex flex-row items-center gap-4"
+    }, this.button({
+      class: "btn btn-circle btn-lg text-4xl invisible",
+      onClick: toggle_acoustics
+    }, this(Icon, {
+      icon
+    })), this.div({
+      class: "w-full join-item",
+      ref: ir_surfer_ref
+    })))), this.div({
+      class: "flex-none w-10"
+    }, this.label({
+      for: "impulse_response_drawer",
+      class: "btn btn-ghost btn-lg btn-square"
+    }, this(Icon, {
+      icon: "majesticons:menu",
+      class: "text-2xl"
+    })))));
+    return this(import_react3.Fragment, {}, sample_el, ir_el);
   });
   App = $component(function() {
-    var audioContext, impulse_response, impulse_response_id, left_drawer, set_impulse_response_id, set_sound_sample_id, sound_sample, sound_sample_id;
-    [sound_sample_id, set_sound_sample_id] = (0, import_react2.useState)(Object.keys(sound_samples)[0]);
-    [impulse_response_id, set_impulse_response_id] = (0, import_react2.useState)(Object.keys(impulse_responses)[0]);
+    var audioContext, impulse_response, impulse_response_id, left_drawer, right_drawer, set_impulse_response_id, set_sound_sample_id, sound_sample, sound_sample_id;
+    [sound_sample_id, set_sound_sample_id] = (0, import_react3.useState)(Object.keys(sound_samples)[0]);
+    [impulse_response_id, set_impulse_response_id] = (0, import_react3.useState)(Object.keys(impulse_responses)[0]);
     sound_sample = sound_samples[sound_sample_id];
-    impulse_response = impulse_responses[sound_sample_id];
-    audioContext = new AudioContext();
+    impulse_response = impulse_responses[impulse_response_id];
+    audioContext = (0, import_react3.useMemo)(function() {
+      return new AudioContext();
+    }, []);
     left_drawer = this.div({
       class: "drawer"
     }, this.style({}, ".drawer-side {z-index: 1000;}"), this.input({
@@ -25449,14 +27461,13 @@
     }), this.ul({
       class: "menu p4 min-h-full bg-base-200 text-base-content"
     }, entries(sound_samples, (id, sample) => {
-      var active_class, checked, onClick, select;
+      var checked, onClick, select;
       onClick = function() {
         return document.querySelector("#sample_drawer").checked = false;
       };
       checked = sound_sample_id === id;
-      active_class = checked ? "active" : void 0;
-      select = function(e2) {
-        return set_sound_sample_id(e2.target.value);
+      select = function(e4) {
+        return set_sound_sample_id(e4.target.value);
       };
       return this.li({
         key: id,
@@ -25476,9 +27487,50 @@
         sample
       })));
     }))));
-    return this(import_react2.Fragment, {}, left_drawer, this(SoundSamplePlayer, { sound_sample, impulse_response, audioContext }));
+    right_drawer = this.div({
+      class: "drawer drawer-end"
+    }, this.style({}, ".drawer-side {z-index: 1000;}"), this.input({
+      id: "impulse_response_drawer",
+      type: "checkbox",
+      class: "drawer-toggle"
+    }), this.div({
+      class: "drawer-side"
+    }, this.label({
+      for: "impulse_response_drawer",
+      "aria-label": "close sidebar",
+      class: "drawer-overlay"
+    }), this.ul({
+      class: "menu p4 min-h-full bg-base-200 text-base-content"
+    }, entries(impulse_responses, (id, sample) => {
+      var checked, onClick, select;
+      onClick = function() {
+        return document.querySelector("#impulse_response_drawer").checked = false;
+      };
+      checked = sound_sample_id === id;
+      select = function(e4) {
+        return set_impulse_response_id(e4.target.value);
+      };
+      return this.li({
+        key: id,
+        onClick
+      }, this.input({
+        class: "hidden",
+        type: "radio",
+        id,
+        value: id,
+        name: "impulse_response_id",
+        checked,
+        onChange: select
+      }), this.label({
+        for: id,
+        class: checked ? "active" : void 0
+      }, this(SoundSampleCard, {
+        sample
+      })));
+    }))));
+    return this(import_react3.Fragment, {}, left_drawer, right_drawer, this(SoundSamplePlayer, { sound_sample, impulse_response, audioContext }));
   });
-  (0, import_client.createRoot)(document.getElementById("app")).render(e(App));
+  (0, import_client.createRoot)(document.getElementById("app")).render(e3(App));
 })();
 /*! Bundled license information:
 
@@ -25527,5 +27579,32 @@ react-dom/cjs/react-dom.development.js:
    * @internal
    * @license Modernizr 3.0.0pre (Custom Build) | MIT
    *)
+
+react/cjs/react-jsx-runtime.development.js:
+  (**
+   * @license React
+   * react-jsx-runtime.development.js
+   *
+   * Copyright (c) Facebook, Inc. and its affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   *)
+
+@wavesurfer/react/dist/index.js:
+  (*! *****************************************************************************
+  Copyright (c) Microsoft Corporation.
+  
+  Permission to use, copy, modify, and/or distribute this software for any
+  purpose with or without fee is hereby granted.
+  
+  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+  REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+  AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+  INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+  LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+  OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+  PERFORMANCE OF THIS SOFTWARE.
+  ***************************************************************************** *)
 */
 //# sourceMappingURL=index.js.map

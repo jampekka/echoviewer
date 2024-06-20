@@ -5,9 +5,11 @@
     "esbuild-plugin-tailwindcss": "^1.2.0"
   },
   "dependencies": {
+    "@wavesurfer/react": "^1.0.6",
     "esbuild-coffeescript": "^2.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tailwindcss": "^3.4.4"
+    "tailwindcss": "^3.4.4",
+    "wavesurfer.js": "^7.7.15"
   }
 }
