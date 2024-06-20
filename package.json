@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@iconify/react": "^5.0.1",
     "esbuild": "^0.21.5",
     "esbuild-plugin-tailwindcss": "^1.2.0"
   },
