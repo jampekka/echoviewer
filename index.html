@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./tailwind.js"></script>    
+    <script>
+        tailwind.config = {
+            theme: {
+                container: {
+                    center: true,
+                    padding: '1rem',
+                },
+            },
+        }
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <div class="container mx-auto pt-6 pb-6 space-y-6">
+        <div class="navbar bg-base-100 shadow rounded-box">
+            <div class="flex-1">
+                <a class="btn btn-ghost text-xl">Echoviewer</a>
+            </div>
+            <div class="flex-none text-xs text-right">
+                <button class="btn btn-ghost  font-normal">    
+                    <div class="">
+                        Acoustics of<br/> Sacred Sites
+                    </div>
+                    
+                    <div class="avatar">
+                        <div class="w-9 rounded-full avatar">
+                            <img src="sacredsounds.jpg" />
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div id="app">
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
