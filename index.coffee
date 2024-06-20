@@ -6,12 +6,19 @@ entries = (o, f) -> Object.entries(o).map (kv) -> f kv...
 
 #e = createElement
 # TODO: Get rid of all react magic (style, camelCasing etc)
-e = new Proxy createElement,
-    get: (target, prop, receiver) -> (options={}, children...) ->
-            # Rename keywords to hack the react hack
-            options = Object.fromEntries entries options, (k, v) ->
+
+create_element = (el, options, children...) ->
+    # TODO: Optional options?
+    # TODO: List to Fragment
+    # Rename keywords to unhack the react hacks
+    options ?= {}
+    options = Object.fromEntries entries options, (k, v) ->
                 k = {class: 'className', for: 'htmlFor'}[k] ? k
                 [k, v]
+    createElement el, options, children...
+
+e = new Proxy create_element,
+    get: (target, prop) -> (options={}, children...) ->
             target prop, options, children...
 
 # TODO Create element automatically?
@@ -63,15 +70,33 @@ entries impulse_responses, (k, v) ->
     v.id ?= k
     v.src ?= "./impulse_responses/"+k
 
-SoundSampleCard = -> e.h1 "Todo"
+SoundSampleCard = $component ({sample}) ->
+    @div class: 'w-96 image-full',
+        @div class: 'card-body',
+            @h2 class: 'card-title', sample.title
+            @p {}, sample.description
 
 SoundSamplePlayer = $component ({sound_sample, impulse_response, audioContext}) ->
+    # TODO: Keep playing after sample change
+    sample_audio_el = @audio
+        class: 'w-full'
+        src: sound_sample.src
+        controls: true
+        loop: true
+
+    console.log "Here"    
+
     @div class: "flex flex-col gap-4",
         @div class: "flex flex-row items-center gap-4",
             @div class: 'flex-none w-10',
-                @label for: 'sample_drawer', class: 'btn btn-ghost-btn-square'
-                    e Icon, icon: 'majesticons:menu', style: {'fontSize': '50px'}
-            sound_sample.title
+                @label for: 'sample_drawer', class: 'btn btn-ghost-btn-square',
+                    @ Icon, icon: 'majesticons:menu', class: 'text-2xl'
+            @div class: 'flex-1 card w-full bg-base-100 shadow',
+                @div class: 'card-body',
+                    @h2 class: 'card-title', "Sound sample: #{sound_sample.title}"
+                    @p {}, sound_sample.description
+                    sample_audio_el
+        @div class: 'flex-none w-10'
 
 App = $component ->
     # TODO: Get from url params
@@ -84,18 +109,26 @@ App = $component ->
     audioContext = new AudioContext()
 
     left_drawer = @div class: 'drawer',
+        @style {}, '.drawer-side {z-index: 1000;}'
         @input id: 'sample_drawer', type: 'checkbox', class: 'drawer-toggle'
         @div class: 'drawer-side',
             @label for: 'sample_drawer', 'aria-label': 'close sidebar', class: 'drawer-overlay'
             @ul class: "menu p4 min-h-full bg-base-200 text-base-content",
+
             entries sound_samples, (id, sample) =>
-                @li key: id,
-                    @input
-                        type: 'radio', id: id, value: id, name: 'sound_sample_id',
-                        checked: sound_sample_id == id, onChange: (e) ->
+
+                onClick = ->
+                        document.querySelector("#sample_drawer").checked = false
+                checked = sound_sample_id == id
+                select = (e) ->
                             set_sound_sample_id e.target.value
-                    @label for: id,
-                        id
+                @li key: id, onClick: onClick,
+                    @input
+                        class: 'hidden',
+                        type: 'radio', id: id, value: id, name: 'sound_sample_id',
+                        checked: checked, onChange: select
+                    @label for: id, class: (if checked then 'active'),
+                        @ SoundSampleCard, sample: sample
 
     # Handle fragment in e?
     @ Fragment, {},

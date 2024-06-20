@@ -25317,6 +25317,7 @@
   var App;
   var SoundSampleCard;
   var SoundSamplePlayer;
+  var create_element;
   var e;
   var entries;
   var impulse_responses;
@@ -25326,17 +25327,23 @@
       return f(...kv);
     });
   };
-  e = new Proxy(import_react2.createElement, {
-    get: function(target, prop, receiver) {
+  create_element = function(el, options, ...children) {
+    if (options == null) {
+      options = {};
+    }
+    options = Object.fromEntries(entries(options, function(k, v) {
+      var ref;
+      k = (ref = {
+        class: "className",
+        for: "htmlFor"
+      }[k]) != null ? ref : k;
+      return [k, v];
+    }));
+    return (0, import_react2.createElement)(el, options, ...children);
+  };
+  e = new Proxy(create_element, {
+    get: function(target, prop) {
       return function(options = {}, ...children) {
-        options = Object.fromEntries(entries(options, function(k, v) {
-          var ref;
-          k = (ref = {
-            class: "className",
-            for: "htmlFor"
-          }[k]) != null ? ref : k;
-          return [k, v];
-        }));
         return target(prop, options, ...children);
       };
     }
@@ -25380,10 +25387,24 @@
     }
     return v.src != null ? v.src : v.src = "./impulse_responses/" + k;
   });
-  SoundSampleCard = function() {
-    return e.h1("Todo");
-  };
+  SoundSampleCard = $component(function({ sample }) {
+    return this.div({
+      class: "w-96 image-full"
+    }, this.div({
+      class: "card-body"
+    }, this.h2({
+      class: "card-title"
+    }, sample.title), this.p({}, sample.description)));
+  });
   SoundSamplePlayer = $component(function({ sound_sample, impulse_response, audioContext }) {
+    var sample_audio_el;
+    sample_audio_el = this.audio({
+      class: "w-full",
+      src: sound_sample.src,
+      controls: true,
+      loop: true
+    });
+    console.log("Here");
     return this.div({
       class: "flex flex-col gap-4"
     }, this.div({
@@ -25393,12 +25414,18 @@
     }, this.label({
       for: "sample_drawer",
       class: "btn btn-ghost-btn-square"
-    }), e(Icon, {
+    }, this(Icon, {
       icon: "majesticons:menu",
-      style: {
-        "fontSize": "50px"
-      }
-    })), sound_sample.title));
+      class: "text-2xl"
+    }))), this.div({
+      class: "flex-1 card w-full bg-base-100 shadow"
+    }, this.div({
+      class: "card-body"
+    }, this.h2({
+      class: "card-title"
+    }, `Sound sample: ${sound_sample.title}`), this.p({}, sound_sample.description), sample_audio_el))), this.div({
+      class: "flex-none w-10"
+    }));
   });
   App = $component(function() {
     var audioContext, impulse_response, impulse_response_id, left_drawer, set_impulse_response_id, set_sound_sample_id, sound_sample, sound_sample_id;
@@ -25409,7 +25436,7 @@
     audioContext = new AudioContext();
     left_drawer = this.div({
       class: "drawer"
-    }, this.input({
+    }, this.style({}, ".drawer-side {z-index: 1000;}"), this.input({
       id: "sample_drawer",
       type: "checkbox",
       class: "drawer-toggle"
@@ -25422,20 +25449,32 @@
     }), this.ul({
       class: "menu p4 min-h-full bg-base-200 text-base-content"
     }, entries(sound_samples, (id, sample) => {
+      var active_class, checked, onClick, select;
+      onClick = function() {
+        return document.querySelector("#sample_drawer").checked = false;
+      };
+      checked = sound_sample_id === id;
+      active_class = checked ? "active" : void 0;
+      select = function(e2) {
+        return set_sound_sample_id(e2.target.value);
+      };
       return this.li({
-        key: id
+        key: id,
+        onClick
       }, this.input({
+        class: "hidden",
         type: "radio",
         id,
         value: id,
         name: "sound_sample_id",
-        checked: sound_sample_id === id,
-        onChange: function(e2) {
-          return set_sound_sample_id(e2.target.value);
-        }
+        checked,
+        onChange: select
       }), this.label({
-        for: id
-      }, id));
+        for: id,
+        class: checked ? "active" : void 0
+      }, this(SoundSampleCard, {
+        sample
+      })));
     }))));
     return this(import_react2.Fragment, {}, left_drawer, this(SoundSamplePlayer, { sound_sample, impulse_response, audioContext }));
   });
