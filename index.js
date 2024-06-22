@@ -27328,7 +27328,6 @@
         sample_node.disconnect();
       }
       sample_node = audioContext.createMediaElementSource(sample_audio);
-      console.log("Connecting sample", sample_node);
       sample_node.connect(audio_graph.input);
       return { sample_audio, sample_node };
     }, [sound_sample]));
@@ -27369,6 +27368,7 @@
     });
     icon = sample_surfer.isPlaying ? "mdi:pause" : "mdi:play";
     toggle_play = function() {
+      audioContext.resume();
       return sample_surfer.wavesurfer.playPause();
     };
     toggle_acoustics = function() {

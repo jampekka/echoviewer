@@ -88,7 +88,7 @@ import Timeline from 'wavesurfer.js/dist/plugins/timeline.esm.js'
 
 SoundSamplePlayer = $component ({sound_sample, impulse_response, audioContext}) ->
     # TODO: Keep playing after sample change
-
+    # TODO: Loading indicators
     audio_graph = useMemo (->
         input = audioContext.createGain()
         output = audioContext.destination
@@ -114,7 +114,6 @@ SoundSamplePlayer = $component ({sound_sample, impulse_response, audioContext}) 
         if sample_node
             sample_node.disconnect()
         sample_node = audioContext.createMediaElementSource sample_audio
-        console.log "Connecting sample", sample_node
         sample_node.connect audio_graph.input
 
         {sample_audio, sample_node}
@@ -156,8 +155,6 @@ SoundSamplePlayer = $component ({sound_sample, impulse_response, audioContext}) 
     sample_surfer = useWavesurfer
         container: sample_surfer_ref
         media: sample_audio
-        #url: sound_sample.src
-
 
     ir_surfer = useWavesurfer
         container: ir_surfer_ref
@@ -167,6 +164,7 @@ SoundSamplePlayer = $component ({sound_sample, impulse_response, audioContext}) 
     icon = if sample_surfer.isPlaying then 'mdi:pause' else 'mdi:play'
     
     toggle_play = ->
+        audioContext.resume()
         sample_surfer.wavesurfer.playPause()
 
     toggle_acoustics = ->
