@@ -1,4 +1,8 @@
 {
+  "scripts": {
+	  "build": "coffee build.coffee",
+	  "dev": "coffee build.coffee serve"
+  },
   "devDependencies": {
     "@iconify/react": "^5.0.1",
     "esbuild": "^0.21.5",

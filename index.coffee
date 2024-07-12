@@ -25,22 +25,35 @@ e = new Proxy create_element,
 $component = (f) -> f.bind e
 
 sound_samples =
-    'classical_singing.wav':
+###
+    'classical_singing.webm':
         title: "Classical singing"
         description: "Some classical-style singing (TODO DESCRIPTION)"
-    'balloon.wav':
+###
+    'viena_karelian_yoik_emmi_kujanpaa.webm':
+        title: "Viena Karelian yoik",
+        description: "A Viena Karelian style yoik. By Emmi Kujanpää."
+
+    'drumming_1_mikko_heikinpoika.webm':
+        title: "Drumming 1"
+        description: "By Mikko Heikinpoika."
+
+    'talking_backwards_eero_peltonen.webm':
+        title: "Talking Backwards"
+        description: "By Eero Peltonen."
+
+    'scandinavian_cattle_call_emmi_kujanpaa.webm':
+        title: "Scandinavian Cattle Call"
+        description: "By Emmi Kujanpää"
+
+    'balloon.webm':
         title: "Balloon pop"
         description: "Balloon pop used for measuring acoustics."
-    'sine_sweep.wav':
+    'sine_sweep.webm':
         title: "Sine sweep",
         description: "A sine sweep used for measuring acoustics."
-    
-###
-    'karelian_joik_classic.wav': {
-        title: "A Karelian Joik",
-        description: "A Karelian style joik (TODO DESCRIPTION)"
-    },
 
+###
     'impulse.wav': {
         title: "Single impulse",
         description: "Only the acoustics."
@@ -52,21 +65,19 @@ impulse_responses =
         title: "Siliävuori"
         description: "Siliävuori rock cliff, Finland."
         gain: 0.5
+    'varikallio-rockart-44m-summer-pop.wav':
+        title: "Värikallio"
+        description: "Balloon pop measurement at 44 meters from painting rock. In summer."
+        gain: 0.1
     'pirunkirkko_fake.wav':
         title: "Pirunkirkko"
-        description: "A cave at Koli national park, Finland."
-        gain: 0.05
+        description: "A cave at Koli national park, Finland. Parametric reconstruction of resonance."
+        gain: 0.01
     'silence.wav':
-        title: "Anechoic Room",
+        title: "Anechoic Room"
         description: "No added acoustics."
         gain: 0.0
 
-###
-    'astuvansalmi.wav': {
-        title: "Astuvansalmi",
-        description: "Astuvansalmi rock cliff at ???, Finland."
-    },
-###
 
 entries sound_samples,  (k, v) ->
     v.id ?= k
