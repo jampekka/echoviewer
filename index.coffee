@@ -68,8 +68,11 @@ SoundSampleCard = $component ({sample}) ->
             @h2 class: 'card-title', sample.title
             @p {}, sample.description
 
-import { useWavesurfer } from '@wavesurfer/react'
-import Timeline from 'wavesurfer.js/dist/plugins/timeline.esm.js'
+import WavesurferPlayer from '@wavesurfer/react'
+import { useWavesurfer} from '@wavesurfer/react'
+import WaveSurfer from 'wavesurfer.js'
+import TimelinePlugin from 'wavesurfer.js/dist/plugins/timeline.esm.js'
+import SpectrogramPlugin from 'wavesurfer.js/dist/plugins/spectrogram.esm.js'
 
 
 SoundSamplePlayer = $component ({sound_sample, impulse_response, audioContext}) ->
@@ -142,11 +145,23 @@ SoundSamplePlayer = $component ({sound_sample, impulse_response, audioContext}) 
     sample_surfer = useWavesurfer
         container: sample_surfer_ref
         media: sample_audio
+        plugins: useMemo (-> [
+            TimelinePlugin.create()
+            ,
+            #SpectrogramPlugin.create()
+        ]), []
+    console.log sample_surfer
 
     ir_surfer = useWavesurfer
         container: ir_surfer_ref
         media: ir_audio
         interact: false
+        plugins: useMemo (-> [
+            TimelinePlugin.create()
+            ,
+            #SpectrogramPlugin.create
+            #    height: 200
+        ]), []
 
     icon = if sample_surfer.isPlaying then 'mdi:pause' else 'mdi:play'
     

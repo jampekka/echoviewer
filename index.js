@@ -311,7 +311,7 @@
               try {
                 testStringCoercion(value);
                 return false;
-              } catch (e4) {
+              } catch (e5) {
                 return true;
               }
             }
@@ -543,8 +543,8 @@
               props.children = children;
             } else if (childrenLength > 1) {
               var childArray = Array(childrenLength);
-              for (var i3 = 0; i3 < childrenLength; i3++) {
-                childArray[i3] = arguments[i3 + 2];
+              for (var i4 = 0; i4 < childrenLength; i4++) {
+                childArray[i4] = arguments[i4 + 2];
               }
               {
                 if (Object.freeze) {
@@ -619,8 +619,8 @@
               props.children = children;
             } else if (childrenLength > 1) {
               var childArray = Array(childrenLength);
-              for (var i3 = 0; i3 < childrenLength; i3++) {
-                childArray[i3] = arguments[i3 + 2];
+              for (var i4 = 0; i4 < childrenLength; i4++) {
+                childArray[i4] = arguments[i4 + 2];
               }
               props.children = childArray;
             }
@@ -718,9 +718,9 @@
             var subtreeCount = 0;
             var nextNamePrefix = nameSoFar === "" ? SEPARATOR : nameSoFar + SUBSEPARATOR;
             if (isArray(children)) {
-              for (var i3 = 0; i3 < children.length; i3++) {
-                child = children[i3];
-                nextName = nextNamePrefix + getElementKey(child, i3);
+              for (var i4 = 0; i4 < children.length; i4++) {
+                child = children[i4];
+                nextName = nextNamePrefix + getElementKey(child, i4);
                 subtreeCount += mapIntoArray(child, array, escapedPrefix, nextName, callback);
               }
             } else {
@@ -762,11 +762,11 @@
             return result;
           }
           function countChildren(children) {
-            var n3 = 0;
+            var n5 = 0;
             mapChildren(children, function() {
-              n3++;
+              n5++;
             });
-            return n3;
+            return n5;
           }
           function forEachChildren(children, forEachFunc, forEachContext) {
             mapChildren(children, function() {
@@ -1298,19 +1298,19 @@
               if (sample && control && typeof sample.stack === "string") {
                 var sampleLines = sample.stack.split("\n");
                 var controlLines = control.stack.split("\n");
-                var s2 = sampleLines.length - 1;
+                var s3 = sampleLines.length - 1;
                 var c3 = controlLines.length - 1;
-                while (s2 >= 1 && c3 >= 0 && sampleLines[s2] !== controlLines[c3]) {
+                while (s3 >= 1 && c3 >= 0 && sampleLines[s3] !== controlLines[c3]) {
                   c3--;
                 }
-                for (; s2 >= 1 && c3 >= 0; s2--, c3--) {
-                  if (sampleLines[s2] !== controlLines[c3]) {
-                    if (s2 !== 1 || c3 !== 1) {
+                for (; s3 >= 1 && c3 >= 0; s3--, c3--) {
+                  if (sampleLines[s3] !== controlLines[c3]) {
+                    if (s3 !== 1 || c3 !== 1) {
                       do {
-                        s2--;
+                        s3--;
                         c3--;
-                        if (c3 < 0 || sampleLines[s2] !== controlLines[c3]) {
-                          var _frame = "\n" + sampleLines[s2].replace(" at new ", " at ");
+                        if (c3 < 0 || sampleLines[s3] !== controlLines[c3]) {
+                          var _frame = "\n" + sampleLines[s3].replace(" at new ", " at ");
                           if (fn.displayName && _frame.includes("<anonymous>")) {
                             _frame = _frame.replace("<anonymous>", fn.displayName);
                           }
@@ -1321,7 +1321,7 @@
                           }
                           return _frame;
                         }
-                      } while (s2 >= 1 && c3 >= 0);
+                      } while (s3 >= 1 && c3 >= 0);
                     }
                     break;
                   }
@@ -1508,8 +1508,8 @@
               return;
             }
             if (isArray(node)) {
-              for (var i3 = 0; i3 < node.length; i3++) {
-                var child = node[i3];
+              for (var i4 = 0; i4 < node.length; i4++) {
+                var child = node[i4];
                 if (isValidElement2(child)) {
                   validateExplicitKey(child, parentType);
                 }
@@ -1565,8 +1565,8 @@
           function validateFragmentProps(fragment) {
             {
               var keys = Object.keys(fragment.props);
-              for (var i3 = 0; i3 < keys.length; i3++) {
-                var key = keys[i3];
+              for (var i4 = 0; i4 < keys.length; i4++) {
+                var key = keys[i4];
                 if (key !== "children" && key !== "key") {
                   setCurrentlyValidatingElement$1(fragment);
                   error("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", key);
@@ -1614,8 +1614,8 @@
               return element;
             }
             if (validType) {
-              for (var i3 = 2; i3 < arguments.length; i3++) {
-                validateChildKeys(arguments[i3], type);
+              for (var i4 = 2; i4 < arguments.length; i4++) {
+                validateChildKeys(arguments[i4], type);
               }
             }
             if (type === REACT_FRAGMENT_TYPE) {
@@ -1649,8 +1649,8 @@
           }
           function cloneElementWithValidation(element, props, children) {
             var newElement = cloneElement.apply(this, arguments);
-            for (var i3 = 2; i3 < arguments.length; i3++) {
-              validateChildKeys(arguments[i3], newElement.type);
+            for (var i4 = 2; i4 < arguments.length; i4++) {
+              validateChildKeys(arguments[i4], newElement.type);
             }
             validatePropTypes(newElement);
             return newElement;
@@ -1827,17 +1827,17 @@
             {
               if (!isFlushing) {
                 isFlushing = true;
-                var i3 = 0;
+                var i4 = 0;
                 try {
-                  for (; i3 < queue.length; i3++) {
-                    var callback = queue[i3];
+                  for (; i4 < queue.length; i4++) {
+                    var callback = queue[i4];
                     do {
                       callback = callback(true);
                     } while (callback !== null);
                   }
                   queue.length = 0;
                 } catch (error2) {
-                  queue = queue.slice(i3 + 1);
+                  queue = queue.slice(i4 + 1);
                   throw error2;
                 } finally {
                   isFlushing = false;
@@ -1944,8 +1944,8 @@
             }
             return first;
           }
-          function siftUp(heap, node, i3) {
-            var index = i3;
+          function siftUp(heap, node, i4) {
+            var index = i4;
             while (index > 0) {
               var parentIndex = index - 1 >>> 1;
               var parent = heap[parentIndex];
@@ -1958,8 +1958,8 @@
               }
             }
           }
-          function siftDown(heap, node, i3) {
-            var index = i3;
+          function siftDown(heap, node, i4) {
+            var index = i4;
             var length = heap.length;
             var halfLength = length >>> 1;
             while (index < halfLength) {
@@ -2484,8 +2484,8 @@
                 possibleRegistrationNames.ondblclick = registrationName;
               }
             }
-            for (var i3 = 0; i3 < dependencies.length; i3++) {
-              allNativeEvents.add(dependencies[i3]);
+            for (var i4 = 0; i4 < dependencies.length; i4++) {
+              allNativeEvents.add(dependencies[i4]);
             }
           }
           var canUseDOM = !!(typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined");
@@ -2502,7 +2502,7 @@
               try {
                 testStringCoercion(value);
                 return false;
-              } catch (e4) {
+              } catch (e5) {
                 return true;
               }
             }
@@ -3364,19 +3364,19 @@
               if (sample && control && typeof sample.stack === "string") {
                 var sampleLines = sample.stack.split("\n");
                 var controlLines = control.stack.split("\n");
-                var s2 = sampleLines.length - 1;
+                var s3 = sampleLines.length - 1;
                 var c3 = controlLines.length - 1;
-                while (s2 >= 1 && c3 >= 0 && sampleLines[s2] !== controlLines[c3]) {
+                while (s3 >= 1 && c3 >= 0 && sampleLines[s3] !== controlLines[c3]) {
                   c3--;
                 }
-                for (; s2 >= 1 && c3 >= 0; s2--, c3--) {
-                  if (sampleLines[s2] !== controlLines[c3]) {
-                    if (s2 !== 1 || c3 !== 1) {
+                for (; s3 >= 1 && c3 >= 0; s3--, c3--) {
+                  if (sampleLines[s3] !== controlLines[c3]) {
+                    if (s3 !== 1 || c3 !== 1) {
                       do {
-                        s2--;
+                        s3--;
                         c3--;
-                        if (c3 < 0 || sampleLines[s2] !== controlLines[c3]) {
-                          var _frame = "\n" + sampleLines[s2].replace(" at new ", " at ");
+                        if (c3 < 0 || sampleLines[s3] !== controlLines[c3]) {
+                          var _frame = "\n" + sampleLines[s3].replace(" at new ", " at ");
                           if (fn.displayName && _frame.includes("<anonymous>")) {
                             _frame = _frame.replace("<anonymous>", fn.displayName);
                           }
@@ -3387,7 +3387,7 @@
                           }
                           return _frame;
                         }
-                      } while (s2 >= 1 && c3 >= 0);
+                      } while (s3 >= 1 && c3 >= 0);
                     }
                     break;
                   }
@@ -3816,7 +3816,7 @@
             }
             try {
               return doc.activeElement || doc.body;
-            } catch (e4) {
+            } catch (e5) {
               return doc.body;
             }
           }
@@ -3957,8 +3957,8 @@
                 checkAttributeStringCoercion(name, "name");
               }
               var group = queryRoot.querySelectorAll("input[name=" + JSON.stringify("" + name) + '][type="radio"]');
-              for (var i3 = 0; i3 < group.length; i3++) {
-                var otherNode = group[i3];
+              for (var i4 = 0; i4 < group.length; i4++) {
+                var otherNode = group[i4];
                 if (otherNode === rootNode || otherNode.form !== rootNode.form) {
                   continue;
                 }
@@ -4039,8 +4039,8 @@
           function checkSelectPropTypes(props) {
             {
               checkControlledValueProps("select", props);
-              for (var i3 = 0; i3 < valuePropNames.length; i3++) {
-                var propName = valuePropNames[i3];
+              for (var i4 = 0; i4 < valuePropNames.length; i4++) {
+                var propName = valuePropNames[i4];
                 if (props[propName] == null) {
                   continue;
                 }
@@ -4058,8 +4058,8 @@
             if (multiple) {
               var selectedValues = propValue;
               var selectedValue = {};
-              for (var i3 = 0; i3 < selectedValues.length; i3++) {
-                selectedValue["$" + selectedValues[i3]] = true;
+              for (var i4 = 0; i4 < selectedValues.length; i4++) {
+                selectedValue["$" + selectedValues[i4]] = true;
               }
               for (var _i = 0; _i < options2.length; _i++) {
                 var selected = selectedValue.hasOwnProperty("$" + options2[_i].value);
@@ -4535,8 +4535,8 @@
             var expanded = {};
             for (var key in styles) {
               var longhands = shorthandToLonghand[key] || [key];
-              for (var i3 = 0; i3 < longhands.length; i3++) {
-                expanded[longhands[i3]] = key;
+              for (var i4 = 0; i4 < longhands.length; i4++) {
+                expanded[longhands[i4]] = key;
               }
             }
             return expanded;
@@ -5458,8 +5458,8 @@
             restoreQueue = null;
             restoreStateOfTarget(target);
             if (queuedTargets) {
-              for (var i3 = 0; i3 < queuedTargets.length; i3++) {
-                restoreStateOfTarget(queuedTargets[i3]);
+              for (var i4 = 0; i4 < queuedTargets.length; i4++) {
+                restoreStateOfTarget(queuedTargets[i4]);
               }
             }
           }
@@ -5542,11 +5542,11 @@
               });
               window.addEventListener("test", options, options);
               window.removeEventListener("test", options, options);
-            } catch (e4) {
+            } catch (e5) {
               passiveBrowserEventsSupported = false;
             }
           }
-          function invokeGuardedCallbackProd(name, func, context, a3, b, c3, d2, e4, f2) {
+          function invokeGuardedCallbackProd(name, func, context, a3, b, c3, d2, e5, f2) {
             var funcArgs = Array.prototype.slice.call(arguments, 3);
             try {
               func.apply(context, funcArgs);
@@ -5558,7 +5558,7 @@
           {
             if (typeof window !== "undefined" && typeof window.dispatchEvent === "function" && typeof document !== "undefined" && typeof document.createEvent === "function") {
               var fakeNode = document.createElement("react");
-              invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func, context, a3, b, c3, d2, e4, f2) {
+              invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func, context, a3, b, c3, d2, e5, f2) {
                 if (typeof document === "undefined" || document === null) {
                   throw new Error("The `document` global was defined when React was initialized, but is not defined anymore. This can happen in a test environment if a component schedules an update from an asynchronous callback, but the test has already finished running. To solve this, you can either unmount the component at the end of your test (and ensure that any asynchronous operations get canceled in `componentWillUnmount`), or you can change the test itself to be asynchronous.");
                 }
@@ -5633,12 +5633,12 @@
               caughtError = error2;
             }
           };
-          function invokeGuardedCallback(name, func, context, a3, b, c3, d2, e4, f2) {
+          function invokeGuardedCallback(name, func, context, a3, b, c3, d2, e5, f2) {
             hasError = false;
             caughtError = null;
             invokeGuardedCallbackImpl$1.apply(reporter, arguments);
           }
-          function invokeGuardedCallbackAndCatchFirstError(name, func, context, a3, b, c3, d2, e4, f2) {
+          function invokeGuardedCallbackAndCatchFirstError(name, func, context, a3, b, c3, d2, e5, f2) {
             invokeGuardedCallback.apply(this, arguments);
             if (hasError) {
               var error2 = clearCaughtError();
@@ -6828,7 +6828,7 @@
           }
           function createLaneMap(initial) {
             var laneMap = [];
-            for (var i3 = 0; i3 < TotalLanes; i3++) {
+            for (var i4 = 0; i4 < TotalLanes; i4++) {
               laneMap.push(initial);
             }
             return laneMap;
@@ -7212,14 +7212,14 @@
               target,
               priority: updatePriority
             };
-            var i3 = 0;
-            for (; i3 < queuedExplicitHydrationTargets.length; i3++) {
-              if (!isHigherEventPriority(updatePriority, queuedExplicitHydrationTargets[i3].priority)) {
+            var i4 = 0;
+            for (; i4 < queuedExplicitHydrationTargets.length; i4++) {
+              if (!isHigherEventPriority(updatePriority, queuedExplicitHydrationTargets[i4].priority)) {
                 break;
               }
             }
-            queuedExplicitHydrationTargets.splice(i3, 0, queuedTarget);
-            if (i3 === 0) {
+            queuedExplicitHydrationTargets.splice(i4, 0, queuedTarget);
+            if (i4 === 0) {
               attemptExplicitHydrationTarget(queuedTarget);
             }
           }
@@ -7282,8 +7282,8 @@
           function retryIfBlockedOn(unblocked) {
             if (queuedDiscreteEvents.length > 0) {
               scheduleCallbackIfUnblocked(queuedDiscreteEvents[0], unblocked);
-              for (var i3 = 1; i3 < queuedDiscreteEvents.length; i3++) {
-                var queuedEvent = queuedDiscreteEvents[i3];
+              for (var i4 = 1; i4 < queuedDiscreteEvents.length; i4++) {
+                var queuedEvent = queuedDiscreteEvents[i4];
                 if (queuedEvent.blockedOn === unblocked) {
                   queuedEvent.blockedOn = null;
                 }
@@ -8395,8 +8395,8 @@
             if (keysA.length !== keysB.length) {
               return false;
             }
-            for (var i3 = 0; i3 < keysA.length; i3++) {
-              var currentKey = keysA[i3];
+            for (var i4 = 0; i4 < keysA.length; i4++) {
+              var currentKey = keysA[i4];
               if (!hasOwnProperty.call(objB, currentKey) || !objectIs(objA[currentKey], objB[currentKey])) {
                 return false;
               }
@@ -8446,7 +8446,7 @@
             try {
               anchorNode.nodeType;
               focusNode.nodeType;
-            } catch (e4) {
+            } catch (e5) {
               return null;
             }
             return getModernOffsetsFromPoints(outerNode, anchorNode, anchorOffset, focusNode, focusOffset);
@@ -8612,8 +8612,8 @@
               if (typeof priorFocusedElem.focus === "function") {
                 priorFocusedElem.focus();
               }
-              for (var i3 = 0; i3 < ancestors.length; i3++) {
-                var info = ancestors[i3];
+              for (var i4 = 0; i4 < ancestors.length; i4++) {
+                var info = ancestors[i4];
                 info.element.scrollLeft = info.left;
                 info.element.scrollTop = info.top;
               }
@@ -8778,8 +8778,8 @@
             registerTwoPhaseEvent(reactName, [domEventName]);
           }
           function registerSimpleEvents() {
-            for (var i3 = 0; i3 < simpleEventPluginEvents.length; i3++) {
-              var eventName = simpleEventPluginEvents[i3];
+            for (var i4 = 0; i4 < simpleEventPluginEvents.length; i4++) {
+              var eventName = simpleEventPluginEvents[i4];
               var domEventName = eventName.toLowerCase();
               var capitalizedEvent = eventName[0].toUpperCase() + eventName.slice(1);
               registerSimpleEvent(domEventName, "on" + capitalizedEvent);
@@ -8923,8 +8923,8 @@
           function processDispatchQueueItemsInOrder(event, dispatchListeners, inCapturePhase) {
             var previousInstance;
             if (inCapturePhase) {
-              for (var i3 = dispatchListeners.length - 1; i3 >= 0; i3--) {
-                var _dispatchListeners$i = dispatchListeners[i3], instance = _dispatchListeners$i.instance, currentTarget = _dispatchListeners$i.currentTarget, listener = _dispatchListeners$i.listener;
+              for (var i4 = dispatchListeners.length - 1; i4 >= 0; i4--) {
+                var _dispatchListeners$i = dispatchListeners[i4], instance = _dispatchListeners$i.instance, currentTarget = _dispatchListeners$i.currentTarget, listener = _dispatchListeners$i.listener;
                 if (instance !== previousInstance && event.isPropagationStopped()) {
                   return;
                 }
@@ -8944,8 +8944,8 @@
           }
           function processDispatchQueue(dispatchQueue, eventSystemFlags) {
             var inCapturePhase = (eventSystemFlags & IS_CAPTURE_PHASE) !== 0;
-            for (var i3 = 0; i3 < dispatchQueue.length; i3++) {
-              var _dispatchQueue$i = dispatchQueue[i3], event = _dispatchQueue$i.event, listeners = _dispatchQueue$i.listeners;
+            for (var i4 = 0; i4 < dispatchQueue.length; i4++) {
+              var _dispatchQueue$i = dispatchQueue[i4], event = _dispatchQueue$i.event, listeners = _dispatchQueue$i.listeners;
               processDispatchQueueItemsInOrder(event, listeners, inCapturePhase);
             }
             rethrowCaughtError();
@@ -9370,9 +9370,9 @@
             }
           }
           function updateDOMProperties(domElement, updatePayload, wasCustomComponentTag, isCustomComponentTag) {
-            for (var i3 = 0; i3 < updatePayload.length; i3 += 2) {
-              var propKey = updatePayload[i3];
-              var propValue = updatePayload[i3 + 1];
+            for (var i4 = 0; i4 < updatePayload.length; i4 += 2) {
+              var propKey = updatePayload[i4];
+              var propValue = updatePayload[i4 + 1];
               if (propKey === STYLE) {
                 setValueForStyles(domElement, propValue);
               } else if (propKey === DANGEROUSLY_SET_INNER_HTML) {
@@ -9455,8 +9455,8 @@
                 break;
               case "video":
               case "audio":
-                for (var i3 = 0; i3 < mediaEventTypes.length; i3++) {
-                  listenToNonDelegatedEvent(mediaEventTypes[i3], domElement);
+                for (var i4 = 0; i4 < mediaEventTypes.length; i4++) {
+                  listenToNonDelegatedEvent(mediaEventTypes[i4], domElement);
                 }
                 props = rawProps;
                 break;
@@ -9703,8 +9703,8 @@
                 break;
               case "video":
               case "audio":
-                for (var i3 = 0; i3 < mediaEventTypes.length; i3++) {
-                  listenToNonDelegatedEvent(mediaEventTypes[i3], domElement);
+                for (var i4 = 0; i4 < mediaEventTypes.length; i4++) {
+                  listenToNonDelegatedEvent(mediaEventTypes[i4], domElement);
                 }
                 break;
               case "source":
@@ -11013,14 +11013,14 @@
           function flushSyncCallbacks() {
             if (!isFlushingSyncQueue && syncQueue !== null) {
               isFlushingSyncQueue = true;
-              var i3 = 0;
+              var i4 = 0;
               var previousUpdatePriority = getCurrentUpdatePriority();
               try {
                 var isSync = true;
                 var queue = syncQueue;
                 setCurrentUpdatePriority(DiscreteEventPriority);
-                for (; i3 < queue.length; i3++) {
-                  var callback = queue[i3];
+                for (; i4 < queue.length; i4++) {
+                  var callback = queue[i4];
                   do {
                     callback = callback(isSync);
                   } while (callback !== null);
@@ -11029,7 +11029,7 @@
                 includesLegacySyncCallbacks = false;
               } catch (error2) {
                 if (syncQueue !== null) {
-                  syncQueue = syncQueue.slice(i3 + 1);
+                  syncQueue = syncQueue.slice(i4 + 1);
                 }
                 scheduleCallback(ImmediatePriority, flushSyncCallbacks);
                 throw error2;
@@ -12136,8 +12136,8 @@
             function reconcileChildrenArray(returnFiber, currentFirstChild, newChildren, lanes) {
               {
                 var knownKeys = null;
-                for (var i3 = 0; i3 < newChildren.length; i3++) {
-                  var child = newChildren[i3];
+                for (var i4 = 0; i4 < newChildren.length; i4++) {
+                  var child = newChildren[i4];
                   knownKeys = warnOnInvalidKey(child, knownKeys, returnFiber);
                 }
               }
@@ -12720,8 +12720,8 @@
           }
           function finishQueueingConcurrentUpdates() {
             if (concurrentQueues !== null) {
-              for (var i3 = 0; i3 < concurrentQueues.length; i3++) {
-                var queue = concurrentQueues[i3];
+              for (var i4 = 0; i4 < concurrentQueues.length; i4++) {
+                var queue = concurrentQueues[i4];
                 var lastInterleavedUpdate = queue.interleaved;
                 if (lastInterleavedUpdate !== null) {
                   queue.interleaved = null;
@@ -13163,8 +13163,8 @@
             var effects = finishedQueue.effects;
             finishedQueue.effects = null;
             if (effects !== null) {
-              for (var i3 = 0; i3 < effects.length; i3++) {
-                var effect = effects[i3];
+              for (var i4 = 0; i4 < effects.length; i4++) {
+                var effect = effects[i4];
                 var callback = effect.callback;
                 if (callback !== null) {
                   effect.callback = null;
@@ -13316,8 +13316,8 @@
           );
           var workInProgressSources = [];
           function resetWorkInProgressVersions() {
-            for (var i3 = 0; i3 < workInProgressSources.length; i3++) {
-              var mutableSource = workInProgressSources[i3];
+            for (var i4 = 0; i4 < workInProgressSources.length; i4++) {
+              var mutableSource = workInProgressSources[i4];
               {
                 mutableSource._workInProgressVersionPrimary = null;
               }
@@ -13388,10 +13388,10 @@
                 if (hookTypesDev !== null) {
                   var table = "";
                   var secondColumnStart = 30;
-                  for (var i3 = 0; i3 <= hookTypesUpdateIndexDev; i3++) {
-                    var oldHookName = hookTypesDev[i3];
-                    var newHookName = i3 === hookTypesUpdateIndexDev ? currentHookName : oldHookName;
-                    var row = i3 + 1 + ". " + oldHookName;
+                  for (var i4 = 0; i4 <= hookTypesUpdateIndexDev; i4++) {
+                    var oldHookName = hookTypesDev[i4];
+                    var newHookName = i4 === hookTypesUpdateIndexDev ? currentHookName : oldHookName;
+                    var row = i4 + 1 + ". " + oldHookName;
                     while (row.length < secondColumnStart) {
                       row += " ";
                     }
@@ -13423,8 +13423,8 @@
                 error("The final argument passed to %s changed size between renders. The order and size of this array must remain constant.\n\nPrevious: %s\nIncoming: %s", currentHookNameInDev, "[" + prevDeps.join(", ") + "]", "[" + nextDeps.join(", ") + "]");
               }
             }
-            for (var i3 = 0; i3 < prevDeps.length && i3 < nextDeps.length; i3++) {
-              if (objectIs(nextDeps[i3], prevDeps[i3])) {
+            for (var i4 = 0; i4 < prevDeps.length && i4 < nextDeps.length; i4++) {
+              if (objectIs(nextDeps[i4], prevDeps[i4])) {
                 continue;
               }
               return false;
@@ -15939,9 +15939,9 @@
               } else {
                 console["error"](error2);
               }
-            } catch (e4) {
+            } catch (e5) {
               setTimeout(function() {
-                throw e4;
+                throw e5;
               });
             }
           }
@@ -17387,8 +17387,8 @@
             {
               if ((revealOrder === "forwards" || revealOrder === "backwards") && children !== void 0 && children !== null && children !== false) {
                 if (isArray(children)) {
-                  for (var i3 = 0; i3 < children.length; i3++) {
-                    if (!validateSuspenseListNestedChild(children[i3], i3)) {
+                  for (var i4 = 0; i4 < children.length; i4++) {
+                    if (!validateSuspenseListNestedChild(children[i4], i4)) {
                       return;
                     }
                   }
@@ -19574,8 +19574,8 @@
           function recursivelyTraverseMutationEffects(root2, parentFiber, lanes) {
             var deletions = parentFiber.deletions;
             if (deletions !== null) {
-              for (var i3 = 0; i3 < deletions.length; i3++) {
-                var childToDelete = deletions[i3];
+              for (var i4 = 0; i4 < deletions.length; i4++) {
+                var childToDelete = deletions[i4];
                 try {
                   commitDeletionEffects(root2, parentFiber, childToDelete);
                 } catch (error2) {
@@ -20081,8 +20081,8 @@
               if ((nextEffect.flags & ChildDeletion) !== NoFlags) {
                 var deletions = fiber.deletions;
                 if (deletions !== null) {
-                  for (var i3 = 0; i3 < deletions.length; i3++) {
-                    var fiberToDelete = deletions[i3];
+                  for (var i4 = 0; i4 < deletions.length; i4++) {
+                    var fiberToDelete = deletions[i4];
                     nextEffect = fiberToDelete;
                     commitPassiveUnmountEffectsInsideOfDeletedTree_begin(fiberToDelete, fiber);
                   }
@@ -20724,8 +20724,8 @@
                 if (updateQueue !== null) {
                   var checks = updateQueue.stores;
                   if (checks !== null) {
-                    for (var i3 = 0; i3 < checks.length; i3++) {
-                      var check = checks[i3];
+                    for (var i4 = 0; i4 < checks.length; i4++) {
+                      var check = checks[i4];
                       var getSnapshot = check.getSnapshot;
                       var renderedValue = check.value;
                       try {
@@ -21302,8 +21302,8 @@
             ensureRootIsScheduled(root2, now());
             if (recoverableErrors !== null) {
               var onRecoverableError = root2.onRecoverableError;
-              for (var i3 = 0; i3 < recoverableErrors.length; i3++) {
-                var recoverableError = recoverableErrors[i3];
+              for (var i4 = 0; i4 < recoverableErrors.length; i4++) {
+                var recoverableError = recoverableErrors[i4];
                 var componentStack = recoverableError.stack;
                 var digest = recoverableError.digest;
                 onRecoverableError(recoverableError.value, {
@@ -21397,8 +21397,8 @@
             {
               var profilerEffects = pendingPassiveProfilerEffects;
               pendingPassiveProfilerEffects = [];
-              for (var i3 = 0; i3 < profilerEffects.length; i3++) {
-                var _fiber = profilerEffects[i3];
+              for (var i4 = 0; i4 < profilerEffects.length; i4++) {
+                var _fiber = profilerEffects[i4];
                 commitPassiveEffectDurations(root2, _fiber);
               }
             }
@@ -22081,7 +22081,7 @@
               var nonExtensibleObject = Object.preventExtensions({});
               /* @__PURE__ */ new Map([[nonExtensibleObject, null]]);
               /* @__PURE__ */ new Set([nonExtensibleObject]);
-            } catch (e4) {
+            } catch (e5) {
               hasBadMapPolyfill = true;
             }
           }
@@ -22830,8 +22830,8 @@
                 warn("copyWithRename() expects paths of the same length");
                 return;
               } else {
-                for (var i3 = 0; i3 < newPath.length - 1; i3++) {
-                  if (oldPath[i3] !== newPath[i3]) {
+                for (var i4 = 0; i4 < newPath.length - 1; i4++) {
+                  if (oldPath[i4] !== newPath[i4]) {
                     warn("copyWithRename() expects paths to be the same except for the deepest key");
                     return;
                   }
@@ -23121,8 +23121,8 @@
             markContainerAsRoot(root2.current, container);
             listenToAllSupportedEvents(container);
             if (mutableSources) {
-              for (var i3 = 0; i3 < mutableSources.length; i3++) {
-                var mutableSource = mutableSources[i3];
+              for (var i4 = 0; i4 < mutableSources.length; i4++) {
+                var mutableSource = mutableSources[i4];
                 registerMutableSourceForHydration(root2, mutableSource);
               }
             }
@@ -23501,25 +23501,25 @@
         exports.createRoot = m.createRoot;
         exports.hydrateRoot = m.hydrateRoot;
       } else {
-        i3 = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        i4 = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         exports.createRoot = function(c3, o3) {
-          i3.usingClientEntryPoint = true;
+          i4.usingClientEntryPoint = true;
           try {
             return m.createRoot(c3, o3);
           } finally {
-            i3.usingClientEntryPoint = false;
+            i4.usingClientEntryPoint = false;
           }
         };
         exports.hydrateRoot = function(c3, h2, o3) {
-          i3.usingClientEntryPoint = true;
+          i4.usingClientEntryPoint = true;
           try {
             return m.hydrateRoot(c3, h2, o3);
           } finally {
-            i3.usingClientEntryPoint = false;
+            i4.usingClientEntryPoint = false;
           }
         };
       }
-      var i3;
+      var i4;
     }
   });
 
@@ -23836,19 +23836,19 @@
               if (sample && control && typeof sample.stack === "string") {
                 var sampleLines = sample.stack.split("\n");
                 var controlLines = control.stack.split("\n");
-                var s2 = sampleLines.length - 1;
+                var s3 = sampleLines.length - 1;
                 var c3 = controlLines.length - 1;
-                while (s2 >= 1 && c3 >= 0 && sampleLines[s2] !== controlLines[c3]) {
+                while (s3 >= 1 && c3 >= 0 && sampleLines[s3] !== controlLines[c3]) {
                   c3--;
                 }
-                for (; s2 >= 1 && c3 >= 0; s2--, c3--) {
-                  if (sampleLines[s2] !== controlLines[c3]) {
-                    if (s2 !== 1 || c3 !== 1) {
+                for (; s3 >= 1 && c3 >= 0; s3--, c3--) {
+                  if (sampleLines[s3] !== controlLines[c3]) {
+                    if (s3 !== 1 || c3 !== 1) {
                       do {
-                        s2--;
+                        s3--;
                         c3--;
-                        if (c3 < 0 || sampleLines[s2] !== controlLines[c3]) {
-                          var _frame = "\n" + sampleLines[s2].replace(" at new ", " at ");
+                        if (c3 < 0 || sampleLines[s3] !== controlLines[c3]) {
+                          var _frame = "\n" + sampleLines[s3].replace(" at new ", " at ");
                           if (fn.displayName && _frame.includes("<anonymous>")) {
                             _frame = _frame.replace("<anonymous>", fn.displayName);
                           }
@@ -23859,7 +23859,7 @@
                           }
                           return _frame;
                         }
-                      } while (s2 >= 1 && c3 >= 0);
+                      } while (s3 >= 1 && c3 >= 0);
                     }
                     break;
                   }
@@ -23989,7 +23989,7 @@
               try {
                 testStringCoercion(value);
                 return false;
-              } catch (e4) {
+              } catch (e5) {
                 return true;
               }
             }
@@ -24249,8 +24249,8 @@
                 return;
               }
               if (isArray(node)) {
-                for (var i3 = 0; i3 < node.length; i3++) {
-                  var child = node[i3];
+                for (var i4 = 0; i4 < node.length; i4++) {
+                  var child = node[i4];
                   if (isValidElement2(child)) {
                     validateExplicitKey(child, parentType);
                   }
@@ -24307,8 +24307,8 @@
           function validateFragmentProps(fragment) {
             {
               var keys = Object.keys(fragment.props);
-              for (var i3 = 0; i3 < keys.length; i3++) {
-                var key = keys[i3];
+              for (var i4 = 0; i4 < keys.length; i4++) {
+                var key = keys[i4];
                 if (key !== "children" && key !== "key") {
                   setCurrentlyValidatingElement$1(fragment);
                   error("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", key);
@@ -24360,8 +24360,8 @@
                 if (children !== void 0) {
                   if (isStaticChildren) {
                     if (isArray(children)) {
-                      for (var i3 = 0; i3 < children.length; i3++) {
-                        validateChildKeys(children[i3], type);
+                      for (var i4 = 0; i4 < children.length; i4++) {
+                        validateChildKeys(children[i4], type);
                       }
                       if (Object.freeze) {
                         Object.freeze(children);
@@ -25590,8 +25590,8 @@
     if (version !== browserCacheVersion) {
       if (version) {
         const total2 = getBrowserStorageItemsCount(func);
-        for (let i3 = 0; i3 < total2; i3++) {
-          removeStoredItem(func, browserCachePrefix + i3.toString());
+        for (let i4 = 0; i4 < total2; i4++) {
+          removeStoredItem(func, browserCachePrefix + i4.toString());
         }
       }
       setStoredItem(func, browserCacheVersionKey, browserCacheVersion);
@@ -25616,13 +25616,13 @@
       removeStoredItem(func, name);
     };
     let total = getBrowserStorageItemsCount(func);
-    for (let i3 = total - 1; i3 >= 0; i3--) {
-      if (!parseItem(i3)) {
-        if (i3 === total - 1) {
+    for (let i4 = total - 1; i4 >= 0; i4--) {
+      if (!parseItem(i4)) {
+        if (i4 === total - 1) {
           total--;
           setBrowserStorageItemsCount(func, total);
         } else {
-          browserStorageEmptyItems[key].add(i3);
+          browserStorageEmptyItems[key].add(i4);
         }
       }
     }
@@ -25911,7 +25911,7 @@
     try {
       policy = window.trustedTypes.createPolicy("iconify", {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-        createHTML: (s2) => s2
+        createHTML: (s3) => s3
       });
     } catch (err) {
       policy = null;
@@ -26099,7 +26099,7 @@
             ) {
               console.error(err);
             }
-          } catch (e4) {
+          } catch (e5) {
             console.error(err);
           }
         });
@@ -26118,7 +26118,7 @@
             if (!addAPIProvider(key, value)) {
               console.error(err);
             }
-          } catch (e4) {
+          } catch (e5) {
             console.error(err);
           }
         }
@@ -26227,8 +26227,8 @@
   // node_modules/.pnpm/@remix-run+router@1.17.1/node_modules/@remix-run/router/dist/router.js
   function _extends() {
     _extends = Object.assign ? Object.assign.bind() : function(target) {
-      for (var i3 = 1; i3 < arguments.length; i3++) {
-        var source = arguments[i3];
+      for (var i4 = 1; i4 < arguments.length; i4++) {
+        var source = arguments[i4];
         for (var key in source) {
           if (Object.prototype.hasOwnProperty.call(source, key)) {
             target[key] = source[key];
@@ -26283,7 +26283,7 @@
       if (typeof console !== "undefined") console.warn(message);
       try {
         throw new Error(message);
-      } catch (e4) {
+      } catch (e5) {
       }
     }
   }
@@ -26459,8 +26459,8 @@
       },
       push,
       replace,
-      go(n3) {
-        return globalHistory.go(n3);
+      go(n5) {
+        return globalHistory.go(n5);
       }
     };
     return history;
@@ -26522,9 +26522,9 @@
     let branches = flattenRoutes(routes);
     rankRouteBranches(branches);
     let matches = null;
-    for (let i3 = 0; matches == null && i3 < branches.length; ++i3) {
+    for (let i4 = 0; matches == null && i4 < branches.length; ++i4) {
       let decoded = decodePath(pathname);
-      matches = matchRouteBranch(branches[i3], decoded, allowPartial);
+      matches = matchRouteBranch(branches[i4], decoded, allowPartial);
     }
     return matches;
   }
@@ -26621,7 +26621,7 @@
   var emptySegmentValue = 1;
   var staticSegmentValue = 10;
   var splatPenalty = -2;
-  var isSplat = (s2) => s2 === "*";
+  var isSplat = (s3) => s3 === "*";
   function computeScore(path, index) {
     let segments = path.split("/");
     let initialScore = segments.length;
@@ -26631,10 +26631,10 @@
     if (index) {
       initialScore += indexRouteValue;
     }
-    return segments.filter((s2) => !isSplat(s2)).reduce((score, segment) => score + (paramRe.test(segment) ? dynamicSegmentValue : segment === "" ? emptySegmentValue : staticSegmentValue), initialScore);
+    return segments.filter((s3) => !isSplat(s3)).reduce((score, segment) => score + (paramRe.test(segment) ? dynamicSegmentValue : segment === "" ? emptySegmentValue : staticSegmentValue), initialScore);
   }
   function compareIndexes(a3, b) {
-    let siblings = a3.length === b.length && a3.slice(0, -1).every((n3, i3) => n3 === b[i3]);
+    let siblings = a3.length === b.length && a3.slice(0, -1).every((n5, i4) => n5 === b[i4]);
     return siblings ? (
       // If two routes are siblings, we should try to match the earlier sibling
       // first. This allows people to have fine-grained control over the matching
@@ -26657,9 +26657,9 @@
     let matchedParams = {};
     let matchedPathname = "/";
     let matches = [];
-    for (let i3 = 0; i3 < routesMeta.length; ++i3) {
-      let meta = routesMeta[i3];
-      let end = i3 === routesMeta.length - 1;
+    for (let i4 = 0; i4 < routesMeta.length; ++i4) {
+      let meta = routesMeta[i4];
+      let end = i4 === routesMeta.length - 1;
       let remainingPathname = matchedPathname === "/" ? pathname : pathname.slice(matchedPathname.length) || "/";
       let match = matchPath({
         path: meta.relativePath,
@@ -28029,20 +28029,20 @@
     async function callDataStrategy(type, request, matchesToLoad, matches) {
       try {
         let results = await callDataStrategyImpl(dataStrategyImpl, type, request, matchesToLoad, matches, manifest, mapRouteProperties2);
-        return await Promise.all(results.map((result, i3) => {
+        return await Promise.all(results.map((result, i4) => {
           if (isRedirectHandlerResult(result)) {
             let response = result.result;
             return {
               type: ResultType.redirect,
-              response: normalizeRelativeRoutingRedirectResponse(response, request, matchesToLoad[i3].route.id, matches, basename, future.v7_relativeSplatPath)
+              response: normalizeRelativeRoutingRedirectResponse(response, request, matchesToLoad[i4].route.id, matches, basename, future.v7_relativeSplatPath)
             };
           }
           return convertHandlerResultToDataResult(result);
         }));
-      } catch (e4) {
+      } catch (e5) {
         return matchesToLoad.map(() => ({
           type: ResultType.error,
-          error: e4
+          error: e5
         }));
       }
     }
@@ -28344,10 +28344,10 @@
         let routesToUse = inFlightDataRoutes || dataRoutes;
         try {
           await loadLazyRouteChildren(patchRoutesOnMissImpl, pathname, partialMatches, routesToUse, manifest, mapRouteProperties2, pendingPatchRoutes, signal);
-        } catch (e4) {
+        } catch (e5) {
           return {
             type: "error",
-            error: e4,
+            error: e5,
             partialMatches
           };
         } finally {
@@ -28547,7 +28547,7 @@
               text: void 0
             }
           };
-        } catch (e4) {
+        } catch (e5) {
           return getInvalidBodyError();
         }
       }
@@ -28571,7 +28571,7 @@
       try {
         searchParams = new URLSearchParams(opts.body);
         formData = convertSearchParamsToFormData(searchParams);
-      } catch (e4) {
+      } catch (e5) {
         return getInvalidBodyError();
       }
     }
@@ -28823,7 +28823,7 @@
       context: requestContext
     });
     matches.forEach((m) => invariant(loadedMatches.has(m.route.id), '`match.resolve()` was not called for route id "' + m.route.id + '". You must call `match.resolve()` on every match passed to `dataStrategy` to ensure all routes are properly loaded.'));
-    return results.filter((_, i3) => routeIdsToLoad.has(matches[i3].route.id));
+    return results.filter((_, i4) => routeIdsToLoad.has(matches[i4].route.id));
   }
   async function callLoaderOrAction(type, request, match, manifest, mapRouteProperties2, handlerOverride, staticContext) {
     let result;
@@ -28854,10 +28854,10 @@
               type: "data",
               result: val
             };
-          } catch (e4) {
+          } catch (e5) {
             return {
               type: "error",
-              result: e4
+              result: e5
             };
           }
         })();
@@ -28873,8 +28873,8 @@
             // If the handler throws, don't let it immediately bubble out,
             // since we need to let the lazy() execution finish so we know if this
             // route has a boundary that can handle the error
-            runHandler(handler).catch((e4) => {
-              handlerError = e4;
+            runHandler(handler).catch((e5) => {
+              handlerError = e5;
             }),
             loadLazyRouteModule(match.route, mapRouteProperties2, manifest)
           ]);
@@ -28912,10 +28912,10 @@
         result = await runHandler(handler);
       }
       invariant(result.result !== void 0, "You defined " + (type === "action" ? "an action" : "a loader") + " for route " + ('"' + match.route.id + "\" but didn't return anything from your `" + type + "` ") + "function. Please return a value or `null`.");
-    } catch (e4) {
+    } catch (e5) {
       return {
         type: ResultType.error,
-        result: e4
+        result: e5
       };
     } finally {
       if (onReject) {
@@ -28943,10 +28943,10 @@
         } else {
           data = await result.text();
         }
-      } catch (e4) {
+      } catch (e5) {
         return {
           type: ResultType.error,
-          error: e4
+          error: e5
         };
       }
       if (type === ResultType.error) {
@@ -29245,12 +29245,12 @@
     return new ErrorResponseImpl(status || 500, statusText, new Error(errorMessage), true);
   }
   function findRedirect(results) {
-    for (let i3 = results.length - 1; i3 >= 0; i3--) {
-      let result = results[i3];
+    for (let i4 = results.length - 1; i4 >= 0; i4--) {
+      let result = results[i4];
       if (isRedirectResult(result)) {
         return {
           result,
-          idx: i3
+          idx: i4
         };
       }
     }
@@ -29336,10 +29336,10 @@
           type: ResultType.data,
           data: result.deferredData.unwrappedData
         };
-      } catch (e4) {
+      } catch (e5) {
         return {
           type: ResultType.error,
-          error: e4
+          error: e5
         };
       }
     }
@@ -29504,7 +29504,7 @@
           }
         }
       }
-    } catch (e4) {
+    } catch (e5) {
     }
   }
   function persistAppliedTransitions(_window2, transitions) {
@@ -29524,8 +29524,8 @@
   // node_modules/.pnpm/react-router@6.24.1_react@18.3.1/node_modules/react-router/dist/index.js
   function _extends2() {
     _extends2 = Object.assign ? Object.assign.bind() : function(target) {
-      for (var i3 = 1; i3 < arguments.length; i3++) {
-        var source = arguments[i3];
+      for (var i4 = 1; i4 < arguments.length; i4++) {
+        var source = arguments[i4];
         for (var key in source) {
           if (Object.prototype.hasOwnProperty.call(source, key)) {
             target[key] = source[key];
@@ -29873,10 +29873,10 @@
     let renderFallback = false;
     let fallbackIndex = -1;
     if (dataRouterState && future && future.v7_partialHydration) {
-      for (let i3 = 0; i3 < renderedMatches.length; i3++) {
-        let match = renderedMatches[i3];
+      for (let i4 = 0; i4 < renderedMatches.length; i4++) {
+        let match = renderedMatches[i4];
         if (match.route.HydrateFallback || match.route.hydrateFallbackElement) {
-          fallbackIndex = i3;
+          fallbackIndex = i4;
         }
         if (match.route.id) {
           let {
@@ -30158,8 +30158,8 @@
   // node_modules/.pnpm/react-router-dom@6.24.1_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/index.js
   function _extends3() {
     _extends3 = Object.assign ? Object.assign.bind() : function(target) {
-      for (var i3 = 1; i3 < arguments.length; i3++) {
-        var source = arguments[i3];
+      for (var i4 = 1; i4 < arguments.length; i4++) {
+        var source = arguments[i4];
         for (var key in source) {
           if (Object.prototype.hasOwnProperty.call(source, key)) {
             target[key] = source[key];
@@ -30174,9 +30174,9 @@
     if (source == null) return {};
     var target = {};
     var sourceKeys = Object.keys(source);
-    var key, i3;
-    for (i3 = 0; i3 < sourceKeys.length; i3++) {
-      key = sourceKeys[i3];
+    var key, i4;
+    for (i4 = 0; i4 < sourceKeys.length; i4++) {
+      key = sourceKeys[i4];
       if (excluded.indexOf(key) >= 0) continue;
       target[key] = source[key];
     }
@@ -30214,7 +30214,7 @@
           0
         );
         _formDataSupportsSubmitter = false;
-      } catch (e4) {
+      } catch (e5) {
         _formDataSupportsSubmitter = true;
       }
     }
@@ -30290,7 +30290,7 @@
   var REACT_ROUTER_VERSION = "6";
   try {
     window.__reactRouterVersion = REACT_ROUTER_VERSION;
-  } catch (e4) {
+  } catch (e5) {
   }
   function createBrowserRouter(routes, opts) {
     return createRouter({
@@ -30334,7 +30334,7 @@
               let error = new ErrorConstructor(val.message);
               error.stack = "";
               serialized[key] = error;
-            } catch (e4) {
+            } catch (e5) {
             }
           }
         }
@@ -30457,10 +30457,10 @@
             nextLocation: viewTransitionOpts.nextLocation
           });
         });
-        let t3 = router.window.document.startViewTransition(() => {
+        let t4 = router.window.document.startViewTransition(() => {
           flushSyncSafe(() => setStateImpl(newState));
         });
-        t3.finished.finally(() => {
+        t4.finished.finally(() => {
           flushSyncSafe(() => {
             setRenderDfd(void 0);
             setTransition(void 0);
@@ -30470,7 +30470,7 @@
             });
           });
         });
-        flushSyncSafe(() => setTransition(t3));
+        flushSyncSafe(() => setTransition(t4));
         return;
       }
       if (transition) {
@@ -30540,7 +30540,7 @@
       return {
         createHref: router.createHref,
         encodeLocation: router.encodeLocation,
-        go: (n3) => router.navigate(n3),
+        go: (n5) => router.navigate(n5),
         push: (to, state2, opts) => router.navigate(to, {
           state: state2,
           preventScrollReset: opts == null ? void 0 : opts.preventScrollReset
@@ -30650,7 +30650,7 @@
           } else {
             isExternal = true;
           }
-        } catch (e4) {
+        } catch (e5) {
           true ? warning(false, '<Link to="' + to + '"> contains an invalid URL which will probably break when clicked - please update to a valid URL path.') : void 0;
         }
       }
@@ -30990,7 +30990,7 @@
           if (sessionPositions) {
             savedScrollPositions = JSON.parse(sessionPositions);
           }
-        } catch (e4) {
+        } catch (e5) {
         }
       }, [storageKey]);
       React2.useLayoutEffect(() => {
@@ -31065,150 +31065,150 @@
   var import_react2 = __toESM(require_react(), 1);
 
   // node_modules/.pnpm/wavesurfer.js@7.8.1/node_modules/wavesurfer.js/dist/wavesurfer.esm.js
-  function t(t3, e4, i3, s2) {
-    return new (i3 || (i3 = Promise))(function(n3, r4) {
-      function o3(t4) {
+  function t(t4, e5, i4, s3) {
+    return new (i4 || (i4 = Promise))(function(n5, r4) {
+      function o3(t5) {
         try {
-          h2(s2.next(t4));
-        } catch (t5) {
-          r4(t5);
+          h2(s3.next(t5));
+        } catch (t6) {
+          r4(t6);
         }
       }
-      function a3(t4) {
+      function a3(t5) {
         try {
-          h2(s2.throw(t4));
-        } catch (t5) {
-          r4(t5);
+          h2(s3.throw(t5));
+        } catch (t6) {
+          r4(t6);
         }
       }
-      function h2(t4) {
-        var e5;
-        t4.done ? n3(t4.value) : (e5 = t4.value, e5 instanceof i3 ? e5 : new i3(function(t5) {
-          t5(e5);
+      function h2(t5) {
+        var e6;
+        t5.done ? n5(t5.value) : (e6 = t5.value, e6 instanceof i4 ? e6 : new i4(function(t6) {
+          t6(e6);
         })).then(o3, a3);
       }
-      h2((s2 = s2.apply(t3, e4 || [])).next());
+      h2((s3 = s3.apply(t4, e5 || [])).next());
     });
   }
   var e = class {
     constructor() {
       this.listeners = {};
     }
-    on(t3, e4, i3) {
-      if (this.listeners[t3] || (this.listeners[t3] = /* @__PURE__ */ new Set()), this.listeners[t3].add(e4), null == i3 ? void 0 : i3.once) {
-        const i4 = () => {
-          this.un(t3, i4), this.un(t3, e4);
+    on(t4, e5, i4) {
+      if (this.listeners[t4] || (this.listeners[t4] = /* @__PURE__ */ new Set()), this.listeners[t4].add(e5), null == i4 ? void 0 : i4.once) {
+        const i5 = () => {
+          this.un(t4, i5), this.un(t4, e5);
         };
-        return this.on(t3, i4), i4;
+        return this.on(t4, i5), i5;
       }
-      return () => this.un(t3, e4);
+      return () => this.un(t4, e5);
     }
-    un(t3, e4) {
-      var i3;
-      null === (i3 = this.listeners[t3]) || void 0 === i3 || i3.delete(e4);
+    un(t4, e5) {
+      var i4;
+      null === (i4 = this.listeners[t4]) || void 0 === i4 || i4.delete(e5);
     }
-    once(t3, e4) {
-      return this.on(t3, e4, { once: true });
+    once(t4, e5) {
+      return this.on(t4, e5, { once: true });
     }
     unAll() {
       this.listeners = {};
     }
-    emit(t3, ...e4) {
-      this.listeners[t3] && this.listeners[t3].forEach((t4) => t4(...e4));
+    emit(t4, ...e5) {
+      this.listeners[t4] && this.listeners[t4].forEach((t5) => t5(...e5));
     }
   };
-  var i = { decode: function(e4, i3) {
+  var i = { decode: function(e5, i4) {
     return t(this, void 0, void 0, function* () {
-      const t3 = new AudioContext({ sampleRate: i3 });
-      return t3.decodeAudioData(e4).finally(() => t3.close());
+      const t4 = new AudioContext({ sampleRate: i4 });
+      return t4.decodeAudioData(e5).finally(() => t4.close());
     });
-  }, createBuffer: function(t3, e4) {
-    return "number" == typeof t3[0] && (t3 = [t3]), function(t4) {
-      const e5 = t4[0];
-      if (e5.some((t5) => t5 > 1 || t5 < -1)) {
-        const i3 = e5.length;
-        let s2 = 0;
-        for (let t5 = 0; t5 < i3; t5++) {
-          const i4 = Math.abs(e5[t5]);
-          i4 > s2 && (s2 = i4);
+  }, createBuffer: function(t4, e5) {
+    return "number" == typeof t4[0] && (t4 = [t4]), function(t5) {
+      const e6 = t5[0];
+      if (e6.some((t6) => t6 > 1 || t6 < -1)) {
+        const i4 = e6.length;
+        let s3 = 0;
+        for (let t6 = 0; t6 < i4; t6++) {
+          const i5 = Math.abs(e6[t6]);
+          i5 > s3 && (s3 = i5);
         }
-        for (const e6 of t4) for (let t5 = 0; t5 < i3; t5++) e6[t5] /= s2;
+        for (const e7 of t5) for (let t6 = 0; t6 < i4; t6++) e7[t6] /= s3;
       }
-    }(t3), { duration: e4, length: t3[0].length, sampleRate: t3[0].length / e4, numberOfChannels: t3.length, getChannelData: (e5) => null == t3 ? void 0 : t3[e5], copyFromChannel: AudioBuffer.prototype.copyFromChannel, copyToChannel: AudioBuffer.prototype.copyToChannel };
+    }(t4), { duration: e5, length: t4[0].length, sampleRate: t4[0].length / e5, numberOfChannels: t4.length, getChannelData: (e6) => null == t4 ? void 0 : t4[e6], copyFromChannel: AudioBuffer.prototype.copyFromChannel, copyToChannel: AudioBuffer.prototype.copyToChannel };
   } };
-  function s(t3, e4) {
-    const i3 = e4.xmlns ? document.createElementNS(e4.xmlns, t3) : document.createElement(t3);
-    for (const [t4, n3] of Object.entries(e4)) if ("children" === t4) for (const [t5, n4] of Object.entries(e4)) "string" == typeof n4 ? i3.appendChild(document.createTextNode(n4)) : i3.appendChild(s(t5, n4));
-    else "style" === t4 ? Object.assign(i3.style, n3) : "textContent" === t4 ? i3.textContent = n3 : i3.setAttribute(t4, n3.toString());
-    return i3;
+  function s(t4, e5) {
+    const i4 = e5.xmlns ? document.createElementNS(e5.xmlns, t4) : document.createElement(t4);
+    for (const [t5, n5] of Object.entries(e5)) if ("children" === t5) for (const [t6, n6] of Object.entries(e5)) "string" == typeof n6 ? i4.appendChild(document.createTextNode(n6)) : i4.appendChild(s(t6, n6));
+    else "style" === t5 ? Object.assign(i4.style, n5) : "textContent" === t5 ? i4.textContent = n5 : i4.setAttribute(t5, n5.toString());
+    return i4;
   }
-  function n(t3, e4, i3) {
-    const n3 = s(t3, e4 || {});
-    return null == i3 || i3.appendChild(n3), n3;
+  function n(t4, e5, i4) {
+    const n5 = s(t4, e5 || {});
+    return null == i4 || i4.appendChild(n5), n5;
   }
   var r = Object.freeze({ __proto__: null, createElement: n, default: n });
-  var o = { fetchBlob: function(e4, i3, s2) {
+  var o = { fetchBlob: function(e5, i4, s3) {
     return t(this, void 0, void 0, function* () {
-      const n3 = yield fetch(e4, s2);
-      if (n3.status >= 400) throw new Error(`Failed to fetch ${e4}: ${n3.status} (${n3.statusText})`);
-      return function(e5, i4) {
+      const n5 = yield fetch(e5, s3);
+      if (n5.status >= 400) throw new Error(`Failed to fetch ${e5}: ${n5.status} (${n5.statusText})`);
+      return function(e6, i5) {
         t(this, void 0, void 0, function* () {
-          if (!e5.body || !e5.headers) return;
-          const s3 = e5.body.getReader(), n4 = Number(e5.headers.get("Content-Length")) || 0;
+          if (!e6.body || !e6.headers) return;
+          const s4 = e6.body.getReader(), n6 = Number(e6.headers.get("Content-Length")) || 0;
           let r4 = 0;
-          const o3 = (e6) => t(this, void 0, void 0, function* () {
-            r4 += (null == e6 ? void 0 : e6.length) || 0;
-            const t3 = Math.round(r4 / n4 * 100);
-            i4(t3);
+          const o3 = (e7) => t(this, void 0, void 0, function* () {
+            r4 += (null == e7 ? void 0 : e7.length) || 0;
+            const t4 = Math.round(r4 / n6 * 100);
+            i5(t4);
           }), a3 = () => t(this, void 0, void 0, function* () {
-            let t3;
+            let t4;
             try {
-              t3 = yield s3.read();
-            } catch (t4) {
+              t4 = yield s4.read();
+            } catch (t5) {
               return;
             }
-            t3.done || (o3(t3.value), yield a3());
+            t4.done || (o3(t4.value), yield a3());
           });
           a3();
         });
-      }(n3.clone(), i3), n3.blob();
+      }(n5.clone(), i4), n5.blob();
     });
   } };
   var a = class extends e {
-    constructor(t3) {
-      super(), this.isExternalMedia = false, t3.media ? (this.media = t3.media, this.isExternalMedia = true) : this.media = document.createElement("audio"), t3.mediaControls && (this.media.controls = true), t3.autoplay && (this.media.autoplay = true), null != t3.playbackRate && this.onMediaEvent("canplay", () => {
-        null != t3.playbackRate && (this.media.playbackRate = t3.playbackRate);
+    constructor(t4) {
+      super(), this.isExternalMedia = false, t4.media ? (this.media = t4.media, this.isExternalMedia = true) : this.media = document.createElement("audio"), t4.mediaControls && (this.media.controls = true), t4.autoplay && (this.media.autoplay = true), null != t4.playbackRate && this.onMediaEvent("canplay", () => {
+        null != t4.playbackRate && (this.media.playbackRate = t4.playbackRate);
       }, { once: true });
     }
-    onMediaEvent(t3, e4, i3) {
-      return this.media.addEventListener(t3, e4, i3), () => this.media.removeEventListener(t3, e4, i3);
+    onMediaEvent(t4, e5, i4) {
+      return this.media.addEventListener(t4, e5, i4), () => this.media.removeEventListener(t4, e5, i4);
     }
     getSrc() {
       return this.media.currentSrc || this.media.src || "";
     }
     revokeSrc() {
-      const t3 = this.getSrc();
-      t3.startsWith("blob:") && URL.revokeObjectURL(t3);
+      const t4 = this.getSrc();
+      t4.startsWith("blob:") && URL.revokeObjectURL(t4);
     }
-    canPlayType(t3) {
-      return "" !== this.media.canPlayType(t3);
+    canPlayType(t4) {
+      return "" !== this.media.canPlayType(t4);
     }
-    setSrc(t3, e4) {
-      const i3 = this.getSrc();
-      if (t3 && i3 === t3) return;
+    setSrc(t4, e5) {
+      const i4 = this.getSrc();
+      if (t4 && i4 === t4) return;
       this.revokeSrc();
-      const s2 = e4 instanceof Blob && (this.canPlayType(e4.type) || !t3) ? URL.createObjectURL(e4) : t3;
+      const s3 = e5 instanceof Blob && (this.canPlayType(e5.type) || !t4) ? URL.createObjectURL(e5) : t4;
       try {
-        this.media.src = s2;
-      } catch (e5) {
-        this.media.src = t3;
+        this.media.src = s3;
+      } catch (e6) {
+        this.media.src = t4;
       }
     }
     destroy() {
       this.media.pause(), this.isExternalMedia || (this.media.remove(), this.revokeSrc(), this.media.src = "", this.media.load());
     }
-    setMediaElement(t3) {
-      this.media = t3;
+    setMediaElement(t4) {
+      this.media = t4;
     }
     play() {
       return t(this, void 0, void 0, function* () {
@@ -31221,8 +31221,8 @@
     isPlaying() {
       return !this.media.paused && !this.media.ended;
     }
-    setTime(t3) {
-      this.media.currentTime = t3;
+    setTime(t4) {
+      this.media.currentTime = t4;
     }
     getDuration() {
       return this.media.duration;
@@ -31233,14 +31233,14 @@
     getVolume() {
       return this.media.volume;
     }
-    setVolume(t3) {
-      this.media.volume = t3;
+    setVolume(t4) {
+      this.media.volume = t4;
     }
     getMuted() {
       return this.media.muted;
     }
-    setMuted(t3) {
-      this.media.muted = t3;
+    setMuted(t4) {
+      this.media.muted = t4;
     }
     getPlaybackRate() {
       return this.media.playbackRate;
@@ -31248,58 +31248,58 @@
     isSeeking() {
       return this.media.seeking;
     }
-    setPlaybackRate(t3, e4) {
-      null != e4 && (this.media.preservesPitch = e4), this.media.playbackRate = t3;
+    setPlaybackRate(t4, e5) {
+      null != e5 && (this.media.preservesPitch = e5), this.media.playbackRate = t4;
     }
     getMediaElement() {
       return this.media;
     }
-    setSinkId(t3) {
-      return this.media.setSinkId(t3);
+    setSinkId(t4) {
+      return this.media.setSinkId(t4);
     }
   };
   var h = class _h extends e {
-    constructor(t3, e4) {
-      super(), this.timeouts = [], this.isScrollable = false, this.audioData = null, this.resizeObserver = null, this.lastContainerWidth = 0, this.isDragging = false, this.subscriptions = [], this.subscriptions = [], this.options = t3;
-      const i3 = this.parentFromOptionsContainer(t3.container);
-      this.parent = i3;
-      const [s2, n3] = this.initHtml();
-      i3.appendChild(s2), this.container = s2, this.scrollContainer = n3.querySelector(".scroll"), this.wrapper = n3.querySelector(".wrapper"), this.canvasWrapper = n3.querySelector(".canvases"), this.progressWrapper = n3.querySelector(".progress"), this.cursor = n3.querySelector(".cursor"), e4 && n3.appendChild(e4), this.initEvents();
+    constructor(t4, e5) {
+      super(), this.timeouts = [], this.isScrollable = false, this.audioData = null, this.resizeObserver = null, this.lastContainerWidth = 0, this.isDragging = false, this.subscriptions = [], this.subscriptions = [], this.options = t4;
+      const i4 = this.parentFromOptionsContainer(t4.container);
+      this.parent = i4;
+      const [s3, n5] = this.initHtml();
+      i4.appendChild(s3), this.container = s3, this.scrollContainer = n5.querySelector(".scroll"), this.wrapper = n5.querySelector(".wrapper"), this.canvasWrapper = n5.querySelector(".canvases"), this.progressWrapper = n5.querySelector(".progress"), this.cursor = n5.querySelector(".cursor"), e5 && n5.appendChild(e5), this.initEvents();
     }
-    parentFromOptionsContainer(t3) {
-      let e4;
-      if ("string" == typeof t3 ? e4 = document.querySelector(t3) : t3 instanceof HTMLElement && (e4 = t3), !e4) throw new Error("Container not found");
-      return e4;
+    parentFromOptionsContainer(t4) {
+      let e5;
+      if ("string" == typeof t4 ? e5 = document.querySelector(t4) : t4 instanceof HTMLElement && (e5 = t4), !e5) throw new Error("Container not found");
+      return e5;
     }
     initEvents() {
-      const t3 = (t4) => {
-        const e4 = this.wrapper.getBoundingClientRect(), i3 = t4.clientX - e4.left, s2 = t4.clientY - e4.top;
-        return [i3 / e4.width, s2 / e4.height];
+      const t4 = (t5) => {
+        const e5 = this.wrapper.getBoundingClientRect(), i4 = t5.clientX - e5.left, s3 = t5.clientY - e5.top;
+        return [i4 / e5.width, s3 / e5.height];
       };
-      if (this.wrapper.addEventListener("click", (e4) => {
-        const [i3, s2] = t3(e4);
-        this.emit("click", i3, s2);
-      }), this.wrapper.addEventListener("dblclick", (e4) => {
-        const [i3, s2] = t3(e4);
-        this.emit("dblclick", i3, s2);
+      if (this.wrapper.addEventListener("click", (e5) => {
+        const [i4, s3] = t4(e5);
+        this.emit("click", i4, s3);
+      }), this.wrapper.addEventListener("dblclick", (e5) => {
+        const [i4, s3] = t4(e5);
+        this.emit("dblclick", i4, s3);
       }), true !== this.options.dragToSeek && "object" != typeof this.options.dragToSeek || this.initDrag(), this.scrollContainer.addEventListener("scroll", () => {
-        const { scrollLeft: t4, scrollWidth: e4, clientWidth: i3 } = this.scrollContainer, s2 = t4 / e4, n3 = (t4 + i3) / e4;
-        this.emit("scroll", s2, n3, t4, t4 + i3);
+        const { scrollLeft: t5, scrollWidth: e5, clientWidth: i4 } = this.scrollContainer, s3 = t5 / e5, n5 = (t5 + i4) / e5;
+        this.emit("scroll", s3, n5, t5, t5 + i4);
       }), "function" == typeof ResizeObserver) {
-        const t4 = this.createDelay(100);
+        const t5 = this.createDelay(100);
         this.resizeObserver = new ResizeObserver(() => {
-          t4().then(() => this.onContainerResize()).catch(() => {
+          t5().then(() => this.onContainerResize()).catch(() => {
           });
         }), this.resizeObserver.observe(this.scrollContainer);
       }
     }
     onContainerResize() {
-      const t3 = this.parent.clientWidth;
-      t3 === this.lastContainerWidth && "auto" !== this.options.height || (this.lastContainerWidth = t3, this.reRender());
+      const t4 = this.parent.clientWidth;
+      t4 === this.lastContainerWidth && "auto" !== this.options.height || (this.lastContainerWidth = t4, this.reRender());
     }
     initDrag() {
-      this.subscriptions.push(function(t3, e4, i3, s2, n3 = 3, r4 = 0, o3 = 100) {
-        if (!t3) return () => {
+      this.subscriptions.push(function(t4, e5, i4, s3, n5 = 3, r4 = 0, o3 = 100) {
+        if (!t4) return () => {
         };
         const a3 = matchMedia("(pointer: coarse)").matches;
         let h2 = () => {
@@ -31308,25 +31308,25 @@
           if (l4.button !== r4) return;
           l4.preventDefault(), l4.stopPropagation();
           let d2 = l4.clientX, c3 = l4.clientY, u3 = false;
-          const p2 = Date.now(), m = (s3) => {
-            if (s3.preventDefault(), s3.stopPropagation(), a3 && Date.now() - p2 < o3) return;
-            const r5 = s3.clientX, h3 = s3.clientY, l5 = r5 - d2, m2 = h3 - c3;
-            if (u3 || Math.abs(l5) > n3 || Math.abs(m2) > n3) {
-              const s4 = t3.getBoundingClientRect(), { left: n4, top: o4 } = s4;
-              u3 || (null == i3 || i3(d2 - n4, c3 - o4), u3 = true), e4(l5, m2, r5 - n4, h3 - o4), d2 = r5, c3 = h3;
+          const p2 = Date.now(), m = (s4) => {
+            if (s4.preventDefault(), s4.stopPropagation(), a3 && Date.now() - p2 < o3) return;
+            const r5 = s4.clientX, h3 = s4.clientY, l5 = r5 - d2, m2 = h3 - c3;
+            if (u3 || Math.abs(l5) > n5 || Math.abs(m2) > n5) {
+              const s5 = t4.getBoundingClientRect(), { left: n6, top: o4 } = s5;
+              u3 || (null == i4 || i4(d2 - n6, c3 - o4), u3 = true), e5(l5, m2, r5 - n6, h3 - o4), d2 = r5, c3 = h3;
             }
-          }, g = (e5) => {
+          }, g = (e6) => {
             if (u3) {
-              const i4 = e5.clientX, n4 = e5.clientY, r5 = t3.getBoundingClientRect(), { left: o4, top: a4 } = r5;
-              null == s2 || s2(i4 - o4, n4 - a4);
+              const i5 = e6.clientX, n6 = e6.clientY, r5 = t4.getBoundingClientRect(), { left: o4, top: a4 } = r5;
+              null == s3 || s3(i5 - o4, n6 - a4);
             }
             h2();
-          }, f2 = (t4) => {
-            t4.relatedTarget && t4.relatedTarget !== document.documentElement || g(t4);
-          }, v = (t4) => {
-            u3 && (t4.stopPropagation(), t4.preventDefault());
-          }, b = (t4) => {
-            u3 && t4.preventDefault();
+          }, f2 = (t5) => {
+            t5.relatedTarget && t5.relatedTarget !== document.documentElement || g(t5);
+          }, v = (t5) => {
+            u3 && (t5.stopPropagation(), t5.preventDefault());
+          }, b = (t5) => {
+            u3 && t5.preventDefault();
           };
           document.addEventListener("pointermove", m), document.addEventListener("pointerup", g), document.addEventListener("pointerout", f2), document.addEventListener("pointercancel", f2), document.addEventListener("touchmove", b, { passive: false }), document.addEventListener("click", v, { capture: true }), h2 = () => {
             document.removeEventListener("pointermove", m), document.removeEventListener("pointerup", g), document.removeEventListener("pointerout", f2), document.removeEventListener("pointercancel", f2), document.removeEventListener("touchmove", b), setTimeout(() => {
@@ -31334,31 +31334,31 @@
             }, 10);
           };
         };
-        return t3.addEventListener("pointerdown", l3), () => {
-          h2(), t3.removeEventListener("pointerdown", l3);
+        return t4.addEventListener("pointerdown", l3), () => {
+          h2(), t4.removeEventListener("pointerdown", l3);
         };
-      }(this.wrapper, (t3, e4, i3) => {
-        this.emit("drag", Math.max(0, Math.min(1, i3 / this.wrapper.getBoundingClientRect().width)));
-      }, (t3) => {
-        this.isDragging = true, this.emit("dragstart", Math.max(0, Math.min(1, t3 / this.wrapper.getBoundingClientRect().width)));
-      }, (t3) => {
-        this.isDragging = false, this.emit("dragend", Math.max(0, Math.min(1, t3 / this.wrapper.getBoundingClientRect().width)));
+      }(this.wrapper, (t4, e5, i4) => {
+        this.emit("drag", Math.max(0, Math.min(1, i4 / this.wrapper.getBoundingClientRect().width)));
+      }, (t4) => {
+        this.isDragging = true, this.emit("dragstart", Math.max(0, Math.min(1, t4 / this.wrapper.getBoundingClientRect().width)));
+      }, (t4) => {
+        this.isDragging = false, this.emit("dragend", Math.max(0, Math.min(1, t4 / this.wrapper.getBoundingClientRect().width)));
       }));
     }
-    getHeight(t3, e4) {
-      var i3;
-      const s2 = (null === (i3 = this.audioData) || void 0 === i3 ? void 0 : i3.numberOfChannels) || 1;
-      if (null == t3) return 128;
-      if (!isNaN(Number(t3))) return Number(t3);
-      if ("auto" === t3) {
-        const t4 = this.parent.clientHeight || 128;
-        return (null == e4 ? void 0 : e4.every((t5) => !t5.overlay)) ? t4 / s2 : t4;
+    getHeight(t4, e5) {
+      var i4;
+      const s3 = (null === (i4 = this.audioData) || void 0 === i4 ? void 0 : i4.numberOfChannels) || 1;
+      if (null == t4) return 128;
+      if (!isNaN(Number(t4))) return Number(t4);
+      if ("auto" === t4) {
+        const t5 = this.parent.clientHeight || 128;
+        return (null == e5 ? void 0 : e5.every((t6) => !t6.overlay)) ? t5 / s3 : t5;
       }
       return 128;
     }
     initHtml() {
-      const t3 = document.createElement("div"), e4 = t3.attachShadow({ mode: "open" });
-      return e4.innerHTML = `
+      const t4 = document.createElement("div"), e5 = t4.attachShadow({ mode: "open" });
+      return e5.innerHTML = `
       <style>
         :host {
           user-select: none;
@@ -31430,14 +31430,14 @@
           <div class="cursor" part="cursor"></div>
         </div>
       </div>
-    `, [t3, e4];
+    `, [t4, e5];
     }
-    setOptions(t3) {
-      if (this.options.container !== t3.container) {
-        const e4 = this.parentFromOptionsContainer(t3.container);
-        e4.appendChild(this.container), this.parent = e4;
+    setOptions(t4) {
+      if (this.options.container !== t4.container) {
+        const e5 = this.parentFromOptionsContainer(t4.container);
+        e5.appendChild(this.container), this.parent = e5;
       }
-      true !== t3.dragToSeek && "object" != typeof this.options.dragToSeek || this.initDrag(), this.options = t3, this.reRender();
+      true !== t4.dragToSeek && "object" != typeof this.options.dragToSeek || this.initDrag(), this.options = t4, this.reRender();
     }
     getWrapper() {
       return this.wrapper;
@@ -31448,196 +31448,196 @@
     getScroll() {
       return this.scrollContainer.scrollLeft;
     }
-    setScroll(t3) {
-      this.scrollContainer.scrollLeft = t3;
+    setScroll(t4) {
+      this.scrollContainer.scrollLeft = t4;
     }
-    setScrollPercentage(t3) {
-      const { scrollWidth: e4 } = this.scrollContainer, i3 = e4 * t3;
-      this.setScroll(i3);
+    setScrollPercentage(t4) {
+      const { scrollWidth: e5 } = this.scrollContainer, i4 = e5 * t4;
+      this.setScroll(i4);
     }
     destroy() {
-      var t3, e4;
-      this.subscriptions.forEach((t4) => t4()), this.container.remove(), null === (t3 = this.resizeObserver) || void 0 === t3 || t3.disconnect(), null === (e4 = this.unsubscribeOnScroll) || void 0 === e4 || e4.call(this);
+      var t4, e5;
+      this.subscriptions.forEach((t5) => t5()), this.container.remove(), null === (t4 = this.resizeObserver) || void 0 === t4 || t4.disconnect(), null === (e5 = this.unsubscribeOnScroll) || void 0 === e5 || e5.call(this);
     }
-    createDelay(t3 = 10) {
-      let e4, i3;
-      const s2 = () => {
-        e4 && clearTimeout(e4), i3 && i3();
+    createDelay(t4 = 10) {
+      let e5, i4;
+      const s3 = () => {
+        e5 && clearTimeout(e5), i4 && i4();
       };
-      return this.timeouts.push(s2), () => new Promise((n3, r4) => {
-        s2(), i3 = r4, e4 = setTimeout(() => {
-          e4 = void 0, i3 = void 0, n3();
-        }, t3);
+      return this.timeouts.push(s3), () => new Promise((n5, r4) => {
+        s3(), i4 = r4, e5 = setTimeout(() => {
+          e5 = void 0, i4 = void 0, n5();
+        }, t4);
       });
     }
-    convertColorValues(t3) {
-      if (!Array.isArray(t3)) return t3 || "";
-      if (t3.length < 2) return t3[0] || "";
-      const e4 = document.createElement("canvas"), i3 = e4.getContext("2d"), s2 = e4.height * (window.devicePixelRatio || 1), n3 = i3.createLinearGradient(0, 0, 0, s2), r4 = 1 / (t3.length - 1);
-      return t3.forEach((t4, e5) => {
-        const i4 = e5 * r4;
-        n3.addColorStop(i4, t4);
-      }), n3;
+    convertColorValues(t4) {
+      if (!Array.isArray(t4)) return t4 || "";
+      if (t4.length < 2) return t4[0] || "";
+      const e5 = document.createElement("canvas"), i4 = e5.getContext("2d"), s3 = e5.height * (window.devicePixelRatio || 1), n5 = i4.createLinearGradient(0, 0, 0, s3), r4 = 1 / (t4.length - 1);
+      return t4.forEach((t5, e6) => {
+        const i5 = e6 * r4;
+        n5.addColorStop(i5, t5);
+      }), n5;
     }
     getPixelRatio() {
       return Math.max(1, window.devicePixelRatio || 1);
     }
-    renderBarWaveform(t3, e4, i3, s2) {
-      const n3 = t3[0], r4 = t3[1] || t3[0], o3 = n3.length, { width: a3, height: h2 } = i3.canvas, l3 = h2 / 2, d2 = this.getPixelRatio(), c3 = e4.barWidth ? e4.barWidth * d2 : 1, u3 = e4.barGap ? e4.barGap * d2 : e4.barWidth ? c3 / 2 : 0, p2 = e4.barRadius || 0, m = a3 / (c3 + u3) / o3, g = p2 && "roundRect" in i3 ? "roundRect" : "rect";
-      i3.beginPath();
+    renderBarWaveform(t4, e5, i4, s3) {
+      const n5 = t4[0], r4 = t4[1] || t4[0], o3 = n5.length, { width: a3, height: h2 } = i4.canvas, l3 = h2 / 2, d2 = this.getPixelRatio(), c3 = e5.barWidth ? e5.barWidth * d2 : 1, u3 = e5.barGap ? e5.barGap * d2 : e5.barWidth ? c3 / 2 : 0, p2 = e5.barRadius || 0, m = a3 / (c3 + u3) / o3, g = p2 && "roundRect" in i4 ? "roundRect" : "rect";
+      i4.beginPath();
       let f2 = 0, v = 0, b = 0;
-      for (let t4 = 0; t4 <= o3; t4++) {
-        const o4 = Math.round(t4 * m);
+      for (let t5 = 0; t5 <= o3; t5++) {
+        const o4 = Math.round(t5 * m);
         if (o4 > f2) {
-          const t5 = Math.round(v * l3 * s2), n4 = t5 + Math.round(b * l3 * s2) || 1;
-          let r5 = l3 - t5;
-          "top" === e4.barAlign ? r5 = 0 : "bottom" === e4.barAlign && (r5 = h2 - n4), i3[g](f2 * (c3 + u3), r5, c3, n4, p2), f2 = o4, v = 0, b = 0;
+          const t6 = Math.round(v * l3 * s3), n6 = t6 + Math.round(b * l3 * s3) || 1;
+          let r5 = l3 - t6;
+          "top" === e5.barAlign ? r5 = 0 : "bottom" === e5.barAlign && (r5 = h2 - n6), i4[g](f2 * (c3 + u3), r5, c3, n6, p2), f2 = o4, v = 0, b = 0;
         }
-        const a4 = Math.abs(n3[t4] || 0), d3 = Math.abs(r4[t4] || 0);
+        const a4 = Math.abs(n5[t5] || 0), d3 = Math.abs(r4[t5] || 0);
         a4 > v && (v = a4), d3 > b && (b = d3);
       }
-      i3.fill(), i3.closePath();
+      i4.fill(), i4.closePath();
     }
-    renderLineWaveform(t3, e4, i3, s2) {
-      const n3 = (e5) => {
-        const n4 = t3[e5] || t3[0], r4 = n4.length, { height: o3 } = i3.canvas, a3 = o3 / 2, h2 = i3.canvas.width / r4;
-        i3.moveTo(0, a3);
+    renderLineWaveform(t4, e5, i4, s3) {
+      const n5 = (e6) => {
+        const n6 = t4[e6] || t4[0], r4 = n6.length, { height: o3 } = i4.canvas, a3 = o3 / 2, h2 = i4.canvas.width / r4;
+        i4.moveTo(0, a3);
         let l3 = 0, d2 = 0;
-        for (let t4 = 0; t4 <= r4; t4++) {
-          const r5 = Math.round(t4 * h2);
+        for (let t5 = 0; t5 <= r4; t5++) {
+          const r5 = Math.round(t5 * h2);
           if (r5 > l3) {
-            const t5 = a3 + (Math.round(d2 * a3 * s2) || 1) * (0 === e5 ? -1 : 1);
-            i3.lineTo(l3, t5), l3 = r5, d2 = 0;
+            const t6 = a3 + (Math.round(d2 * a3 * s3) || 1) * (0 === e6 ? -1 : 1);
+            i4.lineTo(l3, t6), l3 = r5, d2 = 0;
           }
-          const o4 = Math.abs(n4[t4] || 0);
+          const o4 = Math.abs(n6[t5] || 0);
           o4 > d2 && (d2 = o4);
         }
-        i3.lineTo(l3, a3);
+        i4.lineTo(l3, a3);
       };
-      i3.beginPath(), n3(0), n3(1), i3.fill(), i3.closePath();
+      i4.beginPath(), n5(0), n5(1), i4.fill(), i4.closePath();
     }
-    renderWaveform(t3, e4, i3) {
-      if (i3.fillStyle = this.convertColorValues(e4.waveColor), e4.renderFunction) return void e4.renderFunction(t3, i3);
-      let s2 = e4.barHeight || 1;
-      if (e4.normalize) {
-        const e5 = Array.from(t3[0]).reduce((t4, e6) => Math.max(t4, Math.abs(e6)), 0);
-        s2 = e5 ? 1 / e5 : 1;
+    renderWaveform(t4, e5, i4) {
+      if (i4.fillStyle = this.convertColorValues(e5.waveColor), e5.renderFunction) return void e5.renderFunction(t4, i4);
+      let s3 = e5.barHeight || 1;
+      if (e5.normalize) {
+        const e6 = Array.from(t4[0]).reduce((t5, e7) => Math.max(t5, Math.abs(e7)), 0);
+        s3 = e6 ? 1 / e6 : 1;
       }
-      e4.barWidth || e4.barGap || e4.barAlign ? this.renderBarWaveform(t3, e4, i3, s2) : this.renderLineWaveform(t3, e4, i3, s2);
+      e5.barWidth || e5.barGap || e5.barAlign ? this.renderBarWaveform(t4, e5, i4, s3) : this.renderLineWaveform(t4, e5, i4, s3);
     }
-    renderSingleCanvas(t3, e4, i3, s2, n3, r4, o3) {
+    renderSingleCanvas(t4, e5, i4, s3, n5, r4, o3) {
       const a3 = this.getPixelRatio(), h2 = document.createElement("canvas");
-      h2.width = Math.round(i3 * a3), h2.height = Math.round(s2 * a3), h2.style.width = `${i3}px`, h2.style.height = `${s2}px`, h2.style.left = `${Math.round(n3)}px`, r4.appendChild(h2);
+      h2.width = Math.round(i4 * a3), h2.height = Math.round(s3 * a3), h2.style.width = `${i4}px`, h2.style.height = `${s3}px`, h2.style.left = `${Math.round(n5)}px`, r4.appendChild(h2);
       const l3 = h2.getContext("2d");
-      if (this.renderWaveform(t3, e4, l3), h2.width > 0 && h2.height > 0) {
-        const t4 = h2.cloneNode(), i4 = t4.getContext("2d");
-        i4.drawImage(h2, 0, 0), i4.globalCompositeOperation = "source-in", i4.fillStyle = this.convertColorValues(e4.progressColor), i4.fillRect(0, 0, h2.width, h2.height), o3.appendChild(t4);
+      if (this.renderWaveform(t4, e5, l3), h2.width > 0 && h2.height > 0) {
+        const t5 = h2.cloneNode(), i5 = t5.getContext("2d");
+        i5.drawImage(h2, 0, 0), i5.globalCompositeOperation = "source-in", i5.fillStyle = this.convertColorValues(e5.progressColor), i5.fillRect(0, 0, h2.width, h2.height), o3.appendChild(t5);
       }
     }
-    renderMultiCanvas(t3, e4, i3, s2, n3, r4) {
+    renderMultiCanvas(t4, e5, i4, s3, n5, r4) {
       const o3 = this.getPixelRatio(), { clientWidth: a3 } = this.scrollContainer;
-      if (a3 * o3 >= i3) return void this.renderSingleCanvas(t3, e4, a3, s2, 0, n3, r4);
-      const l3 = i3 / o3;
+      if (a3 * o3 >= i4) return void this.renderSingleCanvas(t4, e5, a3, s3, 0, n5, r4);
+      const l3 = i4 / o3;
       let d2 = Math.min(_h.MAX_CANVAS_WIDTH, a3, l3), c3 = {};
-      if (e4.barWidth || e4.barGap) {
-        const t4 = e4.barWidth || 0.5, i4 = t4 + (e4.barGap || t4 / 2);
-        d2 % i4 != 0 && (d2 = Math.floor(d2 / i4) * i4);
+      if (e5.barWidth || e5.barGap) {
+        const t5 = e5.barWidth || 0.5, i5 = t5 + (e5.barGap || t5 / 2);
+        d2 % i5 != 0 && (d2 = Math.floor(d2 / i5) * i5);
       }
-      const u3 = (i4) => {
-        if (i4 < 0 || i4 >= p2) return;
-        if (c3[i4]) return;
-        c3[i4] = true;
-        const o4 = i4 * d2, a4 = Math.min(l3 - o4, d2);
+      const u3 = (i5) => {
+        if (i5 < 0 || i5 >= p2) return;
+        if (c3[i5]) return;
+        c3[i5] = true;
+        const o4 = i5 * d2, a4 = Math.min(l3 - o4, d2);
         if (a4 <= 0) return;
-        const h2 = t3.map((t4) => {
-          const e5 = Math.floor(o4 / l3 * t4.length), i5 = Math.floor((o4 + a4) / l3 * t4.length);
-          return t4.slice(e5, i5);
+        const h2 = t4.map((t5) => {
+          const e6 = Math.floor(o4 / l3 * t5.length), i6 = Math.floor((o4 + a4) / l3 * t5.length);
+          return t5.slice(e6, i6);
         });
-        this.renderSingleCanvas(h2, e4, a4, s2, o4, n3, r4);
+        this.renderSingleCanvas(h2, e5, a4, s3, o4, n5, r4);
       }, p2 = Math.ceil(l3 / d2), m = this.scrollContainer.scrollLeft / l3, g = Math.floor(m * p2);
       u3(g - 1), u3(g), u3(g + 1), p2 > 1 && (this.unsubscribeOnScroll = this.on("scroll", () => {
-        const { scrollLeft: t4 } = this.scrollContainer, e5 = Math.floor(t4 / l3 * p2);
-        Object.keys(c3).length > _h.MAX_NODES && (n3.innerHTML = "", r4.innerHTML = "", c3 = {}), u3(e5 - 1), u3(e5), u3(e5 + 1);
+        const { scrollLeft: t5 } = this.scrollContainer, e6 = Math.floor(t5 / l3 * p2);
+        Object.keys(c3).length > _h.MAX_NODES && (n5.innerHTML = "", r4.innerHTML = "", c3 = {}), u3(e6 - 1), u3(e6), u3(e6 + 1);
       }));
     }
-    renderChannel(t3, e4, i3, s2) {
-      var { overlay: n3 } = e4, r4 = function(t4, e5) {
-        var i4 = {};
-        for (var s3 in t4) Object.prototype.hasOwnProperty.call(t4, s3) && e5.indexOf(s3) < 0 && (i4[s3] = t4[s3]);
-        if (null != t4 && "function" == typeof Object.getOwnPropertySymbols) {
-          var n4 = 0;
-          for (s3 = Object.getOwnPropertySymbols(t4); n4 < s3.length; n4++) e5.indexOf(s3[n4]) < 0 && Object.prototype.propertyIsEnumerable.call(t4, s3[n4]) && (i4[s3[n4]] = t4[s3[n4]]);
+    renderChannel(t4, e5, i4, s3) {
+      var { overlay: n5 } = e5, r4 = function(t5, e6) {
+        var i5 = {};
+        for (var s4 in t5) Object.prototype.hasOwnProperty.call(t5, s4) && e6.indexOf(s4) < 0 && (i5[s4] = t5[s4]);
+        if (null != t5 && "function" == typeof Object.getOwnPropertySymbols) {
+          var n6 = 0;
+          for (s4 = Object.getOwnPropertySymbols(t5); n6 < s4.length; n6++) e6.indexOf(s4[n6]) < 0 && Object.prototype.propertyIsEnumerable.call(t5, s4[n6]) && (i5[s4[n6]] = t5[s4[n6]]);
         }
-        return i4;
-      }(e4, ["overlay"]);
+        return i5;
+      }(e5, ["overlay"]);
       const o3 = document.createElement("div"), a3 = this.getHeight(r4.height, r4.splitChannels);
-      o3.style.height = `${a3}px`, n3 && s2 > 0 && (o3.style.marginTop = `-${a3}px`), this.canvasWrapper.style.minHeight = `${a3}px`, this.canvasWrapper.appendChild(o3);
+      o3.style.height = `${a3}px`, n5 && s3 > 0 && (o3.style.marginTop = `-${a3}px`), this.canvasWrapper.style.minHeight = `${a3}px`, this.canvasWrapper.appendChild(o3);
       const h2 = o3.cloneNode();
-      this.progressWrapper.appendChild(h2), this.renderMultiCanvas(t3, r4, i3, a3, o3, h2);
+      this.progressWrapper.appendChild(h2), this.renderMultiCanvas(t4, r4, i4, a3, o3, h2);
     }
-    render(e4) {
+    render(e5) {
       return t(this, void 0, void 0, function* () {
-        var t3;
-        this.timeouts.forEach((t4) => t4()), this.timeouts = [], this.canvasWrapper.innerHTML = "", this.progressWrapper.innerHTML = "", null != this.options.width && (this.scrollContainer.style.width = "number" == typeof this.options.width ? `${this.options.width}px` : this.options.width);
-        const i3 = this.getPixelRatio(), s2 = this.scrollContainer.clientWidth, n3 = Math.ceil(e4.duration * (this.options.minPxPerSec || 0));
-        this.isScrollable = n3 > s2;
-        const r4 = this.options.fillParent && !this.isScrollable, o3 = (r4 ? s2 : n3) * i3;
-        if (this.wrapper.style.width = r4 ? "100%" : `${n3}px`, this.scrollContainer.style.overflowX = this.isScrollable ? "auto" : "hidden", this.scrollContainer.classList.toggle("noScrollbar", !!this.options.hideScrollbar), this.cursor.style.backgroundColor = `${this.options.cursorColor || this.options.progressColor}`, this.cursor.style.width = `${this.options.cursorWidth}px`, this.audioData = e4, this.emit("render"), this.options.splitChannels) for (let i4 = 0; i4 < e4.numberOfChannels; i4++) {
-          const s3 = Object.assign(Object.assign({}, this.options), null === (t3 = this.options.splitChannels) || void 0 === t3 ? void 0 : t3[i4]);
-          this.renderChannel([e4.getChannelData(i4)], s3, o3, i4);
+        var t4;
+        this.timeouts.forEach((t5) => t5()), this.timeouts = [], this.canvasWrapper.innerHTML = "", this.progressWrapper.innerHTML = "", null != this.options.width && (this.scrollContainer.style.width = "number" == typeof this.options.width ? `${this.options.width}px` : this.options.width);
+        const i4 = this.getPixelRatio(), s3 = this.scrollContainer.clientWidth, n5 = Math.ceil(e5.duration * (this.options.minPxPerSec || 0));
+        this.isScrollable = n5 > s3;
+        const r4 = this.options.fillParent && !this.isScrollable, o3 = (r4 ? s3 : n5) * i4;
+        if (this.wrapper.style.width = r4 ? "100%" : `${n5}px`, this.scrollContainer.style.overflowX = this.isScrollable ? "auto" : "hidden", this.scrollContainer.classList.toggle("noScrollbar", !!this.options.hideScrollbar), this.cursor.style.backgroundColor = `${this.options.cursorColor || this.options.progressColor}`, this.cursor.style.width = `${this.options.cursorWidth}px`, this.audioData = e5, this.emit("render"), this.options.splitChannels) for (let i5 = 0; i5 < e5.numberOfChannels; i5++) {
+          const s4 = Object.assign(Object.assign({}, this.options), null === (t4 = this.options.splitChannels) || void 0 === t4 ? void 0 : t4[i5]);
+          this.renderChannel([e5.getChannelData(i5)], s4, o3, i5);
         }
         else {
-          const t4 = [e4.getChannelData(0)];
-          e4.numberOfChannels > 1 && t4.push(e4.getChannelData(1)), this.renderChannel(t4, this.options, o3, 0);
+          const t5 = [e5.getChannelData(0)];
+          e5.numberOfChannels > 1 && t5.push(e5.getChannelData(1)), this.renderChannel(t5, this.options, o3, 0);
         }
         Promise.resolve().then(() => this.emit("rendered"));
       });
     }
     reRender() {
-      var t3;
-      if (null === (t3 = this.unsubscribeOnScroll) || void 0 === t3 || t3.call(this), delete this.unsubscribeOnScroll, !this.audioData) return;
-      const { scrollWidth: e4 } = this.scrollContainer, { right: i3 } = this.progressWrapper.getBoundingClientRect();
-      if (this.render(this.audioData), this.isScrollable && e4 !== this.scrollContainer.scrollWidth) {
-        const { right: t4 } = this.progressWrapper.getBoundingClientRect();
-        let e5 = t4 - i3;
-        e5 *= 2, e5 = e5 < 0 ? Math.floor(e5) : Math.ceil(e5), e5 /= 2, this.scrollContainer.scrollLeft += e5;
+      var t4;
+      if (null === (t4 = this.unsubscribeOnScroll) || void 0 === t4 || t4.call(this), delete this.unsubscribeOnScroll, !this.audioData) return;
+      const { scrollWidth: e5 } = this.scrollContainer, { right: i4 } = this.progressWrapper.getBoundingClientRect();
+      if (this.render(this.audioData), this.isScrollable && e5 !== this.scrollContainer.scrollWidth) {
+        const { right: t5 } = this.progressWrapper.getBoundingClientRect();
+        let e6 = t5 - i4;
+        e6 *= 2, e6 = e6 < 0 ? Math.floor(e6) : Math.ceil(e6), e6 /= 2, this.scrollContainer.scrollLeft += e6;
       }
     }
-    zoom(t3) {
-      this.options.minPxPerSec = t3, this.reRender();
+    zoom(t4) {
+      this.options.minPxPerSec = t4, this.reRender();
     }
-    scrollIntoView(t3, e4 = false) {
-      const { scrollLeft: i3, scrollWidth: s2, clientWidth: n3 } = this.scrollContainer, r4 = t3 * s2, o3 = i3, a3 = i3 + n3, h2 = n3 / 2;
+    scrollIntoView(t4, e5 = false) {
+      const { scrollLeft: i4, scrollWidth: s3, clientWidth: n5 } = this.scrollContainer, r4 = t4 * s3, o3 = i4, a3 = i4 + n5, h2 = n5 / 2;
       if (this.isDragging) {
-        const t4 = 30;
-        r4 + t4 > a3 ? this.scrollContainer.scrollLeft += t4 : r4 - t4 < o3 && (this.scrollContainer.scrollLeft -= t4);
+        const t5 = 30;
+        r4 + t5 > a3 ? this.scrollContainer.scrollLeft += t5 : r4 - t5 < o3 && (this.scrollContainer.scrollLeft -= t5);
       } else {
         (r4 < o3 || r4 > a3) && (this.scrollContainer.scrollLeft = r4 - (this.options.autoCenter ? h2 : 0));
-        const t4 = r4 - i3 - h2;
-        e4 && this.options.autoCenter && t4 > 0 && (this.scrollContainer.scrollLeft += Math.min(t4, 10));
+        const t5 = r4 - i4 - h2;
+        e5 && this.options.autoCenter && t5 > 0 && (this.scrollContainer.scrollLeft += Math.min(t5, 10));
       }
       {
-        const t4 = this.scrollContainer.scrollLeft, e5 = t4 / s2, i4 = (t4 + n3) / s2;
-        this.emit("scroll", e5, i4, t4, t4 + n3);
+        const t5 = this.scrollContainer.scrollLeft, e6 = t5 / s3, i5 = (t5 + n5) / s3;
+        this.emit("scroll", e6, i5, t5, t5 + n5);
       }
     }
-    renderProgress(t3, e4) {
-      if (isNaN(t3)) return;
-      const i3 = 100 * t3;
-      this.canvasWrapper.style.clipPath = `polygon(${i3}% 0, 100% 0, 100% 100%, ${i3}% 100%)`, this.progressWrapper.style.width = `${i3}%`, this.cursor.style.left = `${i3}%`, this.cursor.style.transform = `translateX(-${100 === Math.round(i3) ? this.options.cursorWidth : 0}px)`, this.isScrollable && this.options.autoScroll && this.scrollIntoView(t3, e4);
+    renderProgress(t4, e5) {
+      if (isNaN(t4)) return;
+      const i4 = 100 * t4;
+      this.canvasWrapper.style.clipPath = `polygon(${i4}% 0, 100% 0, 100% 100%, ${i4}% 100%)`, this.progressWrapper.style.width = `${i4}%`, this.cursor.style.left = `${i4}%`, this.cursor.style.transform = `translateX(-${100 === Math.round(i4) ? this.options.cursorWidth : 0}px)`, this.isScrollable && this.options.autoScroll && this.scrollIntoView(t4, e5);
     }
-    exportImage(e4, i3, s2) {
+    exportImage(e5, i4, s3) {
       return t(this, void 0, void 0, function* () {
-        const t3 = this.canvasWrapper.querySelectorAll("canvas");
-        if (!t3.length) throw new Error("No waveform data");
-        if ("dataURL" === s2) {
-          const s3 = Array.from(t3).map((t4) => t4.toDataURL(e4, i3));
-          return Promise.resolve(s3);
+        const t4 = this.canvasWrapper.querySelectorAll("canvas");
+        if (!t4.length) throw new Error("No waveform data");
+        if ("dataURL" === s3) {
+          const s4 = Array.from(t4).map((t5) => t5.toDataURL(e5, i4));
+          return Promise.resolve(s4);
         }
-        return Promise.all(Array.from(t3).map((t4) => new Promise((s3, n3) => {
-          t4.toBlob((t5) => {
-            t5 ? s3(t5) : n3(new Error("Could not export image"));
-          }, e4, i3);
+        return Promise.all(Array.from(t4).map((t5) => new Promise((s4, n5) => {
+          t5.toBlob((t6) => {
+            t6 ? s4(t6) : n5(new Error("Could not export image"));
+          }, e5, i4);
         })));
       });
     }
@@ -31663,8 +31663,8 @@
     }
   };
   var d = class extends e {
-    constructor(t3 = new AudioContext()) {
-      super(), this.bufferNode = null, this.playStartTime = 0, this.playedDuration = 0, this._muted = false, this._playbackRate = 1, this._duration = void 0, this.buffer = null, this.currentSrc = "", this.paused = true, this.crossOrigin = null, this.seeking = false, this.autoplay = false, this.addEventListener = this.on, this.removeEventListener = this.un, this.audioContext = t3, this.gainNode = this.audioContext.createGain(), this.gainNode.connect(this.audioContext.destination);
+    constructor(t4 = new AudioContext()) {
+      super(), this.bufferNode = null, this.playStartTime = 0, this.playedDuration = 0, this._muted = false, this._playbackRate = 1, this._duration = void 0, this.buffer = null, this.currentSrc = "", this.paused = true, this.crossOrigin = null, this.seeking = false, this.autoplay = false, this.addEventListener = this.on, this.removeEventListener = this.un, this.audioContext = t4, this.gainNode = this.audioContext.createGain(), this.gainNode.connect(this.audioContext.destination);
     }
     load() {
       return t(this, void 0, void 0, function* () {
@@ -31673,27 +31673,27 @@
     get src() {
       return this.currentSrc;
     }
-    set src(t3) {
-      if (this.currentSrc = t3, this._duration = void 0, !t3) return this.buffer = null, void this.emit("emptied");
-      fetch(t3).then((e4) => {
-        if (e4.status >= 400) throw new Error(`Failed to fetch ${t3}: ${e4.status} (${e4.statusText})`);
-        return e4.arrayBuffer();
-      }).then((e4) => this.currentSrc !== t3 ? null : this.audioContext.decodeAudioData(e4)).then((e4) => {
-        this.currentSrc === t3 && (this.buffer = e4, this.emit("loadedmetadata"), this.emit("canplay"), this.autoplay && this.play());
+    set src(t4) {
+      if (this.currentSrc = t4, this._duration = void 0, !t4) return this.buffer = null, void this.emit("emptied");
+      fetch(t4).then((e5) => {
+        if (e5.status >= 400) throw new Error(`Failed to fetch ${t4}: ${e5.status} (${e5.statusText})`);
+        return e5.arrayBuffer();
+      }).then((e5) => this.currentSrc !== t4 ? null : this.audioContext.decodeAudioData(e5)).then((e5) => {
+        this.currentSrc === t4 && (this.buffer = e5, this.emit("loadedmetadata"), this.emit("canplay"), this.autoplay && this.play());
       });
     }
     _play() {
-      var t3;
+      var t4;
       if (!this.paused) return;
-      this.paused = false, null === (t3 = this.bufferNode) || void 0 === t3 || t3.disconnect(), this.bufferNode = this.audioContext.createBufferSource(), this.buffer && (this.bufferNode.buffer = this.buffer), this.bufferNode.playbackRate.value = this._playbackRate, this.bufferNode.connect(this.gainNode);
-      let e4 = this.playedDuration * this._playbackRate;
-      e4 >= this.duration && (e4 = 0, this.playedDuration = 0), this.bufferNode.start(this.audioContext.currentTime, e4), this.playStartTime = this.audioContext.currentTime, this.bufferNode.onended = () => {
+      this.paused = false, null === (t4 = this.bufferNode) || void 0 === t4 || t4.disconnect(), this.bufferNode = this.audioContext.createBufferSource(), this.buffer && (this.bufferNode.buffer = this.buffer), this.bufferNode.playbackRate.value = this._playbackRate, this.bufferNode.connect(this.gainNode);
+      let e5 = this.playedDuration * this._playbackRate;
+      e5 >= this.duration && (e5 = 0, this.playedDuration = 0), this.bufferNode.start(this.audioContext.currentTime, e5), this.playStartTime = this.audioContext.currentTime, this.bufferNode.onended = () => {
         this.currentTime >= this.duration && (this.pause(), this.emit("ended"));
       };
     }
     _pause() {
-      var t3;
-      this.paused = true, null === (t3 = this.bufferNode) || void 0 === t3 || t3.stop(), this.playedDuration += this.audioContext.currentTime - this.playStartTime;
+      var t4;
+      this.paused = true, null === (t4 = this.bufferNode) || void 0 === t4 || t4.stop(), this.playedDuration += this.audioContext.currentTime - this.playStartTime;
     }
     play() {
       return t(this, void 0, void 0, function* () {
@@ -31703,96 +31703,96 @@
     pause() {
       this.paused || (this._pause(), this.emit("pause"));
     }
-    stopAt(t3) {
-      var e4, i3;
-      const s2 = t3 - this.currentTime;
-      null === (e4 = this.bufferNode) || void 0 === e4 || e4.stop(this.audioContext.currentTime + s2), null === (i3 = this.bufferNode) || void 0 === i3 || i3.addEventListener("ended", () => {
+    stopAt(t4) {
+      var e5, i4;
+      const s3 = t4 - this.currentTime;
+      null === (e5 = this.bufferNode) || void 0 === e5 || e5.stop(this.audioContext.currentTime + s3), null === (i4 = this.bufferNode) || void 0 === i4 || i4.addEventListener("ended", () => {
         this.bufferNode = null, this.pause();
       }, { once: true });
     }
-    setSinkId(e4) {
+    setSinkId(e5) {
       return t(this, void 0, void 0, function* () {
-        return this.audioContext.setSinkId(e4);
+        return this.audioContext.setSinkId(e5);
       });
     }
     get playbackRate() {
       return this._playbackRate;
     }
-    set playbackRate(t3) {
-      this._playbackRate = t3, this.bufferNode && (this.bufferNode.playbackRate.value = t3);
+    set playbackRate(t4) {
+      this._playbackRate = t4, this.bufferNode && (this.bufferNode.playbackRate.value = t4);
     }
     get currentTime() {
       return (this.paused ? this.playedDuration : this.playedDuration + (this.audioContext.currentTime - this.playStartTime)) * this._playbackRate;
     }
-    set currentTime(t3) {
-      const e4 = !this.paused;
-      e4 && this._pause(), this.playedDuration = t3 / this._playbackRate, e4 && this._play(), this.emit("seeking"), this.emit("timeupdate");
+    set currentTime(t4) {
+      const e5 = !this.paused;
+      e5 && this._pause(), this.playedDuration = t4 / this._playbackRate, e5 && this._play(), this.emit("seeking"), this.emit("timeupdate");
     }
     get duration() {
-      var t3, e4;
-      return null !== (t3 = this._duration) && void 0 !== t3 ? t3 : (null === (e4 = this.buffer) || void 0 === e4 ? void 0 : e4.duration) || 0;
+      var t4, e5;
+      return null !== (t4 = this._duration) && void 0 !== t4 ? t4 : (null === (e5 = this.buffer) || void 0 === e5 ? void 0 : e5.duration) || 0;
     }
-    set duration(t3) {
-      this._duration = t3;
+    set duration(t4) {
+      this._duration = t4;
     }
     get volume() {
       return this.gainNode.gain.value;
     }
-    set volume(t3) {
-      this.gainNode.gain.value = t3, this.emit("volumechange");
+    set volume(t4) {
+      this.gainNode.gain.value = t4, this.emit("volumechange");
     }
     get muted() {
       return this._muted;
     }
-    set muted(t3) {
-      this._muted !== t3 && (this._muted = t3, this._muted ? this.gainNode.disconnect() : this.gainNode.connect(this.audioContext.destination));
+    set muted(t4) {
+      this._muted !== t4 && (this._muted = t4, this._muted ? this.gainNode.disconnect() : this.gainNode.connect(this.audioContext.destination));
     }
-    canPlayType(t3) {
-      return /^(audio|video)\//.test(t3);
+    canPlayType(t4) {
+      return /^(audio|video)\//.test(t4);
     }
     getGainNode() {
       return this.gainNode;
     }
     getChannelData() {
-      const t3 = [];
-      if (!this.buffer) return t3;
-      const e4 = this.buffer.numberOfChannels;
-      for (let i3 = 0; i3 < e4; i3++) t3.push(this.buffer.getChannelData(i3));
-      return t3;
+      const t4 = [];
+      if (!this.buffer) return t4;
+      const e5 = this.buffer.numberOfChannels;
+      for (let i4 = 0; i4 < e5; i4++) t4.push(this.buffer.getChannelData(i4));
+      return t4;
     }
   };
   var c = { waveColor: "#999", progressColor: "#555", cursorWidth: 1, minPxPerSec: 0, fillParent: true, interact: true, dragToSeek: false, autoScroll: true, autoCenter: true, sampleRate: 8e3 };
   var u = class _u extends a {
-    static create(t3) {
-      return new _u(t3);
+    static create(t4) {
+      return new _u(t4);
     }
-    constructor(t3) {
-      const e4 = t3.media || ("WebAudio" === t3.backend ? new d() : void 0);
-      super({ media: e4, mediaControls: t3.mediaControls, autoplay: t3.autoplay, playbackRate: t3.audioRate }), this.plugins = [], this.decodedData = null, this.subscriptions = [], this.mediaSubscriptions = [], this.abortController = null, this.options = Object.assign({}, c, t3), this.timer = new l();
-      const i3 = e4 ? void 0 : this.getMediaElement();
-      this.renderer = new h(this.options, i3), this.initPlayerEvents(), this.initRendererEvents(), this.initTimerEvents(), this.initPlugins();
-      const s2 = this.options.url || this.getSrc() || "";
+    constructor(t4) {
+      const e5 = t4.media || ("WebAudio" === t4.backend ? new d() : void 0);
+      super({ media: e5, mediaControls: t4.mediaControls, autoplay: t4.autoplay, playbackRate: t4.audioRate }), this.plugins = [], this.decodedData = null, this.subscriptions = [], this.mediaSubscriptions = [], this.abortController = null, this.options = Object.assign({}, c, t4), this.timer = new l();
+      const i4 = e5 ? void 0 : this.getMediaElement();
+      this.renderer = new h(this.options, i4), this.initPlayerEvents(), this.initRendererEvents(), this.initTimerEvents(), this.initPlugins();
+      const s3 = this.options.url || this.getSrc() || "";
       Promise.resolve().then(() => {
         this.emit("init");
-        const { peaks: t4, duration: e5 } = this.options;
-        (s2 || t4 && e5) && this.load(s2, t4, e5).catch(() => null);
+        const { peaks: t5, duration: e6 } = this.options;
+        (s3 || t5 && e6) && this.load(s3, t5, e6).catch(() => null);
       });
     }
-    updateProgress(t3 = this.getCurrentTime()) {
-      return this.renderer.renderProgress(t3 / this.getDuration(), this.isPlaying()), t3;
+    updateProgress(t4 = this.getCurrentTime()) {
+      return this.renderer.renderProgress(t4 / this.getDuration(), this.isPlaying()), t4;
     }
     initTimerEvents() {
       this.subscriptions.push(this.timer.on("tick", () => {
         if (!this.isSeeking()) {
-          const t3 = this.updateProgress();
-          this.emit("timeupdate", t3), this.emit("audioprocess", t3);
+          const t4 = this.updateProgress();
+          this.emit("timeupdate", t4), this.emit("audioprocess", t4);
         }
       }));
     }
     initPlayerEvents() {
       this.isPlaying() && (this.emit("play"), this.timer.start()), this.mediaSubscriptions.push(this.onMediaEvent("timeupdate", () => {
-        const t3 = this.updateProgress();
-        this.emit("timeupdate", t3);
+        const t4 = this.updateProgress();
+        this.emit("timeupdate", t4);
       }), this.onMediaEvent("play", () => {
         this.emit("play"), this.timer.start();
       }), this.onMediaEvent("pause", () => {
@@ -31803,54 +31803,54 @@
         this.emit("finish");
       }), this.onMediaEvent("seeking", () => {
         this.emit("seeking", this.getCurrentTime());
-      }), this.onMediaEvent("error", (t3) => {
-        this.emit("error", t3.error);
+      }), this.onMediaEvent("error", (t4) => {
+        this.emit("error", t4.error);
       }));
     }
     initRendererEvents() {
-      this.subscriptions.push(this.renderer.on("click", (t3, e4) => {
-        this.options.interact && (this.seekTo(t3), this.emit("interaction", t3 * this.getDuration()), this.emit("click", t3, e4));
-      }), this.renderer.on("dblclick", (t3, e4) => {
-        this.emit("dblclick", t3, e4);
-      }), this.renderer.on("scroll", (t3, e4, i3, s2) => {
-        const n3 = this.getDuration();
-        this.emit("scroll", t3 * n3, e4 * n3, i3, s2);
+      this.subscriptions.push(this.renderer.on("click", (t4, e5) => {
+        this.options.interact && (this.seekTo(t4), this.emit("interaction", t4 * this.getDuration()), this.emit("click", t4, e5));
+      }), this.renderer.on("dblclick", (t4, e5) => {
+        this.emit("dblclick", t4, e5);
+      }), this.renderer.on("scroll", (t4, e5, i4, s3) => {
+        const n5 = this.getDuration();
+        this.emit("scroll", t4 * n5, e5 * n5, i4, s3);
       }), this.renderer.on("render", () => {
         this.emit("redraw");
       }), this.renderer.on("rendered", () => {
         this.emit("redrawcomplete");
-      }), this.renderer.on("dragstart", (t3) => {
-        this.emit("dragstart", t3);
-      }), this.renderer.on("dragend", (t3) => {
-        this.emit("dragend", t3);
+      }), this.renderer.on("dragstart", (t4) => {
+        this.emit("dragstart", t4);
+      }), this.renderer.on("dragend", (t4) => {
+        this.emit("dragend", t4);
       }));
       {
-        let t3;
-        this.subscriptions.push(this.renderer.on("drag", (e4) => {
+        let t4;
+        this.subscriptions.push(this.renderer.on("drag", (e5) => {
           if (!this.options.interact) return;
-          let i3;
-          this.renderer.renderProgress(e4), clearTimeout(t3), this.isPlaying() ? i3 = 0 : true === this.options.dragToSeek ? i3 = 200 : "object" == typeof this.options.dragToSeek && void 0 !== this.options.dragToSeek && (i3 = this.options.dragToSeek.debounceTime), t3 = setTimeout(() => {
-            this.seekTo(e4);
-          }, i3), this.emit("interaction", e4 * this.getDuration()), this.emit("drag", e4);
+          let i4;
+          this.renderer.renderProgress(e5), clearTimeout(t4), this.isPlaying() ? i4 = 0 : true === this.options.dragToSeek ? i4 = 200 : "object" == typeof this.options.dragToSeek && void 0 !== this.options.dragToSeek && (i4 = this.options.dragToSeek.debounceTime), t4 = setTimeout(() => {
+            this.seekTo(e5);
+          }, i4), this.emit("interaction", e5 * this.getDuration()), this.emit("drag", e5);
         }));
       }
     }
     initPlugins() {
-      var t3;
-      (null === (t3 = this.options.plugins) || void 0 === t3 ? void 0 : t3.length) && this.options.plugins.forEach((t4) => {
-        this.registerPlugin(t4);
+      var t4;
+      (null === (t4 = this.options.plugins) || void 0 === t4 ? void 0 : t4.length) && this.options.plugins.forEach((t5) => {
+        this.registerPlugin(t5);
       });
     }
     unsubscribePlayerEvents() {
-      this.mediaSubscriptions.forEach((t3) => t3()), this.mediaSubscriptions = [];
+      this.mediaSubscriptions.forEach((t4) => t4()), this.mediaSubscriptions = [];
     }
-    setOptions(t3) {
-      this.options = Object.assign({}, this.options, t3), this.renderer.setOptions(this.options), t3.audioRate && this.setPlaybackRate(t3.audioRate), null != t3.mediaControls && (this.getMediaElement().controls = t3.mediaControls);
+    setOptions(t4) {
+      this.options = Object.assign({}, this.options, t4), this.renderer.setOptions(this.options), t4.audioRate && this.setPlaybackRate(t4.audioRate), null != t4.mediaControls && (this.getMediaElement().controls = t4.mediaControls);
     }
-    registerPlugin(t3) {
-      return t3._init(this), this.plugins.push(t3), this.subscriptions.push(t3.once("destroy", () => {
-        this.plugins = this.plugins.filter((e4) => e4 !== t3);
-      })), t3;
+    registerPlugin(t4) {
+      return t4._init(this), this.plugins.push(t4), this.subscriptions.push(t4.once("destroy", () => {
+        this.plugins = this.plugins.filter((e5) => e5 !== t4);
+      })), t4;
     }
     getWrapper() {
       return this.renderer.getWrapper();
@@ -31861,98 +31861,98 @@
     getScroll() {
       return this.renderer.getScroll();
     }
-    setScroll(t3) {
-      return this.renderer.setScroll(t3);
+    setScroll(t4) {
+      return this.renderer.setScroll(t4);
     }
-    setScrollTime(t3) {
-      const e4 = t3 / this.getDuration();
-      this.renderer.setScrollPercentage(e4);
+    setScrollTime(t4) {
+      const e5 = t4 / this.getDuration();
+      this.renderer.setScrollPercentage(e5);
     }
     getActivePlugins() {
       return this.plugins;
     }
-    loadAudio(e4, s2, n3, r4) {
+    loadAudio(e5, s3, n5, r4) {
       return t(this, void 0, void 0, function* () {
-        var t3;
-        if (this.emit("load", e4), !this.options.media && this.isPlaying() && this.pause(), this.decodedData = null, !s2 && !n3) {
-          const i3 = this.options.fetchParams || {};
-          window.AbortController && !i3.signal && (this.abortController = new AbortController(), i3.signal = null === (t3 = this.abortController) || void 0 === t3 ? void 0 : t3.signal);
-          const n4 = (t4) => this.emit("loading", t4);
-          s2 = yield o.fetchBlob(e4, n4, i3);
+        var t4;
+        if (this.emit("load", e5), !this.options.media && this.isPlaying() && this.pause(), this.decodedData = null, !s3 && !n5) {
+          const i4 = this.options.fetchParams || {};
+          window.AbortController && !i4.signal && (this.abortController = new AbortController(), i4.signal = null === (t4 = this.abortController) || void 0 === t4 ? void 0 : t4.signal);
+          const n6 = (t5) => this.emit("loading", t5);
+          s3 = yield o.fetchBlob(e5, n6, i4);
         }
-        this.setSrc(e4, s2);
-        const a3 = yield new Promise((t4) => {
-          const e5 = r4 || this.getDuration();
-          e5 ? t4(e5) : this.mediaSubscriptions.push(this.onMediaEvent("loadedmetadata", () => t4(this.getDuration()), { once: true }));
+        this.setSrc(e5, s3);
+        const a3 = yield new Promise((t5) => {
+          const e6 = r4 || this.getDuration();
+          e6 ? t5(e6) : this.mediaSubscriptions.push(this.onMediaEvent("loadedmetadata", () => t5(this.getDuration()), { once: true }));
         });
-        if (!e4 && !s2) {
-          const t4 = this.getMediaElement();
-          t4 instanceof d && (t4.duration = a3);
+        if (!e5 && !s3) {
+          const t5 = this.getMediaElement();
+          t5 instanceof d && (t5.duration = a3);
         }
-        if (n3) this.decodedData = i.createBuffer(n3, a3 || 0);
-        else if (s2) {
-          const t4 = yield s2.arrayBuffer();
-          this.decodedData = yield i.decode(t4, this.options.sampleRate);
+        if (n5) this.decodedData = i.createBuffer(n5, a3 || 0);
+        else if (s3) {
+          const t5 = yield s3.arrayBuffer();
+          this.decodedData = yield i.decode(t5, this.options.sampleRate);
         }
         this.decodedData && (this.emit("decode", this.getDuration()), this.renderer.render(this.decodedData)), this.emit("ready", this.getDuration());
       });
     }
-    load(e4, i3, s2) {
+    load(e5, i4, s3) {
       return t(this, void 0, void 0, function* () {
         try {
-          return yield this.loadAudio(e4, void 0, i3, s2);
-        } catch (t3) {
-          throw this.emit("error", t3), t3;
+          return yield this.loadAudio(e5, void 0, i4, s3);
+        } catch (t4) {
+          throw this.emit("error", t4), t4;
         }
       });
     }
-    loadBlob(e4, i3, s2) {
+    loadBlob(e5, i4, s3) {
       return t(this, void 0, void 0, function* () {
         try {
-          return yield this.loadAudio("", e4, i3, s2);
-        } catch (t3) {
-          throw this.emit("error", t3), t3;
+          return yield this.loadAudio("", e5, i4, s3);
+        } catch (t4) {
+          throw this.emit("error", t4), t4;
         }
       });
     }
-    zoom(t3) {
+    zoom(t4) {
       if (!this.decodedData) throw new Error("No audio loaded");
-      this.renderer.zoom(t3), this.emit("zoom", t3);
+      this.renderer.zoom(t4), this.emit("zoom", t4);
     }
     getDecodedData() {
       return this.decodedData;
     }
-    exportPeaks({ channels: t3 = 2, maxLength: e4 = 8e3, precision: i3 = 1e4 } = {}) {
+    exportPeaks({ channels: t4 = 2, maxLength: e5 = 8e3, precision: i4 = 1e4 } = {}) {
       if (!this.decodedData) throw new Error("The audio has not been decoded yet");
-      const s2 = Math.min(t3, this.decodedData.numberOfChannels), n3 = [];
-      for (let t4 = 0; t4 < s2; t4++) {
-        const s3 = this.decodedData.getChannelData(t4), r4 = [], o3 = s3.length / e4;
-        for (let t5 = 0; t5 < e4; t5++) {
-          const e5 = s3.slice(Math.floor(t5 * o3), Math.ceil((t5 + 1) * o3));
-          let n4 = 0;
-          for (let t6 = 0; t6 < e5.length; t6++) {
-            const i4 = e5[t6];
-            Math.abs(i4) > Math.abs(n4) && (n4 = i4);
+      const s3 = Math.min(t4, this.decodedData.numberOfChannels), n5 = [];
+      for (let t5 = 0; t5 < s3; t5++) {
+        const s4 = this.decodedData.getChannelData(t5), r4 = [], o3 = s4.length / e5;
+        for (let t6 = 0; t6 < e5; t6++) {
+          const e6 = s4.slice(Math.floor(t6 * o3), Math.ceil((t6 + 1) * o3));
+          let n6 = 0;
+          for (let t7 = 0; t7 < e6.length; t7++) {
+            const i5 = e6[t7];
+            Math.abs(i5) > Math.abs(n6) && (n6 = i5);
           }
-          r4.push(Math.round(n4 * i3) / i3);
+          r4.push(Math.round(n6 * i4) / i4);
         }
-        n3.push(r4);
+        n5.push(r4);
       }
-      return n3;
+      return n5;
     }
     getDuration() {
-      let t3 = super.getDuration() || 0;
-      return 0 !== t3 && t3 !== 1 / 0 || !this.decodedData || (t3 = this.decodedData.duration), t3;
+      let t4 = super.getDuration() || 0;
+      return 0 !== t4 && t4 !== 1 / 0 || !this.decodedData || (t4 = this.decodedData.duration), t4;
     }
-    toggleInteraction(t3) {
-      this.options.interact = t3;
+    toggleInteraction(t4) {
+      this.options.interact = t4;
     }
-    setTime(t3) {
-      super.setTime(t3), this.updateProgress(t3), this.emit("timeupdate", t3);
+    setTime(t4) {
+      super.setTime(t4), this.updateProgress(t4), this.emit("timeupdate", t4);
     }
-    seekTo(t3) {
-      const e4 = this.getDuration() * t3;
-      this.setTime(e4);
+    seekTo(t4) {
+      const e5 = this.getDuration() * t4;
+      this.setTime(e5);
     }
     playPause() {
       return t(this, void 0, void 0, function* () {
@@ -31962,111 +31962,232 @@
     stop() {
       this.pause(), this.setTime(0);
     }
-    skip(t3) {
-      this.setTime(this.getCurrentTime() + t3);
+    skip(t4) {
+      this.setTime(this.getCurrentTime() + t4);
     }
     empty() {
       this.load("", [[0]], 1e-3);
     }
-    setMediaElement(t3) {
-      this.unsubscribePlayerEvents(), super.setMediaElement(t3), this.initPlayerEvents();
+    setMediaElement(t4) {
+      this.unsubscribePlayerEvents(), super.setMediaElement(t4), this.initPlayerEvents();
     }
     exportImage() {
-      return t(this, arguments, void 0, function* (t3 = "image/png", e4 = 1, i3 = "dataURL") {
-        return this.renderer.exportImage(t3, e4, i3);
+      return t(this, arguments, void 0, function* (t4 = "image/png", e5 = 1, i4 = "dataURL") {
+        return this.renderer.exportImage(t4, e5, i4);
       });
     }
     destroy() {
-      var t3;
-      this.emit("destroy"), null === (t3 = this.abortController) || void 0 === t3 || t3.abort(), this.plugins.forEach((t4) => t4.destroy()), this.subscriptions.forEach((t4) => t4()), this.unsubscribePlayerEvents(), this.timer.destroy(), this.renderer.destroy(), super.destroy();
+      var t4;
+      this.emit("destroy"), null === (t4 = this.abortController) || void 0 === t4 || t4.abort(), this.plugins.forEach((t5) => t5.destroy()), this.subscriptions.forEach((t5) => t5()), this.unsubscribePlayerEvents(), this.timer.destroy(), this.renderer.destroy(), super.destroy();
     }
   };
   u.BasePlugin = class extends e {
-    constructor(t3) {
-      super(), this.subscriptions = [], this.options = t3;
+    constructor(t4) {
+      super(), this.subscriptions = [], this.options = t4;
     }
     onInit() {
     }
-    _init(t3) {
-      this.wavesurfer = t3, this.onInit();
+    _init(t4) {
+      this.wavesurfer = t4, this.onInit();
     }
     destroy() {
-      this.emit("destroy"), this.subscriptions.forEach((t3) => t3());
+      this.emit("destroy"), this.subscriptions.forEach((t4) => t4());
     }
   }, u.dom = r;
 
   // node_modules/.pnpm/@wavesurfer+react@1.0.7_react@18.3.1_wavesurfer.js@7.8.1/node_modules/@wavesurfer/react/dist/index.js
-  function i2(t3, e4) {
-    const [n3, i3] = (0, import_react2.useState)(null), a3 = (0, import_react2.useMemo)(() => Object.entries(e4).flat(), [e4]);
+  function i2(t4, e5) {
+    const [n5, i4] = (0, import_react2.useState)(null), a3 = (0, import_react2.useMemo)(() => Object.entries(e5).flat(), [e5]);
     return (0, import_react2.useEffect)(() => {
-      if (!t3.current) return;
-      const n4 = u.create(Object.assign(Object.assign({}, e4), { container: t3.current }));
-      return i3(n4), () => {
-        n4.destroy();
+      if (!t4.current) return;
+      const n6 = u.create(Object.assign(Object.assign({}, e5), { container: t4.current }));
+      return i4(n6), () => {
+        n6.destroy();
       };
-    }, [t3, ...a3]), n3;
+    }, [t4, ...a3]), n5;
   }
   var a2 = /^on([A-Z])/;
-  var u2 = (t3) => a2.test(t3);
-  function f(t3, e4) {
-    const n3 = (0, import_react2.useMemo)(() => Object.entries(e4).flat(), [e4]);
+  var u2 = (t4) => a2.test(t4);
+  function f(t4, e5) {
+    const n5 = (0, import_react2.useMemo)(() => Object.entries(e5).flat(), [e5]);
     (0, import_react2.useEffect)(() => {
-      if (!t3) return;
-      const n4 = Object.entries(e4);
-      if (!n4.length) return;
-      const r4 = n4.map(([e5, n5]) => {
-        const r5 = e5.replace(a2, (t4, e6) => e6.toLowerCase());
-        return t3.on(r5, (...e6) => n5(t3, ...e6));
+      if (!t4) return;
+      const n6 = Object.entries(e5);
+      if (!n6.length) return;
+      const r4 = n6.map(([e6, n7]) => {
+        const r5 = e6.replace(a2, (t5, e7) => e7.toLowerCase());
+        return t4.on(r5, (...e7) => n7(t4, ...e7));
       });
       return () => {
-        r4.forEach((t4) => t4());
+        r4.forEach((t5) => t5());
       };
-    }, [t3, ...n3]);
+    }, [t4, ...n5]);
   }
-  var l2 = (0, import_react2.memo)((e4) => {
-    const r4 = (0, import_react2.useRef)(null), [c3, s2] = function(t3) {
+  var l2 = (0, import_react2.memo)((e5) => {
+    const r4 = (0, import_react2.useRef)(null), [c3, s3] = function(t4) {
       return (0, import_react2.useMemo)(() => {
-        const e5 = Object.assign({}, t3), n3 = Object.assign({}, t3);
-        for (const t4 in e5) u2(t4) ? delete e5[t4] : delete n3[t4];
-        return [e5, n3];
-      }, [t3]);
-    }(e4);
-    return f(i2(r4, c3), s2), (0, import_jsx_runtime.jsx)("div", { ref: r4 });
+        const e6 = Object.assign({}, t4), n5 = Object.assign({}, t4);
+        for (const t5 in e6) u2(t5) ? delete e6[t5] : delete n5[t5];
+        return [e6, n5];
+      }, [t4]);
+    }(e5);
+    return f(i2(r4, c3), s3), (0, import_jsx_runtime.jsx)("div", { ref: r4 });
   });
-  function p(t3) {
-    var { container: e4 } = t3;
-    const n3 = i2(e4, function(t4, e5) {
-      var n4 = {};
-      for (var r4 in t4) Object.prototype.hasOwnProperty.call(t4, r4) && e5.indexOf(r4) < 0 && (n4[r4] = t4[r4]);
-      if (null != t4 && "function" == typeof Object.getOwnPropertySymbols) {
+  function p(t4) {
+    var { container: e5 } = t4;
+    const n5 = i2(e5, function(t5, e6) {
+      var n6 = {};
+      for (var r4 in t5) Object.prototype.hasOwnProperty.call(t5, r4) && e6.indexOf(r4) < 0 && (n6[r4] = t5[r4]);
+      if (null != t5 && "function" == typeof Object.getOwnPropertySymbols) {
         var o3 = 0;
-        for (r4 = Object.getOwnPropertySymbols(t4); o3 < r4.length; o3++) e5.indexOf(r4[o3]) < 0 && Object.prototype.propertyIsEnumerable.call(t4, r4[o3]) && (n4[r4[o3]] = t4[r4[o3]]);
+        for (r4 = Object.getOwnPropertySymbols(t5); o3 < r4.length; o3++) e6.indexOf(r4[o3]) < 0 && Object.prototype.propertyIsEnumerable.call(t5, r4[o3]) && (n6[r4[o3]] = t5[r4[o3]]);
       }
-      return n4;
-    }(t3, ["container"])), s2 = function(t4) {
-      const [e5, n4] = (0, import_react2.useState)(false), [s3, i3] = (0, import_react2.useState)(false), [a3, u3] = (0, import_react2.useState)(0);
+      return n6;
+    }(t4, ["container"])), s3 = function(t5) {
+      const [e6, n6] = (0, import_react2.useState)(false), [s4, i4] = (0, import_react2.useState)(false), [a3, u3] = (0, import_react2.useState)(0);
       return (0, import_react2.useEffect)(() => {
-        if (!t4) return;
-        const e6 = [t4.on("load", () => {
-          n4(false), i3(false), u3(0);
-        }), t4.on("ready", () => {
-          n4(true), i3(false), u3(0);
-        }), t4.on("play", () => {
-          i3(true);
-        }), t4.on("pause", () => {
-          i3(false);
-        }), t4.on("timeupdate", () => {
-          u3(t4.getCurrentTime());
-        }), t4.on("destroy", () => {
-          n4(false), i3(false);
+        if (!t5) return;
+        const e7 = [t5.on("load", () => {
+          n6(false), i4(false), u3(0);
+        }), t5.on("ready", () => {
+          n6(true), i4(false), u3(0);
+        }), t5.on("play", () => {
+          i4(true);
+        }), t5.on("pause", () => {
+          i4(false);
+        }), t5.on("timeupdate", () => {
+          u3(t5.getCurrentTime());
+        }), t5.on("destroy", () => {
+          n6(false), i4(false);
         })];
         return () => {
-          e6.forEach((t5) => t5());
+          e7.forEach((t6) => t6());
         };
-      }, [t4]), (0, import_react2.useMemo)(() => ({ isReady: e5, isPlaying: s3, currentTime: a3 }), [s3, a3, e5]);
-    }(n3);
-    return (0, import_react2.useMemo)(() => Object.assign(Object.assign({}, s2), { wavesurfer: n3 }), [s2, n3]);
+      }, [t5]), (0, import_react2.useMemo)(() => ({ isReady: e6, isPlaying: s4, currentTime: a3 }), [s4, a3, e6]);
+    }(n5);
+    return (0, import_react2.useMemo)(() => Object.assign(Object.assign({}, s3), { wavesurfer: n5 }), [s3, n5]);
   }
+
+  // node_modules/.pnpm/wavesurfer.js@7.8.1/node_modules/wavesurfer.js/dist/plugins/timeline.esm.js
+  var t3 = class {
+    constructor() {
+      this.listeners = {};
+    }
+    on(t4, e5, i4) {
+      if (this.listeners[t4] || (this.listeners[t4] = /* @__PURE__ */ new Set()), this.listeners[t4].add(e5), null == i4 ? void 0 : i4.once) {
+        const i5 = () => {
+          this.un(t4, i5), this.un(t4, e5);
+        };
+        return this.on(t4, i5), i5;
+      }
+      return () => this.un(t4, e5);
+    }
+    un(t4, e5) {
+      var i4;
+      null === (i4 = this.listeners[t4]) || void 0 === i4 || i4.delete(e5);
+    }
+    once(t4, e5) {
+      return this.on(t4, e5, { once: true });
+    }
+    unAll() {
+      this.listeners = {};
+    }
+    emit(t4, ...e5) {
+      this.listeners[t4] && this.listeners[t4].forEach((t5) => t5(...e5));
+    }
+  };
+  var e3 = class extends t3 {
+    constructor(t4) {
+      super(), this.subscriptions = [], this.options = t4;
+    }
+    onInit() {
+    }
+    _init(t4) {
+      this.wavesurfer = t4, this.onInit();
+    }
+    destroy() {
+      this.emit("destroy"), this.subscriptions.forEach((t4) => t4());
+    }
+  };
+  function i3(t4, e5) {
+    const n5 = e5.xmlns ? document.createElementNS(e5.xmlns, t4) : document.createElement(t4);
+    for (const [t5, s3] of Object.entries(e5)) if ("children" === t5) for (const [t6, s4] of Object.entries(e5)) "string" == typeof s4 ? n5.appendChild(document.createTextNode(s4)) : n5.appendChild(i3(t6, s4));
+    else "style" === t5 ? Object.assign(n5.style, s3) : "textContent" === t5 ? n5.textContent = s3 : n5.setAttribute(t5, s3.toString());
+    return n5;
+  }
+  function n3(t4, e5, n5) {
+    return i3(t4, e5 || {});
+  }
+  var s2 = { height: 20, formatTimeCallback: (t4) => {
+    if (t4 / 60 > 1) {
+      return `${Math.floor(t4 / 60)}:${`${(t4 = Math.round(t4 % 60)) < 10 ? "0" : ""}${t4}`}`;
+    }
+    return `${Math.round(1e3 * t4) / 1e3}`;
+  } };
+  var r3 = class _r extends e3 {
+    constructor(t4) {
+      super(t4 || {}), this.options = Object.assign({}, s2, t4), this.timelineWrapper = this.initTimelineWrapper();
+    }
+    static create(t4) {
+      return new _r(t4);
+    }
+    onInit() {
+      var t4;
+      if (!this.wavesurfer) throw Error("WaveSurfer is not initialized");
+      let e5 = this.wavesurfer.getWrapper();
+      if (this.options.container instanceof HTMLElement) e5 = this.options.container;
+      else if ("string" == typeof this.options.container) {
+        const t5 = document.querySelector(this.options.container);
+        if (!t5) throw Error(`No Timeline container found matching ${this.options.container}`);
+        e5 = t5;
+      }
+      this.options.insertPosition ? (e5.firstElementChild || e5).insertAdjacentElement(this.options.insertPosition, this.timelineWrapper) : e5.appendChild(this.timelineWrapper), this.subscriptions.push(this.wavesurfer.on("redraw", () => this.initTimeline())), ((null === (t4 = this.wavesurfer) || void 0 === t4 ? void 0 : t4.getDuration()) || this.options.duration) && this.initTimeline();
+    }
+    destroy() {
+      this.timelineWrapper.remove(), super.destroy();
+    }
+    initTimelineWrapper() {
+      return n3("div", { part: "timeline-wrapper", style: { pointerEvents: "none" } });
+    }
+    defaultTimeInterval(t4) {
+      return t4 >= 25 ? 1 : 5 * t4 >= 25 ? 5 : 15 * t4 >= 25 ? 15 : 60 * Math.ceil(0.5 / t4);
+    }
+    defaultPrimaryLabelInterval(t4) {
+      return t4 >= 25 ? 10 : 5 * t4 >= 25 ? 6 : 4;
+    }
+    defaultSecondaryLabelInterval(t4) {
+      return t4 >= 25 ? 5 : 2;
+    }
+    virtualAppend(t4, e5, i4) {
+      let n5 = false;
+      const s3 = (s4, r4) => {
+        if (!this.wavesurfer) return;
+        const o3 = i4.clientWidth, l3 = t4 > s4 && t4 + o3 < r4;
+        l3 !== n5 && (n5 = l3, l3 ? e5.appendChild(i4) : i4.remove());
+      };
+      setTimeout(() => {
+        var t5;
+        this.wavesurfer && (s3(0, (null === (t5 = this.wavesurfer) || void 0 === t5 ? void 0 : t5.getWidth()) || 0), this.subscriptions.push(this.wavesurfer.on("scroll", (t6, e6, i5, n6) => {
+          s3(i5, n6);
+        })));
+      }, 0);
+    }
+    initTimeline() {
+      var t4, e5, i4, s3, r4, o3, l3, a3;
+      const h2 = null !== (i4 = null !== (e5 = null === (t4 = this.wavesurfer) || void 0 === t4 ? void 0 : t4.getDuration()) && void 0 !== e5 ? e5 : this.options.duration) && void 0 !== i4 ? i4 : 0, p2 = ((null === (s3 = this.wavesurfer) || void 0 === s3 ? void 0 : s3.getWrapper().scrollWidth) || this.timelineWrapper.scrollWidth) / h2, u3 = null !== (r4 = this.options.timeInterval) && void 0 !== r4 ? r4 : this.defaultTimeInterval(p2), c3 = null !== (o3 = this.options.primaryLabelInterval) && void 0 !== o3 ? o3 : this.defaultPrimaryLabelInterval(p2), d2 = this.options.primaryLabelSpacing, f2 = null !== (l3 = this.options.secondaryLabelInterval) && void 0 !== l3 ? l3 : this.defaultSecondaryLabelInterval(p2), v = this.options.secondaryLabelSpacing, m = "beforebegin" === this.options.insertPosition, y = n3("div", { style: Object.assign({ height: `${this.options.height}px`, overflow: "hidden", fontSize: this.options.height / 2 + "px", whiteSpace: "nowrap" }, m ? { position: "absolute", top: "0", left: "0", right: "0", zIndex: "2" } : { position: "relative" }) });
+      y.setAttribute("part", "timeline"), "string" == typeof this.options.style ? y.setAttribute("style", y.getAttribute("style") + this.options.style) : "object" == typeof this.options.style && Object.assign(y.style, this.options.style);
+      const b = n3("div", { style: { width: "0", height: "50%", display: "flex", flexDirection: "column", justifyContent: m ? "flex-start" : "flex-end", top: m ? "0" : "auto", bottom: m ? "auto" : "0", overflow: "visible", borderLeft: "1px solid currentColor", opacity: `${null !== (a3 = this.options.secondaryLabelOpacity) && void 0 !== a3 ? a3 : 0.25}`, position: "absolute", zIndex: "1" } });
+      for (let t5 = 0, e6 = 0; t5 < h2; t5 += u3, e6++) {
+        const i5 = b.cloneNode(), n5 = Math.round(100 * t5) / 100 % c3 == 0 || d2 && e6 % d2 == 0, s4 = Math.round(100 * t5) / 100 % f2 == 0 || v && e6 % v == 0;
+        (n5 || s4) && (i5.style.height = "100%", i5.style.textIndent = "3px", i5.textContent = this.options.formatTimeCallback(t5), n5 && (i5.style.opacity = "1"));
+        const r5 = n5 ? "primary" : s4 ? "secondary" : "tick";
+        i5.setAttribute("part", `timeline-notch timeline-notch-${r5}`);
+        const o4 = t5 * p2;
+        i5.style.left = `${o4}px`, this.virtualAppend(o4, y, i5);
+      }
+      this.timelineWrapper.innerHTML = "", this.timelineWrapper.appendChild(y), this.emit("ready");
+    }
+  };
 
   // index.coffee
   var $component;
@@ -32074,7 +32195,7 @@
   var SoundSampleCard;
   var SoundSamplePlayer;
   var create_element;
-  var e3;
+  var e4;
   var entries;
   var impulse_responses;
   var title_from_name;
@@ -32097,7 +32218,7 @@
     }));
     return (0, import_react3.createElement)(el, options, ...children);
   };
-  e3 = new Proxy(create_element, {
+  e4 = new Proxy(create_element, {
     get: function(target, prop) {
       return function(options = {}, ...children) {
         return target(prop, options, ...children);
@@ -32105,7 +32226,7 @@
     }
   });
   $component = function(f2) {
-    return f2.bind(e3);
+    return f2.bind(e4);
   };
   impulse_responses = {
     "siliavuori.wav": {
@@ -32135,8 +32256,8 @@
     }
   };
   title_from_name = function(fname) {
-    return fname.split(".").slice(0, -1).join("").split(/[-_]/).map(function(t3) {
-      return t3[0].toUpperCase() + t3.slice(1);
+    return fname.split(".").slice(0, -1).join("").split(/[-_]/).map(function(t4) {
+      return t4[0].toUpperCase() + t4.slice(1);
     }).join(" ");
   };
   entries(impulse_responses, function(k, v) {
@@ -32211,12 +32332,19 @@
     ir_surfer_ref = (0, import_react3.useRef)();
     sample_surfer = p({
       container: sample_surfer_ref,
-      media: sample_audio
+      media: sample_audio,
+      plugins: (0, import_react3.useMemo)(function() {
+        return [r3.create()];
+      }, [])
     });
+    console.log(sample_surfer);
     ir_surfer = p({
       container: ir_surfer_ref,
       media: ir_audio,
-      interact: false
+      interact: false,
+      plugins: (0, import_react3.useMemo)(function() {
+        return [r3.create()];
+      }, [])
     });
     icon = sample_surfer.isPlaying ? "mdi:pause" : "mdi:play";
     toggle_play = function() {
@@ -32323,8 +32451,8 @@
         return document.querySelector("#sample_drawer").checked = false;
       };
       checked = sound_sample_id === id;
-      select = function(e4) {
-        return set_sound_sample_id(e4.target.value);
+      select = function(e5) {
+        return set_sound_sample_id(e5.target.value);
       };
       return this.li({
         key: id,
@@ -32364,8 +32492,8 @@
         return document.querySelector("#impulse_response_drawer").checked = false;
       };
       checked = impulse_response_id === id;
-      select = function(e4) {
-        return set_impulse_response_id(e4.target.value);
+      select = function(e5) {
+        return set_impulse_response_id(e5.target.value);
       };
       return this.li({
         key: id,
@@ -32404,7 +32532,7 @@
     router = createBrowserRouter([
       {
         path: "/",
-        element: e3(
+        element: e4(
           App,
           {
             sound_samples,
@@ -32413,7 +32541,7 @@
         )
       }
     ]);
-    return (0, import_client.createRoot)(document.getElementById("app")).render(e3(RouterProvider, {
+    return (0, import_client.createRoot)(document.getElementById("app")).render(e4(RouterProvider, {
       router
     }));
   })();
