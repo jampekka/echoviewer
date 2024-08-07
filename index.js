@@ -32077,6 +32077,7 @@
   var e3;
   var entries;
   var impulse_responses;
+  var title_from_name;
   entries = function(o3, f2) {
     return Object.entries(o3).map(function(kv) {
       return f2(...kv);
@@ -32110,27 +32111,33 @@
     "siliavuori.wav": {
       title: "Sili\xE4vuori",
       description: "Sili\xE4vuori rock cliff, Finland.",
-      gain: 0.5
+      dry: 1
     },
     "varikallio-rockart-44m-summer-pop.wav": {
       title: "V\xE4rikallio",
       description: "Balloon pop measurement at 44 meters from painting rock. In summer.",
-      gain: 0.1
+      dry: 1
     },
+    "keltavuori-rockart-44m-summer-pop.wav": {},
+    "Kirkhelleren-Norway-cave-concert-setup-summer-pop.wav": {},
+    "haukkasaari-rockart2-44m-winter-pop.wav": {},
     "pirunkirkko_fake.wav": {
       title: "Pirunkirkko",
       description: "A cave at Koli national park, Finland. Parametric reconstruction of resonance.",
+      dry: 1,
       gain: 0.01
-    },
-    "keltavuori-rockart-44m-summer-pop.wav": {
-      gain: 1,
-      dry: 0
     },
     "silence.wav": {
       title: "Anechoic Room",
       description: "No added acoustics.",
-      gain: 0
+      gain: 0,
+      dry: 1
     }
+  };
+  title_from_name = function(fname) {
+    return fname.split(".").slice(0, -1).join("").split(/[-_]/).map(function(t3) {
+      return t3[0].toUpperCase() + t3.slice(1);
+    }).join(" ");
   };
   entries(impulse_responses, function(k, v) {
     if (v.id == null) {
@@ -32139,7 +32146,7 @@
     if (v.src == null) {
       v.src = "./impulse_responses/" + k;
     }
-    return v.title != null ? v.title : v.title = k;
+    return v.title != null ? v.title : v.title = title_from_name(k);
   });
   SoundSampleCard = $component(function({ sample }) {
     return this.div({
@@ -32158,8 +32165,8 @@
       output = audioContext.destination;
       convolver_gain = audioContext.createGain();
       dry_gain = audioContext.createGain();
-      dry_gain.gain.value = 0.2;
-      convolver_gain.gain.value = 0.1;
+      dry_gain.gain.value = 0;
+      convolver_gain.gain.value = 1;
       convolver = null;
       convolver_gain.connect(output);
       input.connect(dry_gain).connect(output);
@@ -32193,7 +32200,7 @@
         convolver.buffer = tmp;
         audio_graph.convolver = convolver;
         audio_graph.convolver_gain.gain.value = (ref = impulse_response.gain) != null ? ref : 1;
-        audio_graph.dry_gain.gain.value = (ref1 = impulse_response.dry) != null ? ref1 : 0.2;
+        audio_graph.dry_gain.gain.value = (ref1 = impulse_response.dry) != null ? ref1 : 0;
         return audio_graph.input.connect(convolver).connect(audio_graph.convolver_gain);
       })();
       return function() {
@@ -32386,14 +32393,10 @@
       var sample_list;
       sample_list = await (await fetch(`${path}/index.json`)).json();
       return sample_list.map(function(fname) {
-        var title;
-        title = fname.split(".").slice(0, -1).join("").split(/[-_]/).map(function(t3) {
-          return t3[0].toUpperCase() + t3.slice(1);
-        }).join(" ");
         return {
           id: fname,
           src: `${path}/${fname}`,
-          title
+          title: title_from_name(fname)
         };
       });
     };

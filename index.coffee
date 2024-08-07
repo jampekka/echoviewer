@@ -29,28 +29,38 @@ impulse_responses =
     'siliavuori.wav':
         title: "Siliävuori"
         description: "Siliävuori rock cliff, Finland."
-        gain: 0.5
+        dry: 1.0
     'varikallio-rockart-44m-summer-pop.wav':
         title: "Värikallio"
         description: "Balloon pop measurement at 44 meters from painting rock. In summer."
-        gain: 0.1
+        dry: 1.0
+    'keltavuori-rockart-44m-summer-pop.wav': {}
+    'Kirkhelleren-Norway-cave-concert-setup-summer-pop.wav': {}
+    'haukkasaari-rockart2-44m-winter-pop.wav': {}
     'pirunkirkko_fake.wav':
         title: "Pirunkirkko"
         description: "A cave at Koli national park, Finland. Parametric reconstruction of resonance."
+        dry: 1.0
         gain: 0.01
-    'keltavuori-rockart-44m-summer-pop.wav':
-        gain: 1.0
-        dry: 0.0
     'silence.wav':
         title: "Anechoic Room"
         description: "No added acoustics."
         gain: 0.0
+        dry: 1.0
+
+title_from_name = (fname) ->
+    fname.split('.')[...-1].join('')
+        .split(/[-_]/)
+        .map (t) -> t[0].toUpperCase() + t[1...]
+        .join(' ')
+
+    
 
 
 entries impulse_responses, (k, v) ->
     v.id ?= k
     v.src ?= "./impulse_responses/"+k
-    v.title ?= k
+    v.title ?= title_from_name k
 
 SoundSampleCard = $component ({sample}) ->
     @div class: 'w-96 image-full',
@@ -72,8 +82,8 @@ SoundSamplePlayer = $component ({sound_sample, impulse_response, audioContext}) 
         convolver_gain = audioContext.createGain()
         dry_gain = audioContext.createGain()
 
-        dry_gain.gain.value = 0.2
-        convolver_gain.gain.value = 0.1
+        dry_gain.gain.value = 0.0
+        convolver_gain.gain.value = 1.0
 
         convolver = null
         convolver_gain.connect(output)
@@ -117,7 +127,7 @@ SoundSamplePlayer = $component ({sound_sample, impulse_response, audioContext}) 
 
             audio_graph.convolver = convolver
             audio_graph.convolver_gain.gain.value = impulse_response.gain ? 1.0
-            audio_graph.dry_gain.gain.value = impulse_response.dry ? 0.2
+            audio_graph.dry_gain.gain.value = impulse_response.dry ? 0.0
             audio_graph.input.connect(convolver).connect audio_graph.convolver_gain
 
         return ->
@@ -245,21 +255,9 @@ do ->
         # TODO: Use file metadata
         sample_list = await (await fetch "#{path}/index.json").json()
         sample_list.map (fname) ->
-            ###
-            title = (fname.split('.')[...-1]).join('')
-            title = title.split(/[-_]/)
-            title = title.map (t) -> t[0].toUpperCase() + t[1...]
-            title = title.join(' ')
-            ###
-
-            title = (fname.split('.')[...-1]).join('')
-                .split(/[-_]/)
-                .map (t) -> t[0].toUpperCase() + t[1...]
-                .join(' ')
-
             id: fname
             src: "#{path}/#{fname}"
-            title: title
+            title: title_from_name fname
 
     sound_samples = await get_samples "sound_samples"
     
