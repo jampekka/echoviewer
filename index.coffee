@@ -1,7 +1,6 @@
 import { useState, createElement, Fragment, useRef, useMemo, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Icon } from '@iconify/react'
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
 entries = (o, f) -> Object.entries(o).map (kv) -> f kv...
 
@@ -279,7 +278,4 @@ do ->
 
     sound_samples = await get_samples "sound_samples"
     
-    router = createBrowserRouter [path: '/', element: e App, {sound_samples, impulse_responses}]
-    createRoot(document.getElementById 'app' ).render e RouterProvider, router: router
-
-#createRoot(document.getElementById 'app' ).render e App
+    createRoot(document.getElementById 'app' ).render e App, {sound_samples, impulse_responses}
