@@ -1,6 +1,7 @@
 import { useState, createElement, Fragment, useRef, useMemo, useEffect } from 'react'
-import { createRoot } from 'react-dom/client';
-import { Icon } from '@iconify/react';
+import { createRoot } from 'react-dom/client'
+import { Icon } from '@iconify/react'
+import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
 entries = (o, f) -> Object.entries(o).map (kv) -> f kv...
 
@@ -24,42 +25,6 @@ e = new Proxy create_element,
 # TODO Create element automatically?
 $component = (f) -> f.bind e
 
-sound_samples =
-###
-    'classical_singing.webm':
-        title: "Classical singing"
-        description: "Some classical-style singing (TODO DESCRIPTION)"
-###
-    'viena_karelian_yoik_emmi_kujanpaa.webm':
-        title: "Viena Karelian yoik",
-        description: "A Viena Karelian style yoik. By Emmi Kujanpää."
-
-    'drumming_1_mikko_heikinpoika.webm':
-        title: "Drumming 1"
-        description: "By Mikko Heikinpoika."
-
-    'talking_backwards_eero_peltonen.webm':
-        title: "Talking Backwards"
-        description: "By Eero Peltonen."
-
-    'scandinavian_cattle_call_emmi_kujanpaa.webm':
-        title: "Scandinavian Cattle Call"
-        description: "By Emmi Kujanpää"
-
-    'balloon.webm':
-        title: "Balloon pop"
-        description: "Balloon pop used for measuring acoustics."
-    'sine_sweep.webm':
-        title: "Sine sweep",
-        description: "A sine sweep used for measuring acoustics."
-
-###
-    'impulse.wav': {
-        title: "Single impulse",
-        description: "Only the acoustics."
-    },
-###
-
 impulse_responses =
     'siliavuori.wav':
         title: "Siliävuori"
@@ -73,19 +38,19 @@ impulse_responses =
         title: "Pirunkirkko"
         description: "A cave at Koli national park, Finland. Parametric reconstruction of resonance."
         gain: 0.01
+    'keltavuori-rockart-44m-summer-pop.wav':
+        gain: 1.0
+        dry: 0.0
     'silence.wav':
         title: "Anechoic Room"
         description: "No added acoustics."
         gain: 0.0
 
 
-entries sound_samples,  (k, v) ->
-    v.id ?= k
-    v.src ?= "./sound_samples/"+k
-
 entries impulse_responses, (k, v) ->
     v.id ?= k
     v.src ?= "./impulse_responses/"+k
+    v.title ?= k
 
 SoundSampleCard = $component ({sample}) ->
     @div class: 'w-96 image-full',
@@ -152,6 +117,7 @@ SoundSamplePlayer = $component ({sound_sample, impulse_response, audioContext}) 
 
             audio_graph.convolver = convolver
             audio_graph.convolver_gain.gain.value = impulse_response.gain ? 1.0
+            audio_graph.dry_gain.gain.value = impulse_response.dry ? 0.2
             audio_graph.input.connect(convolver).connect audio_graph.convolver_gain
 
         return ->
@@ -212,10 +178,13 @@ SoundSamplePlayer = $component ({sound_sample, impulse_response, audioContext}) 
     
     @div class: "flex flex-col gap-4", sample_el, ir_el
 
-App = $component ->
-    # TODO: Get from url params
+App = $component ({sound_samples, impulse_responses}) ->
+    # The state is now stored in the url and in useState here.
+    # Ugly, but there doesn't seem to be a sane react router
+
     [sound_sample_id, set_sound_sample_id] = useState Object.keys(sound_samples)[0]
     [impulse_response_id, set_impulse_response_id] = useState Object.keys(impulse_responses)[0]
+
 
     sound_sample = sound_samples[sound_sample_id]
     impulse_response = impulse_responses[impulse_response_id]
@@ -271,4 +240,30 @@ App = $component ->
         right_drawer
         @ SoundSamplePlayer, {sound_sample, impulse_response, audioContext}
 
-createRoot(document.getElementById 'app' ).render e App
+do ->
+    get_samples = (path) ->
+        # TODO: Use file metadata
+        sample_list = await (await fetch "#{path}/index.json").json()
+        sample_list.map (fname) ->
+            ###
+            title = (fname.split('.')[...-1]).join('')
+            title = title.split(/[-_]/)
+            title = title.map (t) -> t[0].toUpperCase() + t[1...]
+            title = title.join(' ')
+            ###
+
+            title = (fname.split('.')[...-1]).join('')
+                .split(/[-_]/)
+                .map (t) -> t[0].toUpperCase() + t[1...]
+                .join(' ')
+
+            id: fname
+            src: "#{path}/#{fname}"
+            title: title
+
+    sound_samples = await get_samples "sound_samples"
+    
+    router = createBrowserRouter [path: '/', element: e App, {sound_samples, impulse_responses}]
+    createRoot(document.getElementById 'app' ).render e RouterProvider, router: router
+
+#createRoot(document.getElementById 'app' ).render e App
