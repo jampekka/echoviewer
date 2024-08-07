@@ -149,7 +149,6 @@ SoundSamplePlayer = $component ({sound_sample, impulse_response, audioContext}) 
             ,
             #SpectrogramPlugin.create()
         ]), []
-    console.log sample_surfer
 
     ir_surfer = useWavesurfer
         container: ir_surfer_ref
