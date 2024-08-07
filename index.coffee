@@ -157,7 +157,10 @@ SoundSamplePlayer = $component ({sound_sample, impulse_response, audioContext}) 
         media: ir_audio
         interact: false
         plugins: useMemo (-> [
-            TimelinePlugin.create()
+            TimelinePlugin.create
+                timeInterval: 0.1
+                primaryLabelInterval: 1
+                #secondaryLabelInterval: 1
             ,
             #SpectrogramPlugin.create
             #    height: 200

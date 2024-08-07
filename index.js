@@ -32343,7 +32343,12 @@
       media: ir_audio,
       interact: false,
       plugins: (0, import_react3.useMemo)(function() {
-        return [r3.create()];
+        return [
+          r3.create({
+            timeInterval: 0.1,
+            primaryLabelInterval: 1
+          })
+        ];
       }, [])
     });
     icon = sample_surfer.isPlaying ? "mdi:pause" : "mdi:play";
