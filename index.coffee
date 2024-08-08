@@ -25,18 +25,14 @@ e = new Proxy create_element,
 $component = (f) -> f.bind e
 
 impulse_responses =
-    'siliavuori.wav':
-        title: "Siliävuori"
-        description: "Siliävuori rock cliff, Finland."
-        dry: 1.0
-    'varikallio-rockart-44m-summer-pop.wav':
-        title: "Värikallio"
-        description: "Balloon pop measurement at 44 meters from painting rock. In summer."
-        dry: 1.0
+    'siliävuori-rockart-44m-winter-pop.wav': {}
+    'siliävuori-rockart-26m-winter-pop.wav': {}
+    #'varikallio-rockart-44m-summer-pop.wav': {}
     'keltavuori-rockart-44m-summer-pop.wav': {}
     'Kirkhelleren-Norway-cave-concert-setup-summer-pop.wav': {}
     'haukkasaari-rockart2-44m-winter-pop.wav': {}
     'Kaarnavuori-cliff-74m-summer-pop_cut.wav': {}
+    'pirunkirkko-summer-pop.wav': {}
     'pirunkirkko_fake.wav':
         title: "Pirunkirkko"
         description: "A cave at Koli national park, Finland. Parametric reconstruction of resonance."
