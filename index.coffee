@@ -36,6 +36,7 @@ impulse_responses =
     'keltavuori-rockart-44m-summer-pop.wav': {}
     'Kirkhelleren-Norway-cave-concert-setup-summer-pop.wav': {}
     'haukkasaari-rockart2-44m-winter-pop.wav': {}
+    'Kaarnavuori-cliff-74m-summer-pop_cut.wav': {}
     'pirunkirkko_fake.wav':
         title: "Pirunkirkko"
         description: "A cave at Koli national park, Finland. Parametric reconstruction of resonance."
@@ -67,6 +68,7 @@ SoundSampleCard = $component ({sample}) ->
             @h2 class: 'card-title', sample.title
             @p {}, sample.description
 
+# TODO: switch to wfplayer
 import WavesurferPlayer from '@wavesurfer/react'
 import { useWavesurfer} from '@wavesurfer/react'
 import WaveSurfer from 'wavesurfer.js'
