@@ -27394,12 +27394,12 @@
     "haukkasaari-rockart2-44m-winter-pop.wav": {},
     "Kaarnavuori-cliff-74m-summer-pop_cut.wav": {},
     "pirunkirkko-summer-pop.wav": {},
-    "pirunkirkko_fake.wav": {
-      title: "Pirunkirkko",
-      description: "A cave at Koli national park, Finland. Parametric reconstruction of resonance.",
-      dry: 1,
-      gain: 0.01
-    },
+    "hiidenkirnukivi_entrance_forward_left_ear.flac": {},
+    //'pirunkirkko_fake.wav':
+    //    title: "Pirunkirkko"
+    //    description: "A cave at Koli national park, Finland. Parametric reconstruction of resonance."
+    //    dry: 1.0
+    //    gain: 0.01
     "silence.wav": {
       title: "Anechoic Room",
       description: "No added acoustics.",
